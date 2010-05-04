@@ -1,2 +1,7 @@
 %h1 Users
 
+- for user in @users do
+  %ul
+    %li= user.email
+    %li= user.created_at
+
