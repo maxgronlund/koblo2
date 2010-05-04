@@ -6,6 +6,7 @@ class Activities < ActiveRecord::Migration
       t.column :user_id, :integer
       t.column :song_id, :integer
       t.column :admin_message_id, :integer
+      t.timestamps
     end
   end
 

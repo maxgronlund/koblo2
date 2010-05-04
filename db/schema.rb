@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100504090403) do
+ActiveRecord::Schema.define(:version => 20100504093820) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "type"
+    t.integer  "user_id"
+    t.integer  "song_id"
+    t.integer  "admin_message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admin_messages", :force => true do |t|
+    t.string "title"
+    t.text   "body"
+  end
 
   create_table "albums", :force => true do |t|
     t.string   "title"
