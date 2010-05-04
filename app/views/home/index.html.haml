@@ -1,0 +1,15 @@
+Welcome
+- if current_user
+  = current_user.email
+  = link_to 'sign out', destroy_user_session_path
+- else
+  = form_for(:user, :url => user_session_path) do |f|
+    = f.label :email
+    = f.text_field :email
+
+    = f.label :password
+    = f.password_field :password
+
+    = f.submit 'sign in'
+  = link_to 'sign up', new_user_registration_path
+  = link_to 'forgot password?', new_user_password_path
