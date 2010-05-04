@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
 
+  belongs_to :record_label
+
   has_many :albums
-  has_many :tracks, :through => :albums
+  has_many :songs, :through => :albums
 
   has_many :idols
   has_many :fans
