@@ -1,6 +1,6 @@
 class Song < ActiveRecord::Base
 
-  belongs_to :album
+  belongs_to :user
   has_many :tracks
   has_many :ratings
 
