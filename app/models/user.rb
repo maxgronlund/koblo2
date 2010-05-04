@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
          :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation
+
+  def admin?
+    role == 'admin'
+  end
 end
