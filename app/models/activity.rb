@@ -1,2 +1,2 @@
-class Activity < Activity::Base
+class Activity < ActiveRecord::Base
 end
