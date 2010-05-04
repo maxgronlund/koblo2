@@ -7,6 +7,7 @@ gem 'paperclip', :git => 'git://github.com/lmumar/paperclip.git', :branch => 'ra
 gem 'thinking-sphinx', '1.3.16'
 gem 'haml', '2.2.24'
 gem 'formtastic', :git => "git://github.com/justinfrench/formtastic.git", :branch => 'rails3'
+gem 'inherited_resources', '1.1.2'
 
 group :test do
   gem 'capybara'
