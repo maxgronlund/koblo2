@@ -7,3 +7,12 @@ gem 'paperclip', :git => 'git://github.com/lmumar/paperclip.git', :branch => 'ra
 gem 'thinking-sphinx', '1.3.16'
 gem 'haml', '2.2.24'
 gem 'formtastic', :git => "git://github.com/justinfrench/formtastic.git", :branch => 'rails3'
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber', '0.7.0'
+  gem 'rspec-rails', '2.0.0.beta.8'
+  gem 'spork'
+end
