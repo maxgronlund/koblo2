@@ -196,7 +196,7 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: f69df9c942a7616193e66e1e92bc64461e0059aa
+hash: c90084eee9f621c2c0c3297c21fcbe4ec42c6828
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git

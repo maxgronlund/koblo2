@@ -1,15 +1,57 @@
-Welcome
-- if current_user
-  = current_user.email
-  = link_to 'sign out', destroy_user_session_path
-- else
-  = form_for(:user, :url => user_session_path) do |f|
-    = f.label :email
-    = f.text_field :email
+-# 
+  Welcome
+  - if current_user
+    = current_user.email
+    = link_to 'sign out', destroy_user_session_path
+  - else
+    = form_for(:user, :url => user_session_path) do |f|
+      = f.label :email
+      = f.text_field :email
 
-    = f.label :password
-    = f.password_field :password
+      = f.label :password
+      = f.password_field :password
 
-    = f.submit 'sign in'
-  = link_to 'sign up', new_user_registration_path
-  = link_to 'forgot password?', new_user_password_path
+      = f.submit 'sign in'
+    = link_to 'sign up', new_user_registration_path
+    = link_to 'forgot password?', new_user_password_path
+
+.tabs
+  %ul
+    %li
+      %img{:alt => "", :src => "/images/best.gif"}/
+    %li
+      %a{:href => "#"}
+        %img{:alt => "", :src => "/images/newest.gif"}/
+    %li
+      %a{:href => "#"}
+        %img{:alt => "", :src => "/images/most.gif"}/
+    %li
+      %a{:href => "#"}
+        %img{:alt => "", :src => "/images/our.gif"}/
+    %li
+      %a{:href => "#"}
+        %img{:alt => "", :src => "/images/top_10.gif"}/
+.music_my_tracks
+  .tracks_row_none
+    .col01
+      %small Artist
+    .col02 &nbsp;
+    .col03
+      %small Duration
+    .col04
+      %small Rating
+    .col05
+      %small Shop
+    .col06
+      %small Studio
+  = render @songs
+
+  .paging
+    %ul
+      %li.btn
+        %a{:href => url_for(:page => 1)} First
+
+      = will_paginate @songs, :inner_window => 2, :container => false, :previous_label => 'Previous', :next_label => 'Next', :renderer => PaginationListLinkRenderer
+      
+      %li.btn
+        %a{:href => url_for(:page => @songs.total_pages)} Last

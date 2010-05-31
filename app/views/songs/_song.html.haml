@@ -1,0 +1,20 @@
+.tracks_row.none
+  .col01
+    .btn
+      %a{:href => 'mp3/mustang_sally.mp3'}
+        %img{:alt => "", :src => "/images/icons/icon01.gif"}/
+    %strong= song.title
+  .col02 &nbsp;
+  .col03
+    %span== #{song.duration / 60}:#{'%02d' % (song.duration % 60)}
+  .col04
+    .rating
+      .rating_over{:style => "width:100%;"}
+  .col05
+    %span
+      %a{:href => "#"}
+        %img{:alt => "", :src => "/images/icons/icon03.gif"}/
+  .col06
+    %span
+      %a{:href => "#"}
+        %img{:alt => "", :src => "/images/icons/icon04.gif"}/

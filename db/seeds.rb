@@ -35,7 +35,10 @@ end
 File.open('db/fixtures/u2_songs.txt').each_line do |line|
   line.gsub!(/^"/, '')
   line.gsub!(/"$/, '')
-  Song.create(:title => line, :user => artists.rand)
+  unless Song.find_by_title(line)
+    song = Song.create(:title => line, :user => artists.rand, :duration => (120 + rand(4*60)))
+    (1 + rand(5)).times { song.ratings.create(:value => (2 + rand(5))) }
+  end
 end
 
 # PAGES

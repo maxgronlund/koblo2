@@ -6,6 +6,8 @@ class Song < ActiveRecord::Base
 
   scope :best, joins(:ratings).order('ratings.value DESC')
   scope :newest, order('created_at DESC')
-  scope :our_top_10
 
+  def rating
+    ratings.average(:value)
+  end
 end

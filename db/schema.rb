@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20100531115245) do
     t.string   "title"
     t.integer  "album_id"
     t.integer  "user_id"
+    t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
