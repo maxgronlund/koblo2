@@ -1,6 +1,263 @@
 !!!
-%html
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title Koblo.com
-  %body
-    = yield
+    %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
+    %title Koblo
+    %style{:media => "screen", :type => "text/css"}
+      @import url("stylesheets/layout.css");
+    /[if IE] <link rel="stylesheet" type="text/css" href="stylesheets/ie.css">  %body
+    #outer_layout
+      #layout
+        #header
+          %img.png{:alt => "", :src => "images/logo.png"}/
+          .right_sec
+            %ul
+              %li
+                %a{:href => "#"} Login
+              %li
+                %a{:href => "#"} Help
+              %li
+                %a{:href => "#"} Terms
+              %li
+                %a{:href => "#"} Who
+              %li
+                %a{:href => "#"} Why
+            %form{:action => ""}
+              %fieldset
+                %span
+                  %a{:href => "#"}
+                    %img{:alt => "", :src => "images/join.gif"}/
+                %input.search{:name => "", :type => "button", :value => ""}/
+                .input_bg
+                  %input{:name => "", :type => "text"}/
+        #main
+          #main_top
+            #banner_area
+              %img{:alt => "", :src => "images/banner01.jpg"}/
+            #body_container
+              #top_curve_main
+                #left_container
+                  .library
+                    %h3
+                      %img.png{:alt => "", :src => "images/library.png"}/
+                    %ul
+                      %li
+                        %a{:href => "#"} Bossa
+                      %li
+                        %a{:href => "#"} Film music
+                      %li
+                        %a{:href => "#"} Jazz
+                      %li
+                        %a{:href => "#"} Party Mix
+                      %li
+                        %a{:href => "#"} Chill out
+                    %h3.head
+                      %img.png{:alt => "", :src => "images/we_suggest.png"}/
+                    %ul
+                      %li
+                        %a{:href => "#"} Top 25 Most Played
+                      %li
+                        %a{:href => "#"} Top 25 Most Downloaded
+                      %li
+                        %a.current{:href => "#"} 90ties Music
+                      %li
+                        %a{:href => "#"} My Top Rated
+                      %li
+                        %a{:href => "#"} Recently Added
+                      %li
+                        %a{:href => "#"} Recently Played
+                    %h3.head
+                      %img.png{:alt => "", :src => "images/software.png"}/
+                    %ul
+                      %li
+                        %a{:href => "#"} Synths
+                      %li
+                        %a{:href => "#"} Plugins
+                      %li
+                        %a{:href => "#"} Other
+                #right_container
+                  .tabs
+                    %ul
+                      %li
+                        %img{:alt => "", :src => "images/best.gif"}/
+                      %li
+                        %a{:href => "#"}
+                          %img{:alt => "", :src => "images/newest.gif"}/
+                      %li
+                        %a{:href => "#"}
+                          %img{:alt => "", :src => "images/most.gif"}/
+                      %li
+                        %a{:href => "#"}
+                          %img{:alt => "", :src => "images/our.gif"}/
+                      %li
+                        %a{:href => "#"}
+                          %img{:alt => "", :src => "images/top_10.gif"}/
+                  .music_my_tracks
+                    .tracks_row_none
+                      .col01
+                        %small Artist
+                      .col02 &nbsp;
+                      .col03
+                        %small Duration
+                      .col04
+                        %small Rating
+                      .col05
+                        %small Shop
+                      .col06
+                        %small Studio
+                    .tracks_row.none
+                      .col01
+                        .btn
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon01.gif"}/
+                        %strong Ten Steps
+                      .col02 &nbsp;
+                      .col03
+                        %span 6:23
+                      .col04
+                        .rating
+                          .rating_over{:style => "width:100%;"}
+                      .col05
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon03.gif"}/
+                      .col06
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon04.gif"}/
+                    .tracks_row.none
+                      .col01
+                        .btn
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon02.gif"}/
+                        %strong Heartless is More
+                      .col02 &nbsp;
+                      .col03
+                        %span 4:02
+                      .col04
+                        .rating
+                          .rating_over{:style => "width:82%;"}
+                      .col05
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon03.gif"}/
+                      .col06
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon04.gif"}/
+                      .track_open
+                        .ms_btn
+                          %ul
+                            %li
+                              %a.m{:href => "#"}
+                            %li
+                              %a.s{:href => "#"}
+                            %li
+                              %a.m{:href => "#"}
+                            %li
+                              %a.s{:href => "#"}
+                            %li
+                              %a.m{:href => "#"}
+                            %li
+                              %a.s.current{:href => "#"}
+                            %li
+                              %a.m{:href => "#"}
+                            %li
+                              %a.s{:href => "#"}
+                        .track
+                          %img{:alt => "", :src => "images/track_pic.jpg"}/
+                    .tracks_row_none.none
+                      .col01
+                        .btn
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon01.gif"}/
+                        %strong In This Mess Together
+                      .col02 &nbsp;
+                      .col03
+                        %span 4:25
+                      .col04
+                        .rating
+                          .rating_over{:style => "width:100%;"}
+                      .col05
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon03.gif"}/
+                      .col06
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon04.gif"}/
+                    .tracks_row.none
+                      .col01
+                        .btn
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon01.gif"}/
+                        %strong The Words You Say
+                      .col02 &nbsp;
+                      .col03
+                        %span 4:22
+                      .col04
+                        .rating
+                          .rating_over{:style => "width:60%;"}
+                      .col05
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon03.gif"}/
+                      .col06
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon04.gif"}/
+                    .tracks_row.none
+                      .col01
+                        .btn
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon01.gif"}/
+                        %strong We Are the New Black
+                      .col02 &nbsp;
+                      .col03
+                        %span 4:00
+                      .col04
+                        .rating
+                          .rating_over{:style => "width:82%;"}
+                      .col05
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon03.gif"}/
+                      .col06
+                        %span
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "images/icons/icon04.gif"}/
+                    .paging
+                      %ul
+                        %li.btn
+                          %a{:href => "#"} First
+                        %li.btn
+                          %a{:href => "#"} Previous
+                        %li.first
+                          %a.current{:href => "#"} 1
+                        %li
+                          %a{:href => "#"} 2
+                        %li
+                          %a{:href => "#"} 3
+                        %li
+                          %a{:href => "#"} 4
+                        %li
+                          %a{:href => "#"} 5
+                        %li
+                          %a{:href => "#"} 6
+                        %li
+                          %a{:href => "#"} 7
+                        %li
+                          %a{:href => "#"} 8
+                        %li
+                          %a{:href => "#"} 9
+                        %li
+                          %a{:href => "#"} 10
+                        %li.last of 8029
+                        %li.btn
+                          %a{:href => "#"} Next
+                        %li.btn
+                          %a{:href => "#"} Last
+            #bottom_curve_main
+            %span.clear
+        #main_bottom
+        %span.clear
