@@ -17,4 +17,5 @@ group :test do
   gem 'rspec-rails', '2.0.0.beta.8'
   gem 'spork'
   gem 'mocha'
+  gem 'machinist'
 end

@@ -8,17 +8,11 @@ require 'rspec/rails'
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-Rspec.configure do |config|
-  # == Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
-  # config.mock_with :rspec
+require File.expand_path(File.dirname(__FILE__) + "/blueprints")
 
-  # If you'd prefer not to run each of your examples within a transaction,
-  # uncomment the following line.
-  # config.use_transactional_examples = false
+Rspec.configure do |config|
+  config.mock_with :mocha
+
+  config.before(:all)    { Sham.reset(:before_all)  }
+  config.before(:each)   { Sham.reset(:before_each) }
 end

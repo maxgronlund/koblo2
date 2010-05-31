@@ -25,13 +25,6 @@ ActiveRecord::Schema.define(:version => 20100504125008) do
     t.text   "body"
   end
 
-  create_table "albums", :force => true do |t|
-    t.string   "title"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "ratings", :force => true do |t|
     t.integer "song_id"
     t.integer "value"
@@ -46,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20100504125008) do
   create_table "songs", :force => true do |t|
     t.string   "title"
     t.integer  "album_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

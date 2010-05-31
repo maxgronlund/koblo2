@@ -4,6 +4,7 @@ class CreateSongs < ActiveRecord::Migration
     create_table :songs do |t|
       t.string :title
       t.integer :album_id
+      t.integer :user_id
       t.timestamps
     end
   end
