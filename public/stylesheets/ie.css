@@ -1,3 +1,6 @@
-.png, #header span, #left_container .profilbillede .curve, .top_curve_join, .bottom_curve_join, .join_repeat{ behavior: url("common/css/iepngfix.htc")}
+.png, #header span, #left_container .profilbillede .curve, .top_curve_join, .bottom_curve_join, .join_repeat {
+  behavior: url("common/css/iepngfix.htc"); }
 
- .tooltip{*background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='common/images/tooltip.png',sizingMethod='crop')}
+.tooltip {
+  *background: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='common/images/tooltip.png',sizingMethod='crop'); }

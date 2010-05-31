@@ -3,6 +3,14 @@
   %head
     %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
     %title Koblo
+
+    = javascript_include_tag 'jquery-1.4.2.min.js', 'soundmanager2', 'jquery.playable'
+    %script
+      $.playable('/swf/');
+      $(function(){
+      $('a[href$=.mp3]').playable();
+      });
+
     %style{:media => "screen", :type => "text/css"}
       @import url("stylesheets/layout.css");
     /[if IE] <link rel="stylesheet" type="text/css" href="stylesheets/ie.css">  %body
@@ -108,7 +116,7 @@
                     .tracks_row.none
                       .col01
                         .btn
-                          %a{:href => "#"}
+                          %a{:href => 'mp3/mustang_sally.mp3'}
                             %img{:alt => "", :src => "images/icons/icon01.gif"}/
                         %strong Ten Steps
                       .col02 &nbsp;
