@@ -5,3 +5,34 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+CPH_RECORDS_ARTISTS =<<EOT
+Agnes
+Alphabeat
+Burhan G
+Carpark North
+Celina Ree
+Eivør Pálsdóttir
+Hej Matematik
+Jinks
+Joey Moe
+Johnny Deluxe
+Mads Langer
+Nephew
+Niarn
+Rock Hard Power Spray
+Spleen United
+Thomas Dybdahl
+EOT
+
+artists = []
+CPH_RECORDS_ARTISTS.split("\n").each do |name|
+  artists << User.create(:name => name, :email => "info@#{name.parameterize}.com", :password => 'ohdoot5Chao0')
+end
+
+File.open('db/fixtures/u2_songs.txt').each_line do |line|
+  line.gsub!(/^"/, '')
+  line.gsub!(/"$/, '')
+  Song.create(:title => line, :user => artists.rand)
+end
+
