@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100531110015) do
+ActiveRecord::Schema.define(:version => 20100531115245) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(:version => 20100531110015) do
   create_table "admin_messages", :force => true do |t|
     t.string "title"
     t.text   "body"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", :force => true do |t|

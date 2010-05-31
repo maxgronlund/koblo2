@@ -6,6 +6,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+# USERS
 CPH_RECORDS_ARTISTS =<<EOT
 Agnes
 Alphabeat
@@ -30,9 +31,12 @@ CPH_RECORDS_ARTISTS.split("\n").each do |name|
   artists << User.create(:name => name, :email => "info@#{name.parameterize}.com", :password => 'ohdoot5Chao0')
 end
 
+# SONGS
 File.open('db/fixtures/u2_songs.txt').each_line do |line|
   line.gsub!(/^"/, '')
   line.gsub!(/"$/, '')
   Song.create(:title => line, :user => artists.rand)
 end
 
+# PAGES
+['Why', 'Who', 'Terms', 'Help'].each { |title| Page.create(:title => title) }
