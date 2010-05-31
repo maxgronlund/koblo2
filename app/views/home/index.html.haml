@@ -17,11 +17,8 @@
 
 .tabs
   %ul
-    %li
-      %img{:alt => "", :src => "/images/best.gif"}/
-    %li
-      %a{:href => "#"}
-        %img{:alt => "", :src => "/images/newest.gif"}/
+    %li= link_to_unless_current image_tag('best.gif'),   :action => 'index', :scope => 'best'
+    %li= link_to_unless_current image_tag('newest.gif'), :action => 'index', :scope => 'newest'
     %li
       %a{:href => "#"}
         %img{:alt => "", :src => "/images/most.gif"}/
