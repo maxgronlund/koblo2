@@ -99,14 +99,17 @@
 				} )
 				.bind( 'onplay.playable', function(){
 					self.removeClass( $.playable.css.paused ).addClass( $.playable.css.playing );
+          self.children('img').attr('src', '/images/icons/icon02.gif');
 					if ( self.data( 'playable' ).readyState == 1 )
 						self.addClass( $.playable.css.loading );
 				} )
 				.bind( 'onpause.playable', function(){
+          self.children('img').attr('src', '/images/icons/icon01.gif');
 					if ( ! $.playable.searching )
 						self.removeClass( $.playable.css.playing ).addClass( $.playable.css.paused );
 				} )
 				.bind( 'onstop.playable', function(){
+          self.children('img').attr('src', '/images/icons/icon01.gif');
 					self.removeClass( [$.playable.css.playing, $.playable.css.loading, $.playable.css.paused].join(' ') );
 				} );
 			}
