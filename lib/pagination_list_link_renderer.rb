@@ -1,14 +1,13 @@
 class PaginationListLinkRenderer < WillPaginate::ViewHelpers::LinkRenderer
   def to_html
     html = pagination.map do |item|
-      RAILS_DEFAULT_LOGGER.error "XXX#{item.inspect}"
       item_html = item.is_a?(Fixnum) ? page_number(item) : send(item)
       if item.is_a?(Fixnum)
         tag(:li, item_html)
       elsif item == :gap
         tag(:li, '...')
       else
-        tag(:li, item_html, :class => 'btn')
+        tag(:li, item_html, :class => 'btn ' + item.to_s)
       end
     end.join(@options[:separator])
 

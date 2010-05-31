@@ -359,10 +359,10 @@ a:focus {
   width: auto; }
 .music_my_tracks .col01 {
   float: left;
-  width: 333px; }
+  width: 383px; }
 .music_my_tracks .col02 {
   float: left;
-  width: 97px; }
+  width: 47px; }
 .music_my_tracks .col03 {
   float: left;
   width: 80px; }
@@ -528,7 +528,7 @@ a:focus {
     color: #00f7ff; }
   .music_my_tracks .paging li.btn {
     float: left;
-    width: 80px;
+    width: 75px;
     text-align: center;
     padding: 0 11px 0 0; }
     .music_my_tracks .paging li.btn a {
@@ -755,3 +755,7 @@ a:focus {
     padding: 0;
     margin-top: 33px;
     background: url(../images/next_btn.gif) no-repeat 0 0; }
+
+.next_page {
+  margin-left: 12px;
+  margin-right: 12px; }
