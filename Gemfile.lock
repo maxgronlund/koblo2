@@ -47,7 +47,7 @@ dependencies:
   devise: 
     group: 
     - :default
-    version: ">= 0"
+    version: = 1.1.rc1
   paperclip: 
     group: 
     - :default
@@ -149,7 +149,6 @@ specs:
     version: 0.10.7
 - devise: 
     version: 1.1.rc1
-    source: 3
 - formtastic: 
     version: 0.9.10
     source: 1
@@ -197,7 +196,7 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: b72eaa8694f747abd6e108b25eb1819d54c0836c
+hash: f69df9c942a7616193e66e1e92bc64461e0059aa
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git
@@ -214,9 +213,5 @@ sources:
     branch: rails3
     git: git://github.com/lmumar/paperclip.git
     ref: bdc48fca6326fbfb6db0fcaa7ee56a989560482e
-- Git: 
-    uri: git://github.com/plataformatec/devise.git
-    git: git://github.com/plataformatec/devise.git
-    ref: f0c0f5f11b115df0dbe64a267ada4d92c9d028fa
 - Rubygems: 
     uri: http://rubygems.org
