@@ -8,12 +8,13 @@ gem 'thinking-sphinx', '1.3.16'
 gem 'haml', '2.2.24'
 gem 'formtastic', :git => "git://github.com/justinfrench/formtastic.git", :branch => 'rails3'
 gem 'inherited_resources', '1.1.2'
+gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'cucumber-rails', :git => "git://github.com/aslakhellesoy/cucumber-rails.git"
-  gem 'cucumber', '0.7.0'
+  gem 'cucumber-rails', '0.3.1'
+  gem 'cucumber', '0.7.3'
   gem 'rspec-rails', '2.0.0.beta.8'
   gem 'spork'
   gem 'mocha'
