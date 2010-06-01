@@ -116,7 +116,7 @@ specs:
 - activeresource: 
     version: 3.0.0.beta3
 - bundler: 
-    version: 0.9.24
+    version: 0.9.25
 - culerity: 
     version: 0.2.10
 - nokogiri: 
