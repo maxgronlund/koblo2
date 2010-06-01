@@ -8,7 +8,7 @@
   .col03
     %span== #{song.duration / 60}:#{'%02d' % (song.duration % 60)}
   .col04
-    .rating
+    .rating{:style => "width:#{(song.rating * 60/5).to_i}px"}
       .rating_over{:style => "width:100%;"}
   .col05
     %span

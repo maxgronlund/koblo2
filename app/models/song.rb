@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
   has_many :tracks
   has_many :ratings
 
-  scope :best, joins(:ratings).order('ratings.value DESC')
+  scope :best, joins(:ratings).group('ratings.song_id').order('AVG(ratings.value) DESC')
   scope :newest, order('created_at DESC')
 
   def rating
