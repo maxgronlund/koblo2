@@ -759,3 +759,6 @@ a:focus {
 .next_page {
   margin-left: 12px;
   margin-right: 12px; }
+
+input:focus {
+  outline-width: 0; }

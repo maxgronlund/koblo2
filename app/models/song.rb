@@ -10,4 +10,6 @@ class Song < ActiveRecord::Base
   def rating
     ratings.average(:value)
   end
+
+  scoped_search :on => [:title]
 end

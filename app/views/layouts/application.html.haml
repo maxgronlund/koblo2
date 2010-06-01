@@ -31,14 +31,14 @@
                 %a{:href => "/pages/who"} Who
               %li
                 %a{:href => '/pages/why'} Why
-            %form{:action => ""}
+            %form{:action => url_for(:action => 'index')}
               %fieldset
                 %span
                   %a{:href => "#"}
                     %img{:alt => "", :src => "/images/join.gif"}/
-                %input.search{:name => "", :type => "button", :value => ""}/
+                %input.search{:name => "", :type => "submit", :value => ""}/
                 .input_bg
-                  %input{:name => "", :type => "text"}/
+                  %input{:name => "q", :type => "text"}/
         #main
           #main_top
             #banner_area

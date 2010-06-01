@@ -4,6 +4,10 @@ dependencies:
     group: 
     - :test
     version: ">= 0"
+  scoped_search: 
+    group: 
+    - :default
+    version: ">= 0"
   rails: 
     group: 
     - :default
@@ -32,10 +36,6 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
-  thinking-sphinx: 
-    group: 
-    - :default
-    version: = 1.3.16
   rspec-rails: 
     group: 
     - :test
@@ -115,8 +115,6 @@ specs:
     version: 3.0.0.beta3
 - activeresource: 
     version: 3.0.0.beta3
-- after_commit: 
-    version: 1.0.7
 - bundler: 
     version: 0.9.24
 - culerity: 
@@ -128,7 +126,7 @@ specs:
 - json_pure: 
     version: 1.4.3
 - selenium-webdriver: 
-    version: 0.0.18
+    version: 0.0.19
 - capybara: 
     version: 0.3.8
 - diff-lcs: 
@@ -175,8 +173,6 @@ specs:
     version: 3.0.0.beta3
 - rails: 
     version: 3.0.0.beta3
-- riddle: 
-    version: 1.0.10
 - rspec-core: 
     version: 2.0.0.beta.8
 - rspec-expectations: 
@@ -189,14 +185,14 @@ specs:
     version: 0.7.1
 - rspec-rails: 
     version: 2.0.0.beta.8
+- scoped_search: 
+    version: 2.2.0
 - spork: 
     version: 0.8.3
-- thinking-sphinx: 
-    version: 1.3.16
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: c90084eee9f621c2c0c3297c21fcbe4ec42c6828
+hash: f4d193e50ccbaf31b30237f221e8900171ab818d
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git
