@@ -1,0 +1,87 @@
+#join_popup_div
+  .join_popup
+    .top_curve_join
+    .join_repeat
+      .content_join
+        .close
+          %span
+            %a{:href => "#"} join
+          %small
+            %a{:href => "#", :id => 'popup_close'}
+              %img{:alt => "", :src => "/images/icons/close.gif"}/
+        %form{:action => ""}
+          %fieldset
+            .left_sec
+              .pic
+                %img{:alt => "", :src => "/images/thumbnails/thumb30.jpg"}/
+                %span
+                  %a{:href => "#"} Upload picture
+              .notice
+                %span Notice:
+                %ul
+                  %li Png and jpg files only
+                  %li Size (w)200 x (h)160 px
+                  %li Use RGB color mode
+            .right_sec
+              .form_row
+                %label Name
+                .input_bg
+                  %input{:name => "", :type => "text"}/
+              .form_row
+                %label E-mail
+                .input_bg
+                  %input{:name => "", :type => "text"}/
+              .form_row
+                %label Password
+                .input_bg
+                  %input{:name => "", :type => "text"}/
+              .check_sec
+                .form_row01
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box_arrow.gif"}/
+                  %span Mucisian
+                .form_row01
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span DJ
+                .form_row01
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span Producer
+                .form_row01
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span Wannabee
+                .form_row01
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span Recordlabel
+                .form_row01
+                  %label I&rsquo;m signed at
+                  .select_bg
+                    %span#flexbox_results Record Label
+                    %small
+                      %a#flex_button{:href => "javascript:void(0);"}
+                    %div{:style => "display:block;"}
+                      #deviceList.drop
+                        .top_c_drop
+                        .repeat
+                          .repeat_x
+                            %ul
+                              %li
+                                %a{:href => "javascript:void(0);"} Sony Music&nbsp;Entertain.
+                              %li
+                                %a{:href => "javascript:void(0);"} EMI Group
+                              %li
+                                %a{:href => "javascript:void(0);"} Warner Music Group
+                              %li
+                                %a{:href => "javascript:void(0);"} Universal Music Group
+                              %li
+                                %a{:href => "javascript:void(0);"} Sub Pop
+                              %li
+                                %a{:href => "javascript:void(0);"} Virgin
+                              %li
+                                %a{:href => "javascript:void(0);"} Mute Records
+                              %li
+                                %a{:href => "javascript:void(0);"} Motown Records
+                              %li
+                                %a{:href => "javascript:void(0);"} Other
+                        .bottom_c_drop
+                  %input.next_btn{:name => "", :type => "button", :value => ""}/
+    .bottom_curve_join
+    %span.clear

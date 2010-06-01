@@ -1,0 +1,23 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
+    %title Koblo
+    
+    = javascript_include_tag 'jquery-1.4.2.min.js', 'soundmanager2', 'jquery.playable', 'shadowbox', 'dropdown', 'application'
+
+    %style{:media => "screen", :type => "text/css"}
+      @import url("/stylesheets/bare.css");
+    /[if IE] <link rel="stylesheet" type="text/css" href="stylesheets/ie.css">  %body
+
+    #outer_layout
+      #layout
+        #main
+          #main_top
+            #body_container
+              #top_curve_main
+                = yield
+            #bottom_curve_main
+            %span.clear
+        #main_bottom
+        %span.clear

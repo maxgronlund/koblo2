@@ -762,3 +762,6 @@ a:focus {
 
 input:focus {
   outline-width: 0; }
+
+#join_popup_div {
+  display: none; }
