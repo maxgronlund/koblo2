@@ -4,9 +4,11 @@ $(document).ready(function () {
     // Popups
     $('#join_link').click(function () {
         $('#join_popup_div').show();
+        return false;
     });
-    $('#popup_close').click(function () {
+    $('.popup_close').click(function () {
         $('#join_popup_div').hide();
+        return false;
     });
 
     $(".check_box").click(function () {
@@ -17,5 +19,19 @@ $(document).ready(function () {
         }
     });
 
+    $('#join_popup_div').tabs();
+
+    $('#step_1_next_button').click(function() {
+      $('#join_popup_div').tabs('select', 1);
+    });
+    $('#step_2_back_button').click(function() {
+      $('#join_popup_div').tabs('select', 0);
+    });
+    $('#step_2_next_button').click(function() {
+      $('#join_popup_div').tabs('select', 2);
+    });
+    $('#step_3_back_button').click(function() {
+      $('#join_popup_div').tabs('select', 1);
+    });
 });
 

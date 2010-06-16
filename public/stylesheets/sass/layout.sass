@@ -1,4 +1,4 @@
-body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, form, fieldset, p
+backbody, div, ul, li, ol, h1, h2, h3, h4, h5, h6, form, fieldset, p
   margin: 0
   padding: 0
   font-weight: normal
@@ -757,6 +757,16 @@ a:focus
     padding: 0
     margin-top: 33px
     background: url(../images/next_btn.gif) no-repeat 0 0
+  input.back_btn
+    float: right
+    width: 70px
+    height: 22px
+    border: none
+    cursor: pointer
+    padding: 0
+    margin-top: 33px
+    margin-right: 10px
+    background: url(../images/back_btn.gif) no-repeat 0 0
 
 .next_page
   margin-left: 12px
@@ -766,5 +776,31 @@ input:focus
   outline-width: 0
 
 #join_popup_div
+  display: none
+
+#step2
+  .content_join
+    .notice
+      span
+        line-height: 9px
+        margin-left: 8px
+    #payment_buttons
+      margin-top: 82px
+    .select_bg
+      margin-left: 127px
+      span
+        color: #5A666F
+        margin-left: 28px
+#step3
+  .content_join
+    .notice
+      span
+        line-height: 9px
+        margin-left: 8px
+        width: 148px
+    .web20
+      width: 16px
+
+.ui-tabs .ui-tabs-hide
   display: none
 

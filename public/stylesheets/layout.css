@@ -1,4 +1,4 @@
-body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, form, fieldset, p {
+backbody, div, ul, li, ol, h1, h2, h3, h4, h5, h6, form, fieldset, p {
   margin: 0;
   padding: 0;
   font-weight: normal; }
@@ -185,7 +185,7 @@ a:focus {
     width: auto;
     font-size: 11px;
     line-height: 14px;
-    color: #fff;
+    color: white;
     padding-right: 10px; }
   .profile span {
     color: #00f7ff;
@@ -199,7 +199,7 @@ a:focus {
     width: 204px;
     font-size: 11px;
     line-height: 14px;
-    color: #fff;
+    color: white;
     padding: 12px 0 0 12px; }
     .profile h4 small {
       color: #00f7ff;
@@ -273,11 +273,11 @@ a:focus {
     width: 209px;
     font-size: 11px;
     line-height: 14px;
-    color: #fff;
+    color: white;
     font-weight: bold;
     padding: 4px 0 0 8px; }
     .gallery strong a {
-      color: #fff;
+      color: white;
       text-decoration: none; }
 
 #right_container {
@@ -304,7 +304,7 @@ a:focus {
   float: left;
   width: 749px; }
   .music_my_tracks .none {
-    padding: 0 0 11px!important; }
+    padding: 0 0 11px !important; }
   .music_my_tracks .tracks_row {
     float: left;
     width: 690px;
@@ -424,11 +424,11 @@ a:focus {
   font-size: 14px;
   line-height: 21px;
   font-weight: bold;
-  color: #ffffff;
+  color: white;
   padding-top: 16px; }
 .music_my_tracks span {
   font: normal 11px/14px "Foxley712", Tahoma, Arial, sans-serif;
-  color: #ffffff;
+  color: white;
   padding-top: 21px;
   float: left;
   width: auto; }
@@ -535,7 +535,7 @@ a:focus {
       float: left;
       width: 80px;
       text-align: center;
-      color: #fff;
+      color: white;
       text-decoration: none;
       text-align: center;
       width: 80px;
@@ -755,6 +755,16 @@ a:focus {
     padding: 0;
     margin-top: 33px;
     background: url(../images/next_btn.gif) no-repeat 0 0; }
+  .content_join input.back_btn {
+    float: right;
+    width: 70px;
+    height: 22px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 33px;
+    margin-right: 10px;
+    background: url(../images/back_btn.gif) no-repeat 0 0; }
 
 .next_page {
   margin-left: 12px;
@@ -764,4 +774,25 @@ input:focus {
   outline-width: 0; }
 
 #join_popup_div {
+  display: none; }
+
+#step2 .content_join .notice span {
+  line-height: 9px;
+  margin-left: 8px; }
+#step2 .content_join #payment_buttons {
+  margin-top: 82px; }
+#step2 .content_join .select_bg {
+  margin-left: 127px; }
+  #step2 .content_join .select_bg span {
+    color: #5a666f;
+    margin-left: 28px; }
+
+#step3 .content_join .notice span {
+  line-height: 9px;
+  margin-left: 8px;
+  width: 148px; }
+#step3 .content_join .web20 {
+  width: 16px; }
+
+.ui-tabs .ui-tabs-hide {
   display: none; }
