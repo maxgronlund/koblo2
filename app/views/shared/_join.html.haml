@@ -74,7 +74,7 @@
                               %ul
                                 - for record_label in RecordLabel.all do 
                                   %li
-                                    %a{:href => "javascript:$('#record_label_id').attr('value', #{record_label.id});"} 
+                                    %a{:href => "javascript:void($('#record_label_id').attr('value', #{record_label.id}));;"} 
                                       = record_label.name
                           .bottom_c_drop
                     %input.next_btn{:name => "", :id => 'step_1_next_button', :type => "button", :value => ""}/
