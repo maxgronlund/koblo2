@@ -6,6 +6,23 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+RECORD_LABELS =<<EOT
+Copenhagen Records
+Sony Music Entertainment
+EMI Group
+Warner Music Group
+Universal Music Group
+Sub Pop
+Virgin
+Mute Records
+Motown Records
+Other
+EOT
+
+RECORD_LABELS.split("\n").each do |name|
+  RecordLabel.create(:name => name)
+end
+
 # USERS
 CPH_RECORDS_ARTISTS =<<EOT
 Agnes
