@@ -9,7 +9,8 @@
           %small
             %a{:href => "#", :id => 'popup_close'}
               %img{:alt => "", :src => "/images/icons/close.gif"}/
-        %form{:action => ""}
+        %form{:action => "/", :method => 'post'}
+          %input{:type => "hidden", :name => "authenticity_token", :value => form_authenticity_token }
           %fieldset
             .left_sec
               .pic
@@ -26,15 +27,15 @@
               .form_row
                 %label Name
                 .input_bg
-                  %input{:name => "", :type => "text"}/
+                  %input{:name => "name", :type => "text"}/
               .form_row
                 %label E-mail
                 .input_bg
-                  %input{:name => "", :type => "text"}/
+                  %input{:name => "email", :type => "text"}/
               .form_row
                 %label Password
                 .input_bg
-                  %input{:name => "", :type => "text"}/
+                  %input{:name => "password", :type => "text"}/
               .check_sec
                 .form_row01
                   %img.check_box{:alt => "", :src => "/images/icons/check_box_arrow.gif"}/
@@ -52,6 +53,7 @@
                   %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
                   %span Recordlabel
                 .form_row01
+                  %input{:type => 'hidden', :name => 'record_label_id', :value => '', :id => 'record_label_id'}
                   %label I&rsquo;m signed at
                   .select_bg
                     %span#flexbox_results Record Label
@@ -63,25 +65,11 @@
                         .repeat
                           .repeat_x
                             %ul
-                              %li
-                                %a{:href => "javascript:void(0);"} Sony Music&nbsp;Entertain.
-                              %li
-                                %a{:href => "javascript:void(0);"} EMI Group
-                              %li
-                                %a{:href => "javascript:void(0);"} Warner Music Group
-                              %li
-                                %a{:href => "javascript:void(0);"} Universal Music Group
-                              %li
-                                %a{:href => "javascript:void(0);"} Sub Pop
-                              %li
-                                %a{:href => "javascript:void(0);"} Virgin
-                              %li
-                                %a{:href => "javascript:void(0);"} Mute Records
-                              %li
-                                %a{:href => "javascript:void(0);"} Motown Records
-                              %li
-                                %a{:href => "javascript:void(0);"} Other
+                              - for record_label in RecordLabel.all do 
+                                %li
+                                  %a{:href => "javascript:$('#record_label_id').attr('value', #{record_label.id});"} 
+                                    = record_label.name
                         .bottom_c_drop
-                  %input.next_btn{:name => "", :type => "button", :value => ""}/
+                  %input.next_btn{:name => "", :type => "submit", :value => ""}/
     .bottom_curve_join
     %span.clear
