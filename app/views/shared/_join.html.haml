@@ -6,7 +6,7 @@
       %a{:href => '#step2'} Step 2
     %li
       %a{:href => '#step3'} Step 3
-  %form{:action => "/", :method => 'post'}
+  %form{:action => "/users", :method => 'post'}
     #step1.join_popup
       .top_curve_join
       .join_repeat
@@ -34,15 +34,15 @@
                 .form_row
                   %label Name
                   .input_bg
-                    %input{:name => "name", :type => "text"}/
+                    %input{:name => "user[name]", :type => "text"}/
                 .form_row
                   %label E-mail
                   .input_bg
-                    %input{:name => "email", :type => "text"}/
+                    %input{:name => "user[email]", :type => "text"}/
                 .form_row
                   %label Password
                   .input_bg
-                    %input{:name => "password", :type => "text"}/
+                    %input{:name => "user[password]", :type => "text"}/
                 .check_sec
                   .form_row01
                     %img.check_box{:alt => "", :src => "/images/icons/check_box_arrow.gif"}/
