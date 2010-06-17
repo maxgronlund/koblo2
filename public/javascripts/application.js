@@ -19,13 +19,20 @@ $(document).ready(function () {
         }
     });
 
+    $('#login_link').click(function() {
+      $('#join_popup_div').show();
+      $('#join_popup_div').tabs('select', 3);
+      return false;
+    });
+
     $('#join_popup_div').tabs();
 
     $('#step_1_next_button').click(function() {
       $('#join_popup_div').tabs('select', 1);
     });
-    $('#step_2_back_button').click(function() {
+    $('#step_2_back_button, #sign_up_link').click(function() {
       $('#join_popup_div').tabs('select', 0);
+      return false;
     });
     $('#step_2_next_button').click(function() {
       $('#join_popup_div').tabs('select', 2);

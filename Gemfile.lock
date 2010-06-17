@@ -47,7 +47,7 @@ dependencies:
   devise: 
     group: 
     - :default
-    version: = 1.1.rc1
+    version: ">= 0"
   paperclip: 
     group: 
     - :default
@@ -109,6 +109,8 @@ specs:
     version: 3.0.0.beta4
 - activeresource: 
     version: 3.0.0.beta4
+- bcrypt-ruby: 
+    version: 2.1.2
 - bundler: 
     version: 0.9.26
 - culerity: 
@@ -120,7 +122,7 @@ specs:
 - json_pure: 
     version: 1.4.3
 - selenium-webdriver: 
-    version: 0.0.23
+    version: 0.0.24
 - capybara: 
     version: 0.3.8
 - diff-lcs: 
@@ -128,7 +130,7 @@ specs:
 - trollop: 
     version: 1.16.2
 - gherkin: 
-    version: 2.0.1
+    version: 2.0.2
 - term-ansicolor: 
     version: 1.0.5
 - cucumber: 
@@ -141,6 +143,7 @@ specs:
     version: 0.10.7
 - devise: 
     version: 1.1.rc1
+    source: 1
 - formtastic: 
     version: 1.0.0.beta
 - haml: 
@@ -184,12 +187,16 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: 3edfd199e0581f01dad53ac551e0692262f3d74a
+hash: 3f468c22655354bb98069e643f09ee3d150459ee
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git
     branch: rails3
     git: http://github.com/mislav/will_paginate.git
     ref: 60aa1c7b2ef03ee7c7a5ed657efb479a69f7d128
+- Git: 
+    uri: git://github.com/plataformatec/devise.git
+    git: git://github.com/plataformatec/devise.git
+    ref: ac0105d15f5bcc78f7a4b496eb52b0a5e9a27100
 - Rubygems: 
     uri: http://rubygems.org

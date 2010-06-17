@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.beta4'
 gem 'mysql', '2.8.1'
-gem 'devise', '1.1.rc1'
+gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'paperclip', '2.3.3'
 # gem 'thinking-sphinx', '1.3.16'
 gem 'scoped_search', '2.2.0'

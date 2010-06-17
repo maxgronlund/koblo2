@@ -21,8 +21,14 @@
             %img.png{:alt => "", :src => "/images/logo.png"}/
           .right_sec
             %ul
+              - if user_signed_in?
+                %li
+                  == Logged in as #{current_user.name}
               %li
-                %a{:href => "login.html"} Login
+                - if user_signed_in?
+                  = link_to "Log out", destroy_user_session_path
+                - else
+                  %a{:href => "login.html", :id => 'login_link'} Log In
               %li
                 %a{:href => "/pages/help"} Help
               %li
@@ -31,7 +37,7 @@
                 %a{:href => "/pages/who"} Who
               %li
                 %a{:href => '/pages/why'} Why
-            %form{:action => url_for(:controller => 'home', :action => 'index')}
+            %form{:action => '/'}
               %fieldset
                 %span
                   %a{:href => "#", :id => 'join_link'}
