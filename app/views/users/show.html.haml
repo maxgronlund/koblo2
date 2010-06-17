@@ -1,1 +1,59 @@
-%h1== Hello #{current_user.name}
+#left_container
+  .profile
+    %h3
+      %img.png{:alt => "", :src => "/images/profile.png"}/
+    .profilbillede
+      %div
+        .curve
+      %img{:alt => "", :src => "/images/profile.jpg"}/
+    %h3
+      = current_user.name
+    %p
+      %strong Web
+      %span
+        = link_to current_user.website, "http://#{current_user.website}"
+      %strong Record Label
+      %span= current_user.record_label ? current_user.record_label.name : '-'
+      %strong Tracks
+      %span= current_user.songs.count
+    %p= current_user.description 
+    .gallery
+      %h4
+        Connections
+        %small= current_user.connections.size
+      %ul
+        - for connection in current_user.connections.first(16)
+          %li
+            %a{:href => "#"}
+              %img{:alt => "", :src => "/images/thumbnails/thumb01.jpg"}/
+      %strong
+        = link_to "View all", connections_path
+#right_container
+  .tabs
+    %ul
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "/images/latest.gif"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "/images/my_tracks.gif"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "/images/upload.gif"}/
+  .music_my_tracks
+    .tracks_row_none
+      .col01
+        %small Artist
+      .col02
+        %small Title
+      .col03
+        %small Duration
+      .col04
+        %small Rating
+      .col05
+        %small Shop
+      .col06
+        %small Studio
+    .tracks_row.up   
+      %h3
+        You haven't uploaded any tracks.

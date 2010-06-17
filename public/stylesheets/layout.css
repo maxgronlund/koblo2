@@ -796,3 +796,10 @@ input:focus {
 
 .ui-tabs .ui-tabs-hide {
   display: none; }
+
+#login .form_row01 {
+  width: 250px; }
+#login #user_email {
+  margin-left: 26px; }
+#login #user_password {
+  margin-left: 7px; }
