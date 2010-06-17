@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100617120844) do
+ActiveRecord::Schema.define(:version => 20100617133637) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(:version => 20100617120844) do
     t.string "title"
     t.text   "body"
   end
+
+  create_table "follows", :force => true do |t|
+    t.integer  "followable_id",                      :null => false
+    t.string   "followable_type",                    :null => false
+    t.integer  "follower_id",                        :null => false
+    t.string   "follower_type",                      :null => false
+    t.boolean  "blocked",         :default => false, :null => false
+    t.boolean  "active",          :default => true,  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
+  add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
 
   create_table "pages", :force => true do |t|
     t.string   "title"
