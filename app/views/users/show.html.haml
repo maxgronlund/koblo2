@@ -7,16 +7,16 @@
         .curve
       %img{:alt => "", :src => "/images/profile.jpg"}/
     %h3
-      = current_user.name
+      = @user.name
     %p
       %strong Web
       %span
-        = link_to current_user.website, "http://#{current_user.website}"
+        = link_to @user.website, "http://#{@user.website}"
       %strong Record Label
-      %span= current_user.record_label ? current_user.record_label.name : '-'
+      %span= @user.record_label ? @user.record_label.name : '-'
       %strong Tracks
-      %span= current_user.songs.count
-    %p= current_user.description 
+      %span= @user.songs.count
+    %p= @user.description 
     .gallery
       %h4
         Connections
