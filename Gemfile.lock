@@ -1,25 +1,29 @@
 --- 
 dependencies: 
+  faker: 
+    group: 
+    - :test
+    version: = 0.3.1
   spork: 
     group: 
     - :test
     version: = 0.8.4
-  scoped_search: 
-    group: 
-    - :default
-    version: = 2.2.0
   rails: 
     group: 
     - :default
     version: = 3.0.0.beta4
-  mysql: 
+  scoped_search: 
     group: 
     - :default
-    version: = 2.8.1
+    version: = 2.2.0
   haml: 
     group: 
     - :default
     version: = 3.0.12
+  mysql: 
+    group: 
+    - :default
+    version: = 2.8.1
   machinist: 
     group: 
     - :test
@@ -28,38 +32,38 @@ dependencies:
     group: 
     - :default
     version: = 1.1.2
-  database_cleaner: 
-    group: 
-    - :test
-    version: = 0.5.2
-  formtastic: 
-    group: 
-    - :default
-    version: = 1.0.0.beta
   rspec-rails: 
     group: 
     - :test
     version: = 2.0.0.beta.12
-  will_paginate: 
+  formtastic: 
     group: 
     - :default
-    version: ">= 0"
-  devise: 
-    group: 
-    - :default
-    version: ">= 0"
-  paperclip: 
-    group: 
-    - :default
-    version: = 2.3.3
-  cucumber-rails: 
+    version: = 1.0.0.beta
+  database_cleaner: 
     group: 
     - :test
-    version: = 0.3.2
+    version: = 0.5.2
   mocha: 
     group: 
     - :test
     version: = 0.9.8
+  cucumber-rails: 
+    group: 
+    - :test
+    version: = 0.3.2
+  paperclip: 
+    group: 
+    - :default
+    version: = 2.3.3
+  devise: 
+    group: 
+    - :default
+    version: ">= 0"
+  will_paginate: 
+    group: 
+    - :default
+    version: ">= 0"
   cucumber: 
     group: 
     - :test
@@ -144,6 +148,8 @@ specs:
 - devise: 
     version: 1.1.rc1
     source: 1
+- faker: 
+    version: 0.3.1
 - formtastic: 
     version: 1.0.0.beta
 - haml: 
@@ -187,7 +193,7 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: 3f468c22655354bb98069e643f09ee3d150459ee
+hash: 26a1d1c61c708c4a79a55e932bcd99358efc0878
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git

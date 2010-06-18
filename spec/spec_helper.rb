@@ -12,6 +12,9 @@ require File.expand_path(File.dirname(__FILE__) + "/blueprints")
 
 Rspec.configure do |config|
   config.mock_with :mocha
+  
+  config.use_transactional_fixtures = true
+  config.use_instantiated_fixtures  = false
 
   config.before(:all)    { Sham.reset(:before_all)  }
   config.before(:each)   { Sham.reset(:before_each) }

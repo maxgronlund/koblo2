@@ -1,13 +1,13 @@
 class Follow < ActiveRecord::Base
 
-  named_scope :for_follower,    lambda { |*args| {:conditions => ["follower_id = ? AND follower_type = ?", args.first.id, args.first.type.name]} }
-  named_scope :for_followable, lambda { |*args| {:conditions => ["followable_id = ? AND followable_type = ?", args.first.id, args.first.type.name]} }
-  named_scope :recent,       lambda { |*args| {:conditions => ["created_at > ?", (args.first || 2.weeks.ago).to_s(:db)]} }
-  named_scope :descending, :order => "created_at DESC"
-  named_scope :unblocked, :conditions => {:blocked => false}
-  named_scope :blocked, :conditions => {:blocked => true}
-  named_scope :inactive, :conditions => {:active => false}
-  named_scope :active, :conditions => {:active => true}
+  scope :for_follower,    lambda { |*args| {:conditions => ["follower_id = ? AND follower_type = ?", args.first.id, args.first.type.name]} }
+  scope :for_followable, lambda { |*args| {:conditions => ["followable_id = ? AND followable_type = ?", args.first.id, args.first.type.name]} }
+  scope :recent,       lambda { |*args| {:conditions => ["created_at > ?", (args.first || 2.weeks.ago).to_s(:db)]} }
+  scope :descending, :order => "created_at DESC"
+  scope :unblocked, :conditions => {:blocked => false}
+  scope :blocked, :conditions => {:blocked => true}
+  scope :inactive, :conditions => {:active => false}
+  scope :active, :conditions => {:active => true}
 
   scope :for_user, lambda { |user| where('follower_id = ? OR followable_id = ? AND followable_type = ?', user.id, user.id, User.to_s).group('follower_id') }
 

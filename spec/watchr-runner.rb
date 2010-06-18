@@ -17,7 +17,7 @@ end
 
 def run_single_spec *spec
   spec = spec.join(' ')
-  run "script/spec -O spec/spec.opts #{spec}"
+  run "spec #{spec}"
 end
 
 def run_specs_with_shared_examples(shared_example_filename, spec_path = 'spec')
