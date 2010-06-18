@@ -17,7 +17,7 @@
     %h3.head &nbsp;
     %ul
       %li
-        %a{:href => "#"} Edit Profil
+        %a{:href => "#"} Edit Profile
       %li
         %a{:href => "#"} Account settings
       %li &nbsp;
@@ -31,153 +31,20 @@
       %li
         %img{:alt => "", :src => "/images/connection.gif"}/
   .music_my_tracks
-    .tracks_row_none01
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb21.jpg"}/
-      .col08
-        %strong Blakestad Brothers
-      .col09
-        %span Following
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon05.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon06.gif"}/
-    .tracks_row
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb22.jpg"}/
-      .col08
-        %strong Not Afraid
-      .col09
-        %span Following
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon05.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon06.gif"}/
-    .tracks_row
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb23.jpg"}/
-      .col08
-        %strong Tonight Band
-      .col09
-        %span Follows you
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon06.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon07.gif"}/
-    .tracks_row
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb24.jpg"}/
-      .col08
-        %strong Dark Horse
-      .col09
-        %span Connected
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon05.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon07.gif"}/
-    .tracks_row
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb25.jpg"}/
-      .col08
-        %strong K&euml;wl NYss
-      .col09
-        %span Follows you
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon06.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon07.gif"}/
-    .tracks_row
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb26.jpg"}/
-      .col08
-        %strong Yelllow Airballoon
-      .col09
-        %span Following
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon05.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon06.gif"}/
-    .tracks_row
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb27.jpg"}/
-      .col08
-        %strong Regina
-      .col09
-        %span Following
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon05.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon06.gif"}/
-    .tracks_row
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb28.jpg"}/
-      .col08
-        %strong Coldplay
-      .col09
-        %span Follows you
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon06.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon07.gif"}/
-    .tracks_row
-      .col07
-        %img{:alt => "", :src => "/images/thumbnails/thumb29.jpg"}/
-      .col08
-        %strong Rihanna
-      .col09
-        %span Following
-      .col10
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon05.gif"}/
-      .col11
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/icons/icon06.gif"}/
-    .paging
-      %ul
-        %li.btn
-          %a{:href => "#"} First
-        %li.btn
-          %a{:href => "#"} Previous
-        %li.first
-          %a.current{:href => "#"} 1
-        %li
-          %a{:href => "#"} 2
-        %li
-          %a{:href => "#"} 3
-        %li
-          %a{:href => "#"} 4
-        %li
-          %a{:href => "#"} 5
-        %li
-          %a{:href => "#"} 6
-        %li
-          %a{:href => "#"} 7
-        %li
-          %a{:href => "#"} 8
-        %li
-          %a{:href => "#"} 9
-        %li
-          %a{:href => "#"} 10
-        %li.last of 8029
-        %li.btn
-          %a{:href => "#"} Next
-        %li.btn
-          %a{:href => "#"} Last
+    - for follow in @follows do
+      - opposite_user = follow.opposite_user_of(@user)
+      .tracks_row
+        .col07
+          %img{:alt => "", :src => "/images/thumbnails/thumb22.jpg"}/
+        .col08
+          %strong= link_to opposite_user.name, opposite_user
+        .col09
+          %span= follow.relationship_with_user(@user).titleize
+        .col10
+          %a{:href => "#"}
+            = @user.following?(opposite_user) ? image_tag('icons/following.gif') : image_tag('icons/not_following.gif')
+        .col11
+          %a{:href => "#"}
+            = @user.followed_by?(opposite_user) ? image_tag('icons/follows.gif') : image_tag('icons/not_following.gif')
 #bottom_curve_main
 %span.clear

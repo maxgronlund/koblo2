@@ -20,14 +20,14 @@
     .gallery
       %h4
         Connections
-        %small= current_user.connections.size
+        %small= @connections_count
       %ul
-        - for connection in current_user.connections.first(16)
+        - for follow in @follows
           %li
             %a{:href => "#"}
               %img{:alt => "", :src => "/images/thumbnails/thumb01.jpg"}/
       %strong
-        = link_to "View all", connections_path
+        = link_to "View all", user_connections_path(@user)
 #right_container
   .tabs
     %ul

@@ -9,6 +9,22 @@ class Follow < ActiveRecord::Base
   named_scope :inactive, :conditions => {:active => false}
   named_scope :active, :conditions => {:active => true}
 
+  scope :for_user, lambda { |user| where('follower_id = ? OR followable_id = ? AND followable_type = ?', user.id, user.id, User.to_s).group('follower_id') }
+
+  def relationship_with_user(user)
+    if (follower.followed_by?(followable))
+      'connected'
+    elsif (user == followable)
+      'follows you'
+    else
+      'following'
+    end
+  end
+
+  def opposite_user_of(user)
+    user == follower ? followable : follower
+  end
+
   # NOTE: Follows belong to the "followable" interface, and also to followers
   belongs_to :followable, :polymorphic => true
   belongs_to :follower,   :polymorphic => true

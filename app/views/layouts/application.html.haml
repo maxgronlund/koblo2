@@ -39,9 +39,10 @@
                 %a{:href => '/pages/why'} Why
             %form{:action => '/'}
               %fieldset
-                %span
-                  %a{:href => "#", :id => 'join_link'}
-                    %img{:alt => "", :src => "/images/join.gif"}/
+                - unless user_signed_in?
+                  %span
+                    %a{:href => "#", :id => 'join_link'}
+                      %img{:alt => "", :src => "/images/join.gif"}/
                 %input.search{:name => "", :type => "submit", :value => ""}/
                 .input_bg
                   %input{:name => "q", :type => "text"}/
