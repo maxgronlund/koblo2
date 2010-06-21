@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100617133637) do
+ActiveRecord::Schema.define(:version => 20100621134742) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -71,10 +71,17 @@ ActiveRecord::Schema.define(:version => 20100617133637) do
     t.integer  "song_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "sound_file_name"
-    t.string   "sound_content_type"
-    t.integer  "sound_file_size"
     t.datetime "sound_updated_at"
+    t.integer  "user_id"
+    t.string   "uploaded_data_file_name"
+    t.string   "uploaded_data_content_type"
+    t.integer  "uploaded_data_file_size"
+    t.string   "mp3_file_name"
+    t.string   "mp3_content_type"
+    t.integer  "mp3_file_size"
+    t.string   "wav_file_name"
+    t.string   "wav_content_type"
+    t.integer  "wav_file_size"
   end
 
   create_table "users", :force => true do |t|

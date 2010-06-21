@@ -3,6 +3,8 @@ Koblo2::Application.routes.draw do |map|
 
   resources :users do
     resources :connections
+    resources :songs
+    resources :tracks
   end
 
   map.pages '/pages/:slug', :controller => 'pages', :action => 'show'

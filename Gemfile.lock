@@ -28,6 +28,10 @@ dependencies:
     group: 
     - :test
     version: = 1.0.6
+  mime-types: 
+    group: 
+    - :default
+    version: = 1.16
   inherited_resources: 
     group: 
     - :default
@@ -39,7 +43,11 @@ dependencies:
   formtastic: 
     group: 
     - :default
-    version: = 1.0.0.beta
+    version: ">= 0"
+  resque: 
+    group: 
+    - :default
+    version: = 1.9.5
   database_cleaner: 
     group: 
     - :test
@@ -104,7 +112,7 @@ specs:
 - treetop: 
     version: 1.4.8
 - mail: 
-    version: 2.2.4
+    version: 2.2.5
 - actionmailer: 
     version: 3.0.0.beta4
 - arel: 
@@ -147,11 +155,12 @@ specs:
     version: 0.10.7
 - devise: 
     version: 1.1.rc1
-    source: 1
+    source: 2
 - faker: 
     version: 0.3.1
 - formtastic: 
     version: 1.0.0.beta
+    source: 1
 - haml: 
     version: 3.0.12
 - has_scope: 
@@ -160,6 +169,8 @@ specs:
     version: 0.6.1
 - inherited_resources: 
     version: 1.1.2
+- json: 
+    version: 1.4.3
 - machinist: 
     version: 1.0.6
 - mocha: 
@@ -174,6 +185,16 @@ specs:
     version: 3.0.0.beta4
 - rails: 
     version: 3.0.0.beta4
+- redis: 
+    version: 2.0.1
+- redis-namespace: 
+    version: 0.5.1
+- sinatra: 
+    version: "1.0"
+- vegas: 
+    version: 0.1.7
+- resque: 
+    version: 1.9.5
 - rspec-core: 
     version: 2.0.0.beta.12
 - rspec-expectations: 
@@ -193,7 +214,7 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: 26a1d1c61c708c4a79a55e932bcd99358efc0878
+hash: a7916cb5b38be40e461e5c9d67252cbc5121d260
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git
@@ -201,8 +222,13 @@ sources:
     git: http://github.com/mislav/will_paginate.git
     ref: 60aa1c7b2ef03ee7c7a5ed657efb479a69f7d128
 - Git: 
+    uri: http://github.com/justinfrench/formtastic.git
+    branch: rails3
+    git: http://github.com/justinfrench/formtastic.git
+    ref: 506182bcdb33637b53a8793bc33eff5abe53ba4c
+- Git: 
     uri: git://github.com/plataformatec/devise.git
     git: git://github.com/plataformatec/devise.git
-    ref: ac0105d15f5bcc78f7a4b496eb52b0a5e9a27100
+    ref: 3660cbac301bd6f0543ea5b92050afe02bbcc689
 - Rubygems: 
     uri: http://rubygems.org

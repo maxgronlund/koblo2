@@ -38,8 +38,7 @@
         %a{:href => "#"}
           %img{:alt => "", :src => "/images/my_tracks.gif"}/
       %li
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/upload.gif"}/
+        = link_to image_tag('upload.gif'), new_user_song_path(current_user)
   .music_my_tracks
     .tracks_row_none
       .col01

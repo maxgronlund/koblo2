@@ -1,0 +1,34 @@
+#song_upload
+  - semantic_form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
+    - form.inputs do
+      = form.input :title
+      = form.buttons
+
+  - semantic_form_for(Track.new, :url => user_tracks_path, :html => {:multipart => true}) do |form|
+    - form.inputs do
+      = form.input :uploaded_data, :as => :file
+      = form.buttons
+
+  - content_for :document_ready do
+    $('#track_submit').hide();
+    - session_key_name = '_koblo2_session' # request.session_options[:key]
+    $('#track_uploaded_data_input').uploadify({
+    uploader      : '/javascripts/uploadify/uploadify.swf',
+    script        : '#{user_tracks_path}',
+    fileDataName  : $('#track_uploaded_data_input input:file')[0].name, 
+    buttonText    : 'add tracks',
+    auto          : true,
+    multi         : true,
+    simUploadLimit : 4,
+    fileExt       : '*.mp3;*.wav;*.aac;*.wma',
+    fileDesc      : 'Audio Files',
+    cancelImg     : '/images/cancel.png',
+    onComplete    : function(event, queueID, fileObj, response, data) { window.location.reload(); return false; },
+    onError       : function(event, queueID, fileObj, errorObj) { foobar = errorObj; },
+    scriptData    : {
+    'format': 'json', 
+    '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
+    'authenticity_token'  : encodeURIComponent('#{u form_authenticity_token}') 
+    },
+    });
+

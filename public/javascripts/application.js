@@ -40,5 +40,7 @@ $(document).ready(function () {
     $('#step_3_back_button').click(function() {
       $('#join_popup_div').tabs('select', 1);
     });
+
+    var foobar = null;
 });
 

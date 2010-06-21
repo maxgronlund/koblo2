@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   belongs_to :record_label
 
   has_many :songs
+  has_many :tracks
 
   has_attached_file :picture, :styles => { :bigger => "73x73>", :normal => '48x48>', :mini => "24x24>" }
 

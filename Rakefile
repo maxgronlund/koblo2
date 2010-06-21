@@ -8,3 +8,5 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 Rails::Application.load_tasks
+
+require 'resque/tasks'
