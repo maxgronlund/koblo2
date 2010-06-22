@@ -8,6 +8,7 @@
  */
 ( function( $ ) {
 	var sm = soundManager;
+  soundManager.debugMode = true;
 	$.playable = $.extend( function( url, settings ) {
 		if ( typeof url == 'object' && url.url ) { // Allow to pass all settings including URL in one single object
 			settings = url;
@@ -140,7 +141,6 @@
 		else
 			sm.onready( function() {
 				songs.each( function() {
-					if ( sm.canPlayURL( this.href ) )
 						$.playable.init.call( this, options, playlist );
 				});
 				if ( options && options.autoStart )

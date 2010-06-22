@@ -55,4 +55,7 @@
         %small Studio
     .tracks_row.up   
       %h3
-        You haven't uploaded any tracks.
+        - if @user.songs.size == 0
+          You haven't uploaded any tracks.
+        - else
+          = render @user.songs.first(9)

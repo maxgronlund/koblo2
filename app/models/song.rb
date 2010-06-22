@@ -4,6 +4,8 @@ class Song < ActiveRecord::Base
   has_many :tracks
   has_many :ratings
 
+  accepts_nested_attributes_for :tracks
+
   scope :best, joins(:ratings).group('ratings.song_id').order('AVG(ratings.value) DESC')
   scope :newest, order('created_at DESC')
 

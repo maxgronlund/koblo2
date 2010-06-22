@@ -1,14 +1,15 @@
 .tracks_row.none
   .col01
     .btn
-      %a{:href => 'mp3/mustang_sally.mp3'}
+      %a{:href => "#{song.tracks.size > 0 ? song.tracks.first.uploaded_data.url : 'mp3/mustang_sally.mp3'}" }
         %img{:alt => "", :src => "/images/icons/icon01.gif"}/
     %strong= song.title
   .col02 &nbsp;
   .col03
     %span== #{song.duration / 60}:#{'%02d' % (song.duration % 60)}
   .col04
-    .rating{:style => "width:#{(song.rating * 60/5).to_i}px"}
+    - rating = song.rating ? (song.rating * 60/5).to_i : 0
+    .rating{:style => "width:#{rating}px"}
       .rating_over{:style => "width:100%;"}
   .col05
     %span

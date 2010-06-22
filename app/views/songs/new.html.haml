@@ -1,8 +1,9 @@
 #song_upload
   - semantic_form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
     - form.inputs do
-      = form.input :title
-      = form.buttons
+      = form.input :title, :label => 'Song Title'
+      = form.inputs :title, :for => :tracks, :name => 'Track Title'
+      = form.buttons :id => 'new_song_button'
 
   - semantic_form_for(Track.new, :url => user_tracks_path, :html => {:multipart => true}) do |form|
     - form.inputs do
@@ -23,10 +24,9 @@
     fileExt       : '*.mp3;*.wav;*.aac;*.wma',
     fileDesc      : 'Audio Files',
     cancelImg     : '/images/cancel.png',
-    onComplete    : function(event, queueID, fileObj, response, data) { window.location.reload(); return false; },
-    onError       : function(event, queueID, fileObj, errorObj) { foobar = errorObj; },
+    onComplete    : function(event, queueID, fileObj, response, data) { eval(response); return false },
     scriptData    : {
-    'format': 'json', 
+    'format': 'js', 
     '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
     'authenticity_token'  : encodeURIComponent('#{u form_authenticity_token}') 
     },

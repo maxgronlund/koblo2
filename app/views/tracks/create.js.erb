@@ -1,0 +1,2 @@
+$('#new_song_button').before('<li>Track Title <input id="song_tracks_attributes_0_title" maxlength="255" name="song[tracks_attributes][][title]" size="50" type="text" value="<%= @track.title %>"><input id="song_tracks_attributes_0_id" name="song[tracks_attributes][][id]" type="hidden" value="<%= @track.id %>"><a id="play_<%= @track.id%>" type="audio/mpeg" href="<%= @track.uploaded_data.url %>"><img src="/images/icons/icon01.gif" alt=""></a><img src="/images/cancel.png" border="0"></li>');
+$("#play_<%= @track.id %>").playable();
