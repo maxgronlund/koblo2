@@ -6,7 +6,8 @@
     %strong= song.title
   .col02 &nbsp;
   .col03
-    %span== #{song.duration / 60}:#{'%02d' % (song.duration % 60)}
+    - duration = song.duration ? "#{song.duration / 60}:#{'%02d' % (song.duration % 60)}" : 0
+    %span= duration
   .col04
     - rating = song.rating ? (song.rating * 60/5).to_i : 0
     .rating{:style => "width:#{rating}px"}

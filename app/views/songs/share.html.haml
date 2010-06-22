@@ -1,0 +1,79 @@
+:javascript
+  // Configuration Object
+    var conf =
+    {
+        APIKey: '2_hpP7bhcZfnrFUV7lMAXaU0Sn_6gor7g-ngQJFM3CQZA7HSj1LjKitl6vWe14btk1' ,cid: "Share Example page"
+    };
+   
+    // Create and Publish User's Action
+    // This method is associated with the "btnPublishAction" click
+    function showShareUI() {
+
+    // Constructing a UserAction Object
+    var act = new gigya.services.socialize.UserAction();
+
+    // Setting the default user message 
+    // (will be presented as default text in the edit box on the Share UI)
+    act.setUserMessage("Checkout this song...");
+
+    // Setting the title and description 
+    // (will be presented in the preview on the Share UI)
+    act.setTitle("Share #{@song.title}");
+    act.setDescription("");
+
+        // Setting a link back to the publishing source
+    act.setLinkBack("http://www.youtube.com/watch?v=jqxENMKaeCU");
+
+    // Adding Action Link
+    act.addActionLink("Watch the movie", 
+        "http://www.youtube.com/watch?v=jqxENMKaeCU&feature=channel_page");
+
+    // Adding an image (will be presented in the preview on the Share UI)
+      var image = {
+            src: '#{url_for("/images/logo.png")}',
+          href: 'http://www.youtube.com/watch?v=G8IozVfph7I&feature=channel_page',
+          type: 'image'
+      }
+  act.addMediaItem(image);
+
+  // Parameters for the showShareUI method, including the UserAction object
+  var params = 
+  {
+      userAction: act  // The UserAction object enfolding the newsfeed data.			                                  
+      ,onError: onError  // onError method will be summoned if an error occurs. 
+      ,onSendDone: onSendDone // onError method will be summoned after 
+                          // Gigya finishes the publishing process.
+                      
+    ,showMoreButton: true // Enable the "More" button and screen
+    ,showEmailButton: true // Enable the "Email" button and screen
+      ,useHTML: true  // Use the HTML implementation of the Plugin (rather then Flash implementation)
+    ,enabledProviders: "facebook,twitter,myspace"
+  };
+
+  // Show the "Share" dialog
+  gigya.services.socialize.showShareUI(conf, params);
+
+  }
+
+  // onError event handler
+  function onError(event) {
+      alert('An error has occured' + ': ' + event.errorCode + '; ' + event.errorMessage);
+  }
+
+  // onSendDone event handler. 
+  // Displays in the status field, the list of providers to which the newsfeed has been 
+  // successfully published.
+  function onSendDone(event)
+  {
+      document.getElementById('status').style.color = "green";
+      document.getElementById('status').innerHTML = 
+                          'The newsfeed has been posted to: ' 
+              + event.providers;
+  }
+
+%h4 Please, click the button below to open the "Share" dialog...
+%input#btnShare{:onclick => "javascript:showShareUI()", :type => "button", :value => "Share"}/
+#status
+- content_for :document_ready do
+  showShareUI();
+

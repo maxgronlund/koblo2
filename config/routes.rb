@@ -8,6 +8,7 @@ Koblo2::Application.routes.draw do |map|
   end
 
   map.pages '/pages/:slug', :controller => 'pages', :action => 'show'
+  map.share '/users/:user_id/songs/:song_id/share', :controller => 'songs', :action => 'share'
 
   root :to => "home#index"
 end

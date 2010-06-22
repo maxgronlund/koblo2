@@ -8,15 +8,17 @@ class SongsController < ApplicationController
       track = Track.find(track_attributes.delete(:id))
       track.update_attributes(track_attributes)
       @song.tracks << track
-    end
+    end if tracks_attributes
 
-    respond_to do |format|
-      if @song.save
-        redirect_to user_path(current_user)        
-      else
-        format.html { render :action => "new" }
-      end
+    if @song.save
+      redirect_to share_path(:user_id => params[:user_id], :song_id => @song.id) 
+    else
+      render :action => "new" 
     end
+  end
+
+  def share
+    @song = Song.find_by_id(params[:song_id])
   end
 
 end
