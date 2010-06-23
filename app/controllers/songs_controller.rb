@@ -1,5 +1,7 @@
 class SongsController < ApplicationController
 
+  skip_before_filter :authenticate_user!, :only => [:show]
+
   def create
     tracks_attributes = params[:song].delete(:tracks_attributes)
     @song = current_user.songs.create(params[:song])
@@ -19,6 +21,14 @@ class SongsController < ApplicationController
 
   def share
     @song = Song.find_by_id(params[:song_id])
+  end
+  
+  def show
+    @songs = [Song.find(params[:id])]
+    respond_to do |format|
+      format.html
+      format.xml { render '/home/index' }
+    end
   end
 
 end

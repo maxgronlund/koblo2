@@ -7,6 +7,8 @@ Koblo2::Application.routes.draw do |map|
     resources :tracks
   end
 
+  resources :songs
+
   map.pages '/pages/:slug', :controller => 'pages', :action => 'show'
   map.share '/users/:user_id/songs/:song_id/share', :controller => 'songs', :action => 'share'
 
