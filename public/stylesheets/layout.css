@@ -803,3 +803,29 @@ input:focus {
   margin-left: 26px; }
 #login #user_password {
   margin-left: 7px; }
+
+ol {
+  list-style-type: none; }
+
+.uploadifyQueueItem {
+  float: left;
+  clear: both;
+  width: 550px; }
+
+.track_title {
+  float: left; }
+
+.track_info {
+  float: left; }
+
+#song_title_input label, #song_title_input input, .track_title {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px; }
+
+#track_uploaded_data_inputUploader {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+#song_submit {
+  margin-top: 10px; }
