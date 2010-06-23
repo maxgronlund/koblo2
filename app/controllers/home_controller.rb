@@ -9,6 +9,11 @@ class HomeController < ApplicationController
     else
       @songs = Song.search_for(params[:q]).best.paginate :page => (params[:page] || 1), :per_page => 5
     end
+
+    respond_to do |format|
+      format.html
+      format.xml
+    end
   end
 
 end

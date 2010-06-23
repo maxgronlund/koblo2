@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <map_xml>
+ 
+  <% for song in @songs do %>	
+
+	<song>
+		<artist><%=h song.user ? song.user.name : song.title -%></artist>
+		<title><%=h song.title %></title>
+    <% if song.tracks && song.tracks.size > 0 %>
+		<mixdown_url><%= song.tracks.first.mp3.url -%></mixdown_url>
+    <% for track in song.tracks do %>
+		<track>
+			<url><%= track.mp3.url if track.mp3? -%></url>
+			<name><%= track.title -%></name>
+		</track>
+    <% end %>
+    <% end %>
+	</song>
+  <% end %>
+	
+ </map_xml>
