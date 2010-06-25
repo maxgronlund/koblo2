@@ -47,7 +47,7 @@
   - unless uri =~ /\?/
     - uri += '?format=xml' 
   - else
-    - uri += '&format=xml'
+    - uri += '&amp;format=xml'
   :javascript
     var flashvars = {};
     flashvars.url = "#{uri}";
