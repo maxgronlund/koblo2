@@ -59,4 +59,12 @@ File.open('db/fixtures/u2_songs.txt').each_line do |line|
 end
 
 # PAGES
-['Why', 'Who', 'Terms', 'Help'].each { |title| Page.create(:title => title) }
+{ 1 => 'Why', 
+  2 => 'Who',
+  3 => 'Terms',
+  4 => 'Help'
+}.each do |id, title|
+  page = Page.find_or_create_by_id(id)
+  body = File.readlines("#{Rails.root}/db/#{title.downcase}.html")
+  page.update_attributes(:title => title, :body => body)
+end

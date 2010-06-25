@@ -1,0 +1,10 @@
+- semantic_form_for @page do |form|
+  = form.inputs
+  = form.buttons do
+    = form.commit_button :class => 'wymupdate'
+
+- content_for :javascript_includes do
+  %script{:src => "/wymeditor/jquery.wymeditor.pack.js", :type => "text/javascript"}
+
+- content_for :document_ready do
+  $('#page_body').wymeditor();
