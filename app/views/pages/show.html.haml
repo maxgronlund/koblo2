@@ -1,5 +1,4 @@
-%h1= @page.title
+%h2= link_to 'edit', edit_page_path(@page) if current_user && current_user.admin?
 
 = @page.body.html_safe
 
-= link_to 'edit', edit_page_path(@page) if current_user && current_user.admin?

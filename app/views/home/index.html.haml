@@ -28,21 +28,8 @@
     %li
       %a{:href => "#"}
         %img{:alt => "", :src => "/images/top_10.gif"}/
+#flashDiv
 .music_my_tracks
-  .tracks_row_none
-    .col01
-      %small Artist
-    .col02 &nbsp;
-    .col03
-      %small Duration
-    .col04
-      %small Rating
-    .col05
-      %small Shop
-    .col06
-      %small Studio
-  = render @songs
-
   .paging
     %ul
       %li.btn
@@ -52,3 +39,20 @@
       
       %li.btn
         %a{:href => url_for(:page => @songs.total_pages)} Last
+
+- content_for :javascript_includes do
+  - uri  = request.protocol
+  - uri += request.host_with_port
+  - uri += request.request_uri
+  - unless uri =~ /\?/
+    - uri += '?format=xml' 
+  - else
+    - uri += '&format=xml'
+  :javascript
+    var flashvars = {};
+    flashvars.url = "#{uri}";
+    var params = {};
+    params.menu = "false";
+    params.scale = "noscale";
+    var attributes = {};
+    swfobject.embedSWF("MiniStudio.swf", "flashDiv", "750", "580", "10.0.0", "expressInstall.swf", flashvars, params, attributes);
