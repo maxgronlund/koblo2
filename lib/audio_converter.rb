@@ -11,6 +11,8 @@ class AudioConverter
       unless stdout =~ /Audio encoding failed/
         track.mp3 = File.new(mp3_file)
         track.save
+        track.mp3.instance_write(:content_type, 'audio/mpeg')
+        track.save
       end
     end
     unless track.wav?
