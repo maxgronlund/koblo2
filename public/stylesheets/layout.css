@@ -299,7 +299,17 @@ a:focus {
   .tabs li {
     float: left;
     width: auto;
-    padding-right: 42px; }
+    padding-right: 42px;
+    font-size: 1.5em;
+    color: white;
+    font-weight: bolder;
+    vertical-align: top;
+    line-height: 0.8em; }
+  .tabs a:link, .tabs a:visited {
+    text-decoration: none;
+    color: #4f636d; }
+  .tabs li.selected a:link, .tabs li.selected a:visited {
+    color: white; }
 
 .music_my_tracks {
   float: left;

@@ -1,33 +1,9 @@
--# 
-  Welcome
-  - if current_user
-    = current_user.email
-    = link_to 'sign out', destroy_user_session_path
-  - else
-    = form_for(:user, :url => user_session_path) do |f|
-      = f.label :email
-      = f.text_field :email
-
-      = f.label :password
-      = f.password_field :password
-
-      = f.submit 'sign in'
-    = link_to 'sign up', new_user_registration_path
-    = link_to 'forgot password?', new_user_password_path
-
 .tabs
   %ul
-    %li= link_to_unless_current image_tag('best.gif'),   :action => 'index', :scope => 'best'
-    %li= link_to_unless_current image_tag('newest.gif'), :action => 'index', :scope => 'newest'
-    %li
-      %a{:href => "#"}
-        %img{:alt => "", :src => "/images/most.gif"}/
-    %li
-      %a{:href => "#"}
-        %img{:alt => "", :src => "/images/our.gif"}/
-    %li
-      %a{:href => "#"}
-        %img{:alt => "", :src => "/images/top_10.gif"}/
+    = tab_link('Best', :default => true)
+    = tab_link('Newest')
+    = tab_link('Most Downloaded')
+    = tab_link('Our Top 10')
 #flashDiv
 .music_my_tracks
   .paging

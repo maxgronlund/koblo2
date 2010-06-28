@@ -4,9 +4,11 @@
     %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
     %title Koblo
 
-    = javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.1.custom.min', 'soundmanager2', 'jquery.playable', 'uploadify/swfobject', 'uploadify/jquery.uploadify.v2.1.0.min', 'dropdown', 'application'
+    = javascript_include_tag 'jquery-1.4.2.min.js', 'jquery-ui-1.8.1.custom.min', 'soundmanager2', 'jquery.playable', 'uploadify/swfobject', 'uploadify/jquery.uploadify.v2.1.0.min', 'cufon-yui', 'VAGRoundedBlackSSK_700.font', 'dropdown', 'application'
     = javascript_include_tag 'http://cdn.gigya.com/JS/socialize.js?apikey=2_Y82PzwJ_chSFImHXaIDJClnLyJzmk-VFOavSsaNTzl6m901s_NNxRAS0xJ3bd3_N'
     = yield :javascript_includes
+    :javascript
+      Cufon.replace('.cufon');
     %script
       $.playable('/swf/');
       $(function(){
@@ -71,6 +73,8 @@
         %span.clear
 
     :javascript
+      Cufon.now();
+
       $(document).ready(function() {
         #{yield :document_ready}
       });
