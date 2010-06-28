@@ -3,6 +3,7 @@
 %h2= link_to 'edit', edit_page_path(@page) if current_user && current_user.admin?
 
 .middle
+  %h1.cufon= @page.title
   = @page.body.html_safe
 
 .bottom

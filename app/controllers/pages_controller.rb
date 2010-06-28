@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   before_filter :require_admin, :except => :show 
 
   def show
-    @page   = Page.find_by_title(params[:id])
+    @page   = Page.find_by_short_title(params[:id])
     @page ||= Page.find_by_id(params[:id])
   end
 

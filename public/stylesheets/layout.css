@@ -867,3 +867,9 @@ ol {
   background-repeat: no-repeat;
   height: 11px;
   width: 980px; }
+#pages a {
+  color: #55b2ba;
+  text-decoration: none; }
+#pages a:hover {
+  color: white;
+  text-decoration: underline; }
