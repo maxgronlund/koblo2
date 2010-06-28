@@ -1,4 +1,8 @@
+.top
+
 %h2= link_to 'edit', edit_page_path(@page) if current_user && current_user.admin?
 
-= @page.body.html_safe
+.middle
+  = @page.body.html_safe
 
+.bottom

@@ -16,6 +16,7 @@
     %style{:media => "screen", :type => "text/css"}
       @import url("/stylesheets/layout.css");
     /[if IE] <link rel="stylesheet" type="text/css" href="stylesheets/ie.css">  %body
+  %body{:id => @controller_name, :class => @action_name}
     #outer_layout
       #layout
         #header
@@ -50,17 +51,20 @@
                   %input{:name => "q", :type => "text"}/
         #main
           #main_top
-            #banner_area
-              %img{:alt => "", :src => "/images/banner01.jpg"}/
-            #body_container
-              #top_curve_main
-                - if controller.class == PagesController || controller.class == UsersController || controller.class == ConnectionsController
-                  = yield
-                - else
-                  = render :partial => 'shared/sidebar'
-                  = render :partial => 'shared/main'
-            #bottom_curve_main
-            %span.clear
+            - if controller.class == PagesController
+              = yield
+            - else
+              #banner_area
+                %img{:alt => "", :src => "/images/banner01.jpg"}/
+              #body_container
+                #top_curve_main
+                  - if controller.class == UsersController || controller.class == ConnectionsController
+                    = yield
+                  - else
+                    = render :partial => 'shared/sidebar'
+                    = render :partial => 'shared/main'
+              #bottom_curve_main
+              %span.clear
           = render :partial => 'shared/join'
                 
         #main_bottom
