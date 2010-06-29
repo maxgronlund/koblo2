@@ -1,7 +1,7 @@
 #left_container
   .profile
-    %h3
-      %img.png{:alt => "", :src => "/images/profile.png"}/
+    %h3.cufon
+      Profile
     .profilbillede
       %div
         .curve
@@ -17,7 +17,7 @@
       - else
         = link_to "Follow #{@user.name}", user_connections_path(:user_id => @user.id), :method => :post
 
-    %h3
+    %h3.cufon
       = @user.name
     %p
       %strong Web

@@ -1,7 +1,7 @@
 #left_container
   .library
-    %h3.koblo
-      %img.png{:alt => "", :src => "/images/my_koblo.png"}/
+    %h3.koblo.cufon
+      My Koblo
     %ul
       %li
         %a{:href => "#"} Latest
@@ -28,8 +28,8 @@
 #right_container
   .tabs
     %ul
-      %li
-        %img{:alt => "", :src => "/images/connection.gif"}/
+      %li.cufon
+        Connections
   .music_my_tracks
     - for follow in @follows do
       - opposite_user = follow.opposite_user_of(@user)
@@ -39,7 +39,7 @@
         .col08
           %strong= link_to opposite_user.name, opposite_user
         .col09
-          - if @user.following?(opposite_user) && opposite_user.followin?(@user)
+          - if @user.following?(opposite_user) && opposite_user.following?(@user)
             %span Connected
           - elsif(@user.following?(opposite_user))
             %span== Follows #{opposite_user.name}
