@@ -867,6 +867,8 @@ ol {
   background-repeat: no-repeat;
   height: 11px;
   width: 980px; }
+#pages .highlight {
+  color: #55b2ba; }
 #pages a {
   color: #55b2ba;
   text-decoration: none; }
