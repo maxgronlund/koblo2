@@ -42,8 +42,8 @@
 #right_container
   .tabs
     %ul
-      = tab_link('Latest', '')
-      = tab_link('My Tracks', '')
-      = tab_link('Upload', new_user_song_path(current_user))
+      = user_tab('Latest', '')
+      = user_tab('My Tracks', '')
+      = user_tab('Upload', new_user_song_path(current_user))
   - for activity in @activities do
     = render_activity(activity)
