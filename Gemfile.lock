@@ -19,7 +19,7 @@ dependencies:
   haml: 
     group: 
     - :default
-    version: = 3.0.12
+    version: = 3.0.13
   mysql: 
     group: 
     - :default
@@ -39,7 +39,7 @@ dependencies:
   rspec-rails: 
     group: 
     - :test
-    version: = 2.0.0.beta.12
+    version: = 2.0.0.beta.14.2
   formtastic: 
     group: 
     - :default
@@ -67,7 +67,7 @@ dependencies:
   devise: 
     group: 
     - :default
-    version: ">= 0"
+    version: = 1.1.rc2
   will_paginate: 
     group: 
     - :default
@@ -75,7 +75,7 @@ dependencies:
   cucumber: 
     group: 
     - :test
-    version: = 0.8.1
+    version: = 0.8.3
   capybara: 
     group: 
     - :test
@@ -94,11 +94,11 @@ specs:
 - activemodel: 
     version: 3.0.0.beta4
 - erubis: 
-    version: 2.6.5
+    version: 2.6.6
 - rack: 
     version: 1.1.0
 - rack-mount: 
-    version: 0.6.4
+    version: 0.6.6
 - rack-test: 
     version: 0.5.4
 - tzinfo: 
@@ -146,7 +146,7 @@ specs:
 - term-ansicolor: 
     version: 1.0.5
 - cucumber: 
-    version: 0.8.1
+    version: 0.8.3
 - cucumber-rails: 
     version: 0.3.2
 - database_cleaner: 
@@ -154,15 +154,14 @@ specs:
 - warden: 
     version: 0.10.7
 - devise: 
-    version: 1.1.rc1
-    source: 2
+    version: 1.1.rc2
 - faker: 
     version: 0.3.1
 - formtastic: 
     version: 1.0.0.beta
     source: 1
 - haml: 
-    version: 3.0.12
+    version: 3.0.13
 - has_scope: 
     version: 0.5.0
 - responders: 
@@ -180,13 +179,13 @@ specs:
 - paperclip: 
     version: 2.3.3
 - thor: 
-    version: 0.13.6
+    version: 0.13.7
 - railties: 
     version: 3.0.0.beta4
 - rails: 
     version: 3.0.0.beta4
 - redis: 
-    version: 2.0.1
+    version: 2.0.3
 - redis-namespace: 
     version: 0.5.1
 - sinatra: 
@@ -196,17 +195,17 @@ specs:
 - resque: 
     version: 1.9.5
 - rspec-core: 
-    version: 2.0.0.beta.12
+    version: 2.0.0.beta.14
 - rspec-expectations: 
-    version: 2.0.0.beta.12
+    version: 2.0.0.beta.14
 - rspec-mocks: 
-    version: 2.0.0.beta.12
+    version: 2.0.0.beta.14
 - rspec: 
-    version: 2.0.0.beta.12
+    version: 2.0.0.beta.14
 - webrat: 
     version: 0.7.1
 - rspec-rails: 
-    version: 2.0.0.beta.12
+    version: 2.0.0.beta.14.2
 - scoped_search: 
     version: 2.2.0
 - spork: 
@@ -214,7 +213,7 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: a7916cb5b38be40e461e5c9d67252cbc5121d260
+hash: 47f7e32c9e0832b71a63f1585199a565a4b8d020
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git
@@ -226,9 +225,5 @@ sources:
     branch: rails3
     git: http://github.com/justinfrench/formtastic.git
     ref: 506182bcdb33637b53a8793bc33eff5abe53ba4c
-- Git: 
-    uri: git://github.com/plataformatec/devise.git
-    git: git://github.com/plataformatec/devise.git
-    ref: 3660cbac301bd6f0543ea5b92050afe02bbcc689
 - Rubygems: 
     uri: http://rubygems.org
