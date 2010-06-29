@@ -45,3 +45,5 @@
       = tab_link('Latest', '')
       = tab_link('My Tracks', '')
       = tab_link('Upload', new_user_song_path(current_user))
+  - for activity in @activities do
+    = render_activity(activity)

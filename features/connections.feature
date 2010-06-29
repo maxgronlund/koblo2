@@ -38,8 +38,19 @@ Feature: In order to see what's going on with interesting people on Koblo
   Scenario: Creating a connection
     Given I am logged in as "Joe"
     And I am looking at the profile page for "Nephew"
-    Then show me the page
     And I follow "Follow Nephew"
     Then I should see "Following"
 
-# Then show me the page
+  Scenario: Removing a connection
+    Given I am logged in as "Joe"
+    And "Joe" is following "Nephew"
+    And I am looking at the profile page for "Nephew"
+    And I follow "Unfollow Nephew"
+    Then I should see "Follow Nephew"
+
+  Scenario: Activity from a connection
+    Given "Joe" is following "Nephew"
+    And "Nephew" just added a song called "DTAP"
+    Given I am logged in as "Joe"
+    Then I should see "Nephew added a new song called DTAP"
+

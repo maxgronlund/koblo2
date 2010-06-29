@@ -23,3 +23,8 @@ Given /^I am looking at the profile page for "([^"]*)"$/ do |name|
   visit user_path(user)
 end
 
+Given /^"([^"]*)" just added a song called "([^"]*)"$/ do |user_name, song_title|
+  user = User.where(:name => user_name).first
+  Song.make(:title => song_title, :user => user)
+end
+

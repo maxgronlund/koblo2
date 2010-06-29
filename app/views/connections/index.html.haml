@@ -39,7 +39,12 @@
         .col08
           %strong= link_to opposite_user.name, opposite_user
         .col09
-          %span= follow.relationship_with_user(@user).titleize
+          - if @user.following?(opposite_user) && opposite_user.followin?(@user)
+            %span Connected
+          - elsif(@user.following?(opposite_user))
+            %span== Follows #{opposite_user.name}
+          - else
+            %span== Followed by #{opposite_user.name}
         .col10
           %a{:href => "#"}
             = @user.following?(opposite_user) ? image_tag('icons/following.gif') : image_tag('icons/not_following.gif')
