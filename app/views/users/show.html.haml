@@ -6,6 +6,17 @@
       %div
         .curve
       %img{:alt => "", :src => "/images/profile.jpg"}/
+    - if current_user == @user
+      This is you
+    - else
+      - follow = Follow.for_users(current_user, @user).first
+      - if follow.present?
+        = follow.relationship_with_user(@user).titleize
+        - if current_user.following?(@user)
+          = link_to "Unfollow #{@user.name}", user_connection_path(:user_id => @user.id), :method => :delete
+      - else
+        = link_to "Follow #{@user.name}", user_connections_path(:user_id => @user.id), :method => :post
+
     %h3
       = @user.name
     %p
@@ -31,31 +42,6 @@
 #right_container
   .tabs
     %ul
-      %li
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/latest.gif"}/
-      %li
-        %a{:href => "#"}
-          %img{:alt => "", :src => "/images/my_tracks.gif"}/
-      %li
-        = link_to image_tag('upload.gif'), new_user_song_path(current_user)
-  .music_my_tracks
-    .tracks_row_none
-      .col01
-        %small Artist
-      .col02
-        %small Title
-      .col03
-        %small Duration
-      .col04
-        %small Rating
-      .col05
-        %small Shop
-      .col06
-        %small Studio
-    .tracks_row.up   
-      %h3
-        - if @user.songs.size == 0
-          You haven't uploaded any tracks.
-        - else
-          = render @user.songs.first(9)
+      = tab_link('Latest', '')
+      = tab_link('My Tracks', '')
+      = tab_link('Upload', new_user_song_path(current_user))

@@ -7,4 +7,5 @@ Feature: In order to have access to my profile
     And I fill in "user_email" with "john@doe.com"
     And I fill in "user_password" with "very_secret"
     And I press "Sign in"
-    Then I should see "Welcome john@doe.com"
+    And I print
+    Then I should see "Logged in as johndoe"

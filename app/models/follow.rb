@@ -10,16 +10,18 @@ class Follow < ActiveRecord::Base
   scope :active, :conditions => {:active => true}
 
   scope :for_user, lambda { |user| where('follower_id = ? OR followable_id = ? AND followable_type = ?', user.id, user.id, User.to_s).group('follower_id') }
+  scope :for_users, lambda { |user1, user2| where('(follower_id =? AND followable_id = ?) OR (follower_id = ? AND followable_id = ?)', user1.id, user2.id, user2.id, user1.id) }
 
   def relationship_with_user(user)
     if (follower.followed_by?(followable))
       'connected'
-    elsif (user == followable)
+    elsif (user == follower)
       'follows you'
     else
       'following'
     end
   end
+
 
   def opposite_user_of(user)
     user == follower ? followable : follower

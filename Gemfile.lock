@@ -2,11 +2,11 @@
 dependencies: 
   faker: 
     group: 
-    - :test
+    - :cucumber
     version: = 0.3.1
   spork: 
     group: 
-    - :test
+    - :cucumber
     version: = 0.8.4
   rails: 
     group: 
@@ -26,7 +26,7 @@ dependencies:
     version: = 2.8.1
   machinist: 
     group: 
-    - :test
+    - :cucumber
     version: = 1.0.6
   mime-types: 
     group: 
@@ -36,9 +36,13 @@ dependencies:
     group: 
     - :default
     version: = 1.1.2
+  database_cleaner: 
+    group: 
+    - :cucumber
+    version: = 0.5.2
   rspec-rails: 
     group: 
-    - :test
+    - :cucumber
     version: = 2.0.0.beta.14.2
   formtastic: 
     group: 
@@ -48,18 +52,10 @@ dependencies:
     group: 
     - :default
     version: = 1.9.5
-  database_cleaner: 
-    group: 
-    - :test
-    version: = 0.5.2
   mocha: 
     group: 
-    - :test
+    - :cucumber
     version: = 0.9.8
-  cucumber-rails: 
-    group: 
-    - :test
-    version: = 0.3.2
   paperclip: 
     group: 
     - :default
@@ -72,13 +68,21 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
+  cucumber-rails: 
+    group: 
+    - :cucumber
+    version: = 0.3.2
   cucumber: 
     group: 
-    - :test
+    - :cucumber
     version: = 0.8.3
+  launchy: 
+    group: 
+    - :cucumber
+    version: = 0.3.5
   capybara: 
     group: 
-    - :test
+    - :cucumber
     version: = 0.3.8
 specs: 
 - rake: 
@@ -137,6 +141,8 @@ specs:
     version: 0.0.24
 - capybara: 
     version: 0.3.8
+- configuration: 
+    version: 1.1.0
 - diff-lcs: 
     version: 1.1.2
 - trollop: 
@@ -170,6 +176,8 @@ specs:
     version: 1.1.2
 - json: 
     version: 1.4.3
+- launchy: 
+    version: 0.3.5
 - machinist: 
     version: 1.0.6
 - mocha: 
@@ -213,7 +221,7 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: 47f7e32c9e0832b71a63f1585199a565a4b8d020
+hash: eb24fbf3352a699178401f24598f8f4acb4b5c6e
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git

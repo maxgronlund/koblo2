@@ -14,6 +14,14 @@ gem "mime-types", "1.16"
 gem "resque", "1.9.5"
 
 group :test do
+  gem "rspec-rails", "2.0.0.beta.14.2"
+  gem "spork", "0.8.4"
+  gem "mocha", "0.9.8"
+  gem "machinist", "1.0.6"
+  gem "faker", "0.3.1"
+end
+
+group :cucumber do
   gem "capybara", "0.3.8"
   gem "database_cleaner", "0.5.2"
   gem "cucumber-rails", "0.3.2"
@@ -23,4 +31,5 @@ group :test do
   gem "mocha", "0.9.8"
   gem "machinist", "1.0.6"
   gem "faker", "0.3.1"
+  gem "launchy", "0.3.5"
 end
