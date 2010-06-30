@@ -9,6 +9,7 @@ class ConnectionsController < ApplicationController
     @user = User.find_by_id(params[:id])
     current_user.follow(@user)
     if params[:from] == 'connections'
+      @user = current_user
       @follows = Follow.for_user(current_user).paginate(:per_page => 9, :page => (params[:page] || 1))
     end
     respond_to do |format|
@@ -21,6 +22,7 @@ class ConnectionsController < ApplicationController
     @user = User.find_by_id(params[:id])
     current_user.stop_following(@user)
     if params[:from] == 'connections'
+      @user = current_user
       @follows = Follow.for_user(current_user).paginate(:per_page => 9, :page => (params[:page] || 1))
     end
     respond_to do |format|
