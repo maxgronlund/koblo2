@@ -7,8 +7,8 @@ class AudioConverter
     unless track.mp3?
       mp3_file = '/tmp/' + filename_with_no_extension + ".mp3"
       `rm -f #{mp3_file}`
-      stdout = `ffmpeg -ab 128k -i #{track.uploaded_data.path} #{mp3_file} 2>&1`
-      unless stdout =~ /Audio encoding failed/
+      stdout = `lame #{track.uploaded_data.path} #{mp3_file} 2>&1`
+      unless stdout =~ /Warning: unsupported audio format/
         track.mp3 = File.new(mp3_file)
         track.save
         track.mp3.instance_write(:content_type, 'audio/mpeg')
