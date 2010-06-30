@@ -769,14 +769,24 @@ a:focus {
     background: url(../images/next_btn.gif) no-repeat 0 0; }
   .content_join input.back_btn {
     float: right;
-    width: 70px;
-    height: 22px;
+    width: 77px;
+    height: 23px;
     border: none;
     cursor: pointer;
     padding: 0;
     margin-top: 33px;
     margin-right: 10px;
-    background: url(../images/back_btn.gif) no-repeat 0 0; }
+    background: url(../images/back_btn.png) no-repeat 0 0; }
+  .content_join input.finish_btn {
+    float: right;
+    width: 77px;
+    height: 23px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 33px;
+    margin-right: 10px;
+    background: url(../images/finish_btn.png) no-repeat 0 0; }
 
 .next_page {
   margin-left: 12px;
