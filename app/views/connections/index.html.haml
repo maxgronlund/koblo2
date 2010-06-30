@@ -26,45 +26,6 @@
       %li &nbsp;
     %h3.head &nbsp;
 #right_container
-  .tabs
-    %ul
-      %li.cufon
-        Connections
-  .music_my_tracks
-    - for follow in @follows do
-      - opposite_user = follow.opposite_user_of(@user)
-      .tracks_row
-        .col07
-          %img{:alt => "", :src => "/images/thumbnails/thumb22.jpg"}/
-        .col08
-          %strong= link_to opposite_user.name, opposite_user
-        .col09
-          - if @user.following?(opposite_user) && opposite_user.following?(@user)
-            %span Connected
-          - elsif(@user.following?(opposite_user))
-            - if @user == current_user 
-              %span== You follow #{opposite_user.name} 
-            - else
-              %span== #{@user.name} follows #{opposite_user.name}
-          - else
-            - if @user == current_user 
-              %span== You are followed by #{opposite_user.name}
-            - else
-              %span== #{@user.name} is followed by #{opposite_user.name}
-        .col10
-          %a{:href => "#"}
-            - if @user.following?(opposite_user) 
-              - if @user == current_user 
-                = link_to image_tag('icons/following.gif'), user_connection_path(:user_id => current_user.id, :id => opposite_user.id), :method => :delete
-              - else
-                = image_tag('icons/following.gif')
-            - else
-              - if @user == current_user
-                = link_to image_tag('icons/not_following.gif'), user_connections_path(:user_id => current_user.id, :id => opposite_user.id), :method => :post
-              - else
-                = image_tag('icons/not_following.gif')
-        .col11
-          %a{:href => "#"}
-            = @user.followed_by?(opposite_user) ? image_tag('icons/follows.gif') : image_tag('icons/not_following.gif')
+  = render :partial => 'connections'
 #bottom_curve_main
 %span.clear

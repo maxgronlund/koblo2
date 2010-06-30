@@ -6,14 +6,20 @@ class ConnectionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_id(params[:id])
-    current_user.follow(user)
-    redirect_to user_path(user)
+    @user = User.find_by_id(params[:id])
+    current_user.follow(@user)
+    respond_to do |format|
+      format.html { user_path(@user) }
+      format.js
+    end
   end
 
   def destroy
-    user = User.find_by_id(params[:id])
-    current_user.stop_following(user)
-    redirect_to user_path(user)
+    @user = User.find_by_id(params[:id])
+    current_user.stop_following(@user)
+    respond_to do |format|
+      format.html { user_path(@user) }
+      format.js
+    end
   end
 end
