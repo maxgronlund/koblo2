@@ -42,12 +42,27 @@
           - if @user.following?(opposite_user) && opposite_user.following?(@user)
             %span Connected
           - elsif(@user.following?(opposite_user))
-            %span== Follows #{opposite_user.name}
+            - if @user == current_user 
+              %span== You follow #{opposite_user.name} 
+            - else
+              %span== #{@user.name} follows #{opposite_user.name}
           - else
-            %span== Followed by #{opposite_user.name}
+            - if @user == current_user 
+              %span== You are followed by #{opposite_user.name}
+            - else
+              %span== #{@user.name} is followed by #{opposite_user.name}
         .col10
           %a{:href => "#"}
-            = @user.following?(opposite_user) ? image_tag('icons/following.gif') : image_tag('icons/not_following.gif')
+            - if @user.following?(opposite_user) 
+              - if @user == current_user 
+                = link_to image_tag('icons/following.gif'), user_connection_path(:user_id => current_user.id, :id => opposite_user.id), :method => :delete
+              - else
+                = image_tag('icons/following.gif')
+            - else
+              - if @user == current_user
+                = link_to image_tag('icons/not_following.gif'), user_connections_path(:user_id => current_user.id, :id => opposite_user.id), :method => :post
+              - else
+                = image_tag('icons/not_following.gif')
         .col11
           %a{:href => "#"}
             = @user.followed_by?(opposite_user) ? image_tag('icons/follows.gif') : image_tag('icons/not_following.gif')
