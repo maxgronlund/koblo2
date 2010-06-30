@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
- <map_xml>
+<koblo file_type = "mini_studio" studio_version="0"  file_format_version="0">
   <% host = "#{request.protocol}#{request.host_with_port}" %>
   <% for song in @songs do %>	
-
 	<song>
-		<artist><%=h song.user ? song.user.name : song.title -%></artist>
-		<title><%=h song.title %></title>
-    <% if song.tracks && song.tracks.size > 0 %>
+		<itunes_tags>
+			<key>Name</key><string><%= song.title %></string>
+			<key>Artist</key><string><%=h song.user ? song.user.name : song.title -%></string>
+			<key>Total Time</key><integer>190000</integer>
+		</itunes_tags>
 		<mixdown_url><%= host + song.tracks.first.mp3.url -%></mixdown_url>
     <% for track in song.tracks do %>
 		<track>
@@ -14,8 +15,6 @@
 			<name><%= track.title -%></name>
 		</track>
     <% end %>
-    <% end %>
 	</song>
   <% end %>
-	
- </map_xml>
+ </koblo>
