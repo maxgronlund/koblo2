@@ -1,7 +1,12 @@
-%h1 Users
-
-- for user in @users do
-  %ul
-    %li= user.email
-    %li= user.created_at
+%h1 Artists
+.music_my_tracks
+  - for user in @users do
+    .tracks_row
+      .col07
+        - if user.picture?  
+          = image_tag(user.picture.url(:thumb))
+        - else
+          = image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture')
+      .col08
+        %strong= link_to user.name, user
 

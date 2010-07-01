@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
 
-  before_filter :require_admin, :only => :index
+  skip_before_filter :authenticate_user!
 
   def index
-    @users = User.all
+    unless params[:record_label_id].blank?
+      @users = User.where(:record_label_id => params[:record_label_id])
+    else
+      @users = User.all
+    end
+    @users = @users.paginate(:per_page => 10, :page => (params[:page] || 1))
   end
 
   def show

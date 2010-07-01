@@ -14,20 +14,11 @@
       %li
         %a{:href => "#"} Chill out
     %h3.head.cufon
-      We suggest
+      Labels
     %ul
-      %li
-        %a{:href => "#"} Top 25 Most Played
-      %li
-        %a{:href => "#"} Top 25 Most Downloaded
-      %li
-        %a.current{:href => "#"} 90ties Music
-      %li
-        %a{:href => "#"} My Top Rated
-      %li
-        %a{:href => "#"} Recently Added
-      %li
-        %a{:href => "#"} Recently Played
+      - for record_label in RecordLabel.first(10)
+        %li
+          = link_to record_label.name, users_path(:record_label_id => record_label.id)
     %h3.head.cufon
       Software
     %ul
