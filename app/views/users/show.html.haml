@@ -35,12 +35,13 @@
             - else
               = link_to image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture'), opposite_user
       %strong
-        = link_to "View all", user_connections_path(@user)
+        = "Edit profile" if @user == current_user
 #right_container
   .tabs
     %ul
       = user_tab('Latest', '')
       = user_tab(@user == current_user ? 'My Tracks' : 'Tracks', '')
       = user_tab('Upload', new_user_song_path(current_user)) if @user == current_user
+      = user_tab('Connections', user_connections_path(@user))
   - for activity in @activities do
     = render_activity(activity)
