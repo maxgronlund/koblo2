@@ -9,7 +9,7 @@
     %li
       %a{:href => '#login'} Login
   #signup_steps
-    %form{:action => "/users", :method => 'post'}
+    = form_for User.new, :html => { :multipart => true } do |f|
       #step1.join_popup
         .top_curve_join
         .join_repeat
@@ -27,6 +27,7 @@
                     = image_tag('http://dummyimage.com/109x88/091417/fff.png&text=No+profile+picture')
                     %span
                       %a{:href => "#"} Upload picture
+                      = f.file_field :picture
                 .right_sec
                   .form_row
                     %label Name
