@@ -9,7 +9,6 @@ class Follow < ActiveRecord::Base
   scope :inactive, :conditions => {:active => false}
   scope :active, :conditions => {:active => true}
 
-  scope :for_user, lambda { |user| where('follower_id = ? OR followable_id = ? AND followable_type = ?', user.id, user.id, User.to_s).group('follower_id') }
   scope :for_users, lambda { |user1, user2| where('(follower_id =? AND followable_id = ?) OR (follower_id = ? AND followable_id = ?)', user1.id, user2.id, user2.id, user1.id) }
 
   def relationship_with_user(user)
@@ -22,6 +21,19 @@ class Follow < ActiveRecord::Base
     end
   end
 
+  def self.for_user(user, page, per_page)
+    find_by_sql(["
+      SELECT * FROM follows WHERE (follower_id = ? OR followable_id = ?) AND follower_id IN (
+      SELECT MIN(follower_id) FROM follows WHERE (follower_id = ? OR followable_id = ?)
+      ) LIMIT ?, ?", user.id, user.id, user.id, user.id, (page - 1) * per_page, per_page])
+  end
+
+  def self.count_for_user(user)
+    count_by_sql(["
+      SELECT COUNT(*) FROM follows WHERE (follower_id = ? OR followable_id = ?) AND follower_id IN (
+      SELECT MIN(follower_id) FROM follows WHERE (follower_id = ? OR followable_id = ?)
+      )", user.id, user.id, user.id, user.id ])
+  end
 
   def opposite_user_of(user)
     user == follower ? followable : follower

@@ -2,7 +2,7 @@ class ConnectionsController < ApplicationController
 
   def index
     @user = User.find_by_id(params[:user_id])
-    @follows = Follow.for_user(@user).paginate(:per_page => 9, :page => (params[:page] || 1))
+    set_follows
   end
 
   def create
@@ -10,7 +10,7 @@ class ConnectionsController < ApplicationController
     current_user.follow(@user)
     if params[:from] == 'connections'
       @user = current_user
-      @follows = Follow.for_user(current_user).paginate(:per_page => 9, :page => (params[:page] || 1))
+      set_follows
     end
     respond_to do |format|
       format.html { user_path(@user) }
@@ -23,11 +23,18 @@ class ConnectionsController < ApplicationController
     current_user.stop_following(@user)
     if params[:from] == 'connections'
       @user = current_user
-      @follows = Follow.for_user(current_user).paginate(:per_page => 9, :page => (params[:page] || 1))
+      set_follows
     end
     respond_to do |format|
       format.html { user_path(@user) }
       format.js
     end
+  end
+
+  private
+  def set_follows
+    per_page = 9
+    page = params[:page].blank? ? 1 : params[:page].to_i
+    @follows = Follow.for_user(@user, page, per_page)
   end
 end
