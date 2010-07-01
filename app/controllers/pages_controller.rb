@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
 
-  skip_before_filter :authenticate_user!, :only => :show  
   before_filter :require_admin, :except => :show 
 
   def show

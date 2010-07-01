@@ -1,0 +1,12 @@
+- content_for :content do
+  = render :partial => 'shared/frontpage_sidebar'
+  #right_container
+    .tabs
+      %ul
+        = tab_link('Best')
+        = tab_link('Newest')
+        = tab_link('Most Downloaded')
+        = tab_link('Our Top 10')
+    = yield :sub_content
+    
+= render :file => 'layouts/application'

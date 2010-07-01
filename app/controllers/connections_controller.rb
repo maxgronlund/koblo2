@@ -1,5 +1,10 @@
 class ConnectionsController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:create, :destroy]
+
+  before_filter :sidebar_for_user, :only => :index
+  layout 'user_content', :only => :index
+
   def index
     @user = User.find_by_id(params[:user_id])
     set_follows

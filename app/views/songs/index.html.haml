@@ -1,0 +1,29 @@
+- content_for :sub_content do
+  #flashDiv
+  .music_my_tracks
+    .paging
+      %ul
+        %li.btn
+          %a{:href => url_for(:page => 1)} First
+
+        = will_paginate @songs, :inner_window => 2, :container => false, :previous_label => 'Previous', :next_label => 'Next', :renderer => PaginationListLinkRenderer
+        
+        %li.btn
+          %a{:href => url_for(:page => @songs.total_pages)} Last
+
+  - content_for :javascript_includes do
+    - uri  = request.protocol
+    - uri += request.host_with_port
+    - uri += request.request_uri
+    - unless uri =~ /\?/
+      - uri += '?format=xml' 
+    - else
+      - uri += '&format=xml'
+    :javascript
+      var flashvars = {};
+      flashvars.url = "#{uri}";
+      var params = {};
+      params.menu = "false";
+      params.scale = "noscale";
+      var attributes = {};
+      swfobject.embedSWF("MiniStudio.swf", "flashDiv", "750", "580", "10.0.0", "expressInstall.swf", flashvars, params, attributes);

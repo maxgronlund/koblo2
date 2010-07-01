@@ -59,11 +59,7 @@
                 %img{:alt => "", :src => "/images/banner01.jpg"}/
               #body_container
                 #top_curve_main
-                  - if controller.class == UsersController || controller.class == ConnectionsController
-                    = yield
-                  - else
-                    = render :partial => 'shared/sidebar'
-                    = render :partial => 'shared/main'
+                  = yield :content
               #bottom_curve_main
               %span.clear
           = render :partial => 'shared/join'

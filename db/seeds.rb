@@ -20,7 +20,7 @@ Other
 EOT
 
 RECORD_LABELS.split("\n").each do |name|
-  RecordLabel.create(:name => name)
+  RecordLabel.find_or_create_by_name(name)
 end
 
 # USERS
@@ -67,4 +67,31 @@ end
   page = Page.find_or_create_by_id(id)
   body = File.readlines("#{Rails.root}/db/#{title.downcase}.html")
   page.update_attributes(:title => title, :body => body)
+end
+
+CATEGORIES =<<EOT
+alternative
+blues
+children's music
+Christian & gospel
+classical
+comedy
+country
+dance
+electronic
+hip-hop/rap
+jazz
+Latino
+pop
+R&B/soul
+reggae
+rock
+singer–songwriter
+soundtrack
+vocal
+world
+EOT
+
+CATEGORIES.split("\n").each do |name|
+  Category.find_or_create_by_name(name)
 end

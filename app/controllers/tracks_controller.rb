@@ -1,5 +1,7 @@
 class TracksController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:create, :destroy]
+
   # Watch this https://rails.lighthouseapp.com/projects/8994-ruby-on-rails/tickets/3913
   skip_before_filter :verify_authenticity_token, :only => :create
   

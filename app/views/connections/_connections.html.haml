@@ -1,9 +1,4 @@
 #connections_list
-  .tabs
-    %ul
-      %li.cufon
-        Connections
-
   .music_my_tracks
     - for follow in @follows do
       - opposite_user = follow.opposite_user_of(@user)

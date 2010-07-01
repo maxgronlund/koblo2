@@ -1,0 +1,24 @@
+#left_container
+  .library
+    %h3.cufon
+      Library
+    %ul
+      - for category in @categories
+        - css_class = current_page?(:controller => 'songs', :action => 'index', :category_id => category) ? 'selected' : ''
+        %li= link_to category.name, songs_path(:category_id => category), :class => css_class
+    %h3.head.cufon
+      Labels
+    %ul
+      - for record_label in @record_labels
+        %li
+          - css_class = current_page?(:controller => 'users', :action => 'index', :record_label_id => record_label) ? 'selected' : ''
+          = link_to record_label.name, users_path(:record_label_id => record_label), :class => css_class
+    %h3.head.cufon
+      Software
+    %ul
+      %li
+        %a{:href => "#"} Synths
+      %li
+        %a{:href => "#"} Plugins
+      %li
+        %a{:href => "#"} Other

@@ -251,6 +251,9 @@ a:focus {
       .library li a.current {
         color: #00f7ff;
         cursor: text; }
+    .library li a.selected {
+      color: white;
+      font-weight: bolder; }
   .library h3.head {
     background: url(../images/head_bg.gif) no-repeat 0 0;
     height: 35px;

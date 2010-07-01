@@ -1,34 +1,35 @@
-#song_upload
-  - semantic_form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
-    - form.inputs do
-      = form.input :title, :label => 'Song Title'
-      = form.inputs :title, :for => :tracks, :name => 'Track Title'
-      = form.buttons :id => 'new_song_button'
+- content_for :sub_content do
+  #song_upload
+    - semantic_form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
+      - form.inputs do
+        = form.input :title, :label => 'Song Title'
+        = form.inputs :title, :for => :tracks, :name => 'Track Title'
+        = form.buttons :id => 'new_song_button'
 
-  - semantic_form_for(Track.new, :url => user_tracks_path, :html => {:multipart => true}) do |form|
-    - form.inputs do
-      = form.input :uploaded_data, :as => :file
-      = form.buttons
+    - semantic_form_for(Track.new, :url => user_tracks_path, :html => {:multipart => true}) do |form|
+      - form.inputs do
+        = form.input :uploaded_data, :as => :file
+        = form.buttons
 
-  - content_for :document_ready do
-    $('#track_submit').hide();
-    - session_key_name = '_koblo2_session' # request.session_options[:key]
-    $('#track_uploaded_data_input').uploadify({
-    uploader      : '/javascripts/uploadify/uploadify.swf',
-    script        : '#{user_tracks_path}',
-    fileDataName  : $('#track_uploaded_data_input input:file')[0].name, 
-    buttonText    : 'add tracks',
-    auto          : true,
-    multi         : true,
-    simUploadLimit : 4,
-    fileExt       : '*.mp3;*.wav;*.aac;*.wma',
-    fileDesc      : 'Audio Files',
-    cancelImg     : '/images/cancel.png',
-    onComplete    : function(event, queueID, fileObj, response, data) { eval(response); return false },
-    scriptData    : {
-    'format': 'js', 
-    '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
-    'authenticity_token'  : encodeURIComponent('#{u form_authenticity_token}') 
-    },
-    });
+    - content_for :document_ready do
+      $('#track_submit').hide();
+      - session_key_name = '_koblo2_session' # request.session_options[:key]
+      $('#track_uploaded_data_input').uploadify({
+      uploader      : '/javascripts/uploadify/uploadify.swf',
+      script        : '#{user_tracks_path}',
+      fileDataName  : $('#track_uploaded_data_input input:file')[0].name, 
+      buttonText    : 'add tracks',
+      auto          : true,
+      multi         : true,
+      simUploadLimit : 4,
+      fileExt       : '*.mp3;*.wav;*.aac;*.wma',
+      fileDesc      : 'Audio Files',
+      cancelImg     : '/images/cancel.png',
+      onComplete    : function(event, queueID, fileObj, response, data) { eval(response); return false },
+      scriptData    : {
+      'format': 'js', 
+      '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
+      'authenticity_token'  : encodeURIComponent('#{u form_authenticity_token}') 
+      },
+      });
 

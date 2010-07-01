@@ -1,6 +1,41 @@
 class SongsController < ApplicationController
 
-  skip_before_filter :authenticate_user!, :only => [:show]
+  before_filter :authenticate_user!, :only => [:create, :destroy]
+  
+  before_filter :sidebar_for_user, :only => :new
+  layout 'user_content', :only => :new
+
+  def index
+    user_content = false
+    if params[:user_id] 
+      user_content = true
+      @songs = @user.songs.paginate(:per_page => 10, :page => (params[:page] || 1))
+    end
+
+    if params[:q]
+      @songs = Song.search_for(params[:q]).best.paginate :page => (params[:page] || 1), :per_page => 5
+    elsif params[:user_id] 
+      @songs = @user.songs.paginate(:per_page => 10, :page => (params[:page] || 1))
+    elsif params[:category_id]
+      @songs = Song.where(:category_id => params[:category_id]).paginate(:per_page => 10, :page => (params[:page] || 1))
+    else
+      scope = %w{best newest most_downloaded}.include?(params[:scope]) ? params[:scope] : 'best'
+      @songs = Song.send(scope).paginate :page => (params[:page] || 1), :per_page => 5
+    end
+    
+    if (user_content)
+      sidebar_for_user
+      content_layout = 'user_content'
+    else
+      sidebar_for_frontpage
+      content_layout = 'frontpage_content'
+    end
+
+    respond_to do |format|
+      format.html { render :index, :layout => content_layout }
+      format.xml
+    end
+  end
 
   def create
     tracks_attributes = params[:song].delete(:tracks_attributes)

@@ -1,13 +1,16 @@
-#right_container
-  %h1 Artists
-  .music_my_tracks
-    - for user in @users do
-      .tracks_row
-        .col07
-          - if user.picture?  
-            = image_tag(user.picture.url(:thumb))
-          - else
-            = image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture')
-        .col08
-          %strong= link_to user.name, user
+- content_for :sub_content do
+  #right_container
+    %h3 
+      Artists
+      = " for #{@record_label.name}" if @record_label
+    .music_my_tracks
+      - for user in @users do
+        .tracks_row
+          .col07
+            - if user.picture?  
+              = image_tag(user.picture.url(:thumb))
+            - else
+              = image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture')
+          .col08
+            %strong= link_to user.name, user
 

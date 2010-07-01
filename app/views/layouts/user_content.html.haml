@@ -1,0 +1,11 @@
+- content_for :content do
+  = render :partial => 'user_sidebar'
+  #right_container
+    .tabs
+      %ul
+        = user_tab('Latest', user_activities_path(@user))
+        = user_tab(@user == current_user ? 'My Tracks' : 'Tracks', '')
+        = user_tab('Upload', new_user_song_path(current_user)) if @user == current_user
+        = user_tab('Connections', user_connections_path(@user))
+    = yield :sub_content
+= render :file => 'layouts/application'

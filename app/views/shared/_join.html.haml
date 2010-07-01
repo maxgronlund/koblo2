@@ -195,3 +195,23 @@
 
     .bottom_curve_join
     %span.clear
+
+-#
+  - content_for :document_ready do
+    - session_key_name = '_koblo2_session' # request.session_options[:key]
+    $('#user_picture').uploadify({
+    uploader      : '/javascripts/uploadify/uploadify.swf',
+    script        : '#{user_tracks_path}',
+    fileDataName  : $('#_input input:file')[0].name, 
+    buttonImg     : '/images/upload_btn.png',
+    simUploadLimit : 4,
+    fileExt       : '*.jpg;*.png;*.gif;*.bmp',
+    fileDesc      : 'Picture Files',
+    cancelImg     : '/images/cancel.png',
+    onComplete    : function(event, queueID, fileObj, response, data) { eval(response); return false },
+    scriptData    : {
+    'format': 'js', 
+    '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
+    'authenticity_token'  : encodeURIComponent('#{u form_authenticity_token}') 
+    },
+    });
