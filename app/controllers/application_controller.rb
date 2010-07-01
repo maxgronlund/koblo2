@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def sidebar_for_user
-    @user = User.find_by_id(params[:id] || current_user.id)
+    @user = User.find_by_id(params[:user_id] || params[:id] || current_user.id)
     @connections_count = Follow.count_for_user(@user)
     @follows = Follow.for_user(@user, 1, 16)
   end
