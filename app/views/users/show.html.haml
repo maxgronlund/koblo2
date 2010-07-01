@@ -9,7 +9,7 @@
         = image_tag(@user.picture.url(:profile))
       - else
         = image_tag('http://dummyimage.com/200x160/091417/fff.png&text=No+profile+picture')
-      = render :partial => 'who_is_this'
+      = render :partial => 'who_is_this' if user_signed_in?
 
     %h3.cufon
       = @user.name
