@@ -9,7 +9,10 @@
       - opposite_user = follow.opposite_user_of(@user)
       .tracks_row
         .col07
-          %img{:alt => "", :src => "/images/thumbnails/thumb22.jpg"}/
+          - if opposite_user.picture?  
+            = image_tag(opposite_user.picture.url(:thumb))
+          - else
+            = image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture')
         .col08
           %strong= link_to opposite_user.name, opposite_user
         .col09

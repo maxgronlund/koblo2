@@ -5,8 +5,8 @@
     .profilbillede
       %div
         .curve
-      - if @user.picture?
-        = image_tag(@user.picture.url(:profile)) 
+      - if @user.picture? 
+        = image_tag(@user.picture.url(:profile))
       - else
         = image_tag('http://dummyimage.com/200x160/091417/fff.png&text=No+profile+picture')
       = render :partial => 'who_is_this'
@@ -29,8 +29,11 @@
       %ul
         - for follow in @follows
           %li
-            %a{:href => "#"}
-              %img{:alt => "", :src => "/images/thumbnails/thumb01.jpg"}/
+            - opposite_user = follow.opposite_user_of(@user)
+            - if opposite_user.picture?  
+              = link_to image_tag(opposite_user.picture.url(:thumb)), opposite_user
+            - else
+              = link_to image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture'), opposite_user
       %strong
         = link_to "View all", user_connections_path(@user)
 #right_container
