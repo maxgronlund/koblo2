@@ -14,6 +14,7 @@ class SongsController < ApplicationController
     user_content = false
     if params[:user_id] 
       user_content = true
+      sidebar_for_user
       @songs = @user.songs.paginate(pagination_options)
     end
 
@@ -33,7 +34,6 @@ class SongsController < ApplicationController
     end
     
     if (user_content)
-      sidebar_for_user
       content_layout = 'user_content'
     else
       sidebar_for_frontpage
