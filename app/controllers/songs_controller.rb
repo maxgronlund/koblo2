@@ -6,21 +6,30 @@ class SongsController < ApplicationController
   layout 'user_content', :only => :new
 
   def index
+    pagination_options = {
+      :page => (params[:page] || 1),
+      :per_page => 10
+    }
+
     user_content = false
     if params[:user_id] 
       user_content = true
-      @songs = @user.songs.paginate(:per_page => 10, :page => (params[:page] || 1))
+      @songs = @user.songs.paginate(pagination_options)
     end
 
     if params[:q]
-      @songs = Song.search_for(params[:q]).best.paginate :page => (params[:page] || 1), :per_page => 5
+      @songs = Song.search_for(params[:q]).best.paginate(pagination_options)
     elsif params[:user_id] 
-      @songs = @user.songs.paginate(:per_page => 10, :page => (params[:page] || 1))
+      @songs = @user.songs.paginate(pagination_options)
     elsif params[:category_id]
-      @songs = Song.where(:category_id => params[:category_id]).paginate(:per_page => 10, :page => (params[:page] || 1))
+      @songs = Song.where(:category_id => params[:category_id]).paginate(pagination_options)
     else
-      scope = %w{best newest most_downloaded}.include?(params[:scope]) ? params[:scope] : 'best'
-      @songs = Song.send(scope).paginate :page => (params[:page] || 1), :per_page => 5
+      scope = %w{newest most_downloaded}.include?(params[:scope]) ? params[:scope] : 'best'
+      if scope == 'best'
+        @songs = Song.paginate(pagination_options.merge({:joins => 'LEFT JOIN ratings ON ratings.song_id = songs.id', :group => 'songs.id', :order => 'AVG(ratings.value) DESC'}))
+      else
+        @songs = Song.send(scope).paginate(pagination_options)
+      end
     end
     
     if (user_content)
