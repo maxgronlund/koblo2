@@ -20,12 +20,12 @@
       %strong Record Label
       %span= @user.record_label ? link_to(@user.record_label.name, users_path(:record_label_id => @user.record_label)) : '-'
       %strong Tracks
-      %span= @user.songs.count
+      %span= link_to(@user.songs.count, songs_path(:user_id => @user))
     %p= @user.description 
     .gallery
       %h4
         Connections
-        %small= @connections_count
+        %small= link_to(@connections_count, user_connections_path(@user))
       %ul
         - for follow in @follows
           %li
