@@ -16,13 +16,12 @@
     #outer_layout
       #layout
         #header
-          %a{:href => "#{user_signed_in? ? user_path(current_user) : '/'}"}
-            %img.png{:alt => "", :src => "/images/logo.png"}/
+          = link_to image_tag('logo.png'), root_path
           .right_sec
             %ul
               - if user_signed_in?
                 %li
-                  == Logged in as #{current_user.name}
+                  = link_to "My profile (#{current_user.name})", user_path(current_user)
               %li
                 - if user_signed_in?
                   = link_to "Log out", destroy_user_session_path
