@@ -18,7 +18,7 @@
       %span
         = link_to @user.website, "http://#{@user.website}"
       %strong Record Label
-      %span= @user.record_label ? @user.record_label.name : '-'
+      %span= @user.record_label ? link_to(@user.record_label.name, users_path(:record_label_id => @user.record_label)) : '-'
       %strong Tracks
       %span= @user.songs.count
     %p= @user.description 
