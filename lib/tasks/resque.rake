@@ -6,7 +6,7 @@ namespace :queue do
       pids.concat(worker.worker_pids)
     end
     
-    system("kill -QUIT #{pids.join(' ')} && rm -f /var/run/god/resque-*.pid")
+    system("kill -QUIT #{pids.join(' ')}")
   end
 end
 
