@@ -3,12 +3,13 @@ require 'narray'
 require 'RMagick'
 include Magick
 
-class CreateWaveForm
+class CreateWaveform
+  @queue = :audio_conversion
 
   WIDTH = 450
   HEIGHT = 40
 
-  def self.create(track_id)
+  def self.perform(track_id)
     track = Track.find(track_id)
     file = track.uploaded_data.path
     buckets = fill_buckets WIDTH,file
@@ -19,8 +20,8 @@ class CreateWaveForm
     gc.draw(canvas)
 
     # Write waveform to temp file
-    output = Tempfile.new('waveform')
-    canvas.write("png:" + output.path)
+    output = TempfileWithExtension.new('waveform.png')
+    canvas.write(output.path)
 
     # And attach it to the track
     track.waveform = output
