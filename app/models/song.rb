@@ -16,4 +16,10 @@ class Song < ActiveRecord::Base
   end
 
   scoped_search :on => [:title]
+  
+  after_create :process_audio
+
+  def process_audio 
+    Resque.enqueue(CreateMixdown, id)
+  end
 end

@@ -10,10 +10,11 @@ class Track < ActiveRecord::Base
   has_attached_file :wav
   has_attached_file :waveform
 
-  after_create :convert_audio
+  after_create :process_audio
 
-  def convert_audio
+  def process_audio
     Resque.enqueue(AudioConverter, id)
+    Resque.enqueue(CreateWaveform, id)
   end
 
 end
