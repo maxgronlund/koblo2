@@ -21,8 +21,11 @@ end
   3 => 'Terms',
   4 => 'Help'
 }.each do |id, title|
-  page = Page.find_or_create_by_id(id)
-  body = File.readlines("#{Rails.root}/db/#{title.downcase}.html")
+  page = Page.find_by_id(id)
+  unless page
+    page = Page.create(:id => id)
+    body = File.readlines("#{Rails.root}/db/#{title.downcase}.html")
+  end
   page.update_attributes(:title => title, :body => body)
 end
 

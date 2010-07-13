@@ -8,6 +8,7 @@ class Track < ActiveRecord::Base
   has_attached_file :uploaded_data
   has_attached_file :mp3
   has_attached_file :wav
+  has_attached_file :waveform
 
   after_create :convert_audio
 

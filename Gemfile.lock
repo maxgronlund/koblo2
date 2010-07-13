@@ -4,6 +4,10 @@ dependencies:
     group: 
     - :cucumber
     version: = 0.3.1
+  narray: 
+    group: 
+    - :default
+    version: = 0.5.9.7
   spork: 
     group: 
     - :cucumber
@@ -72,6 +76,10 @@ dependencies:
     group: 
     - :cucumber
     version: = 0.3.2
+  rmagick: 
+    group: 
+    - :default
+    version: = 2.13.1
   cucumber: 
     group: 
     - :cucumber
@@ -184,6 +192,8 @@ specs:
     version: 0.9.8
 - mysql: 
     version: 2.8.1
+- narray: 
+    version: 0.5.9.7
 - paperclip: 
     version: 2.3.3
 - thor: 
@@ -202,6 +212,8 @@ specs:
     version: 0.1.7
 - resque: 
     version: 1.9.5
+- rmagick: 
+    version: 2.13.1
 - rspec-core: 
     version: 2.0.0.beta.14
 - rspec-expectations: 
@@ -221,7 +233,7 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: eb24fbf3352a699178401f24598f8f4acb4b5c6e
+hash: 7501ac899fcf96891b1e2839cf5b9095ac7dce12
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git

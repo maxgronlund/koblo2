@@ -12,6 +12,8 @@ gem "inherited_resources", "1.1.2"
 gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
 gem "mime-types", "1.16"
 gem "resque", "1.9.5"
+gem "rmagick", "2.13.1"
+gem "narray", "0.5.9.7"
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.14.2"

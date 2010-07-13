@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100701133953) do
+ActiveRecord::Schema.define(:version => 20100713103824) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -90,6 +90,9 @@ ActiveRecord::Schema.define(:version => 20100701133953) do
     t.string   "wav_file_name"
     t.string   "wav_content_type"
     t.integer  "wav_file_size"
+    t.string   "waveform_file_name"
+    t.string   "waveform_content_type"
+    t.integer  "waveform_content_file_size"
   end
 
   create_table "users", :force => true do |t|
