@@ -79,7 +79,7 @@ dependencies:
   rmagick: 
     group: 
     - :default
-    version: = 2.13.1
+    version: = 2.12.2
   cucumber: 
     group: 
     - :cucumber
@@ -110,7 +110,7 @@ specs:
 - rack: 
     version: 1.1.0
 - rack-mount: 
-    version: 0.6.6
+    version: 0.6.9
 - rack-test: 
     version: 0.5.4
 - tzinfo: 
@@ -213,15 +213,15 @@ specs:
 - resque: 
     version: 1.9.5
 - rmagick: 
-    version: 2.13.1
+    version: 2.12.2
 - rspec-core: 
-    version: 2.0.0.beta.14
+    version: 2.0.0.beta.17
 - rspec-expectations: 
-    version: 2.0.0.beta.14
+    version: 2.0.0.beta.17
 - rspec-mocks: 
-    version: 2.0.0.beta.14
+    version: 2.0.0.beta.17
 - rspec: 
-    version: 2.0.0.beta.14
+    version: 2.0.0.beta.17
 - webrat: 
     version: 0.7.1
 - rspec-rails: 
@@ -233,7 +233,7 @@ specs:
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: 7501ac899fcf96891b1e2839cf5b9095ac7dce12
+hash: a3040bcc93a1266afc607635da140c43731aa43a
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git
@@ -244,6 +244,6 @@ sources:
     uri: http://github.com/justinfrench/formtastic.git
     branch: rails3
     git: http://github.com/justinfrench/formtastic.git
-    ref: 506182bcdb33637b53a8793bc33eff5abe53ba4c
+    ref: 7ba805195bdf6422197829a1c509aa207b81da0a
 - Rubygems: 
     uri: http://rubygems.org
