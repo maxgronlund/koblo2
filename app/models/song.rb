@@ -3,6 +3,7 @@ class Song < ActiveRecord::Base
   belongs_to :user
   has_many :tracks
   has_many :ratings
+  belongs_to :category
 
   has_attached_file :mixdown
 

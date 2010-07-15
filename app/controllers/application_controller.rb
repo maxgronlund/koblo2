@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def sidebar_for_frontpage
-    @categories = Category.first(5)
+    @categories = Category.frontpage
     @record_labels = RecordLabel.first(10)
   end
 
