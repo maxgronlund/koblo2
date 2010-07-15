@@ -58,7 +58,7 @@ class CreateWaveform
   def self.sox_get_bytes file
     x=nil
     # read a 16 bit linear raw PCM file
-    sox_command = [ 'sox', '-t', 'mp3', file, '-t', 'raw', '-r', '400', '-c', '1', '-s', '-L', '-' ]
+    sox_command = [ 'sox', '-t', 'mp3', file, '-t', 'raw', '-r', '44100', '-c', '1', '-s', '-L', '-' ]
     # we have to fork/exec to get a clean commandline
     IO.popen('-') { |p|
       if p.nil? then
