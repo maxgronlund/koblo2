@@ -8,12 +8,16 @@ Koblo2::Application.routes.draw do |map|
     resources :connections
   end
 
-  resources :songs
+  resources :songs do
+    member do
+      get :share
+      get :buy
+      get :studio
+    end
+  end
 
   resources :pages
   map.pages '/pages/:slug', :controller => 'pages', :action => 'show'
-
-  map.share '/users/:user_id/songs/:song_id/share', :controller => 'songs', :action => 'share'
 
   root :to => "home#index"
 end

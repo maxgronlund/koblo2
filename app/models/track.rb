@@ -17,4 +17,8 @@ class Track < ActiveRecord::Base
     Resque.enqueue(CreateWaveform, id)
   end
 
+  def self.regenerate_waveforms
+    all.each { |track| CreateWaveform.perform(track.id) }
+  end
+
 end

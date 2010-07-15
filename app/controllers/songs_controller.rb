@@ -4,6 +4,8 @@ class SongsController < ApplicationController
   
   before_filter :sidebar_for_user, :only => :new
   layout 'user_content', :only => :new
+  before_filter :sidebar_for_frontpage, :except => [:index, :new]
+  layout 'frontpage_content', :except => [:index, :new]
 
   def index
     pagination_options = {
@@ -63,8 +65,16 @@ class SongsController < ApplicationController
     end
   end
 
+  def buy
+    @song = Song.find_by_id(params[:id])
+  end
+
   def share
-    @song = Song.find_by_id(params[:song_id])
+    @song = Song.find_by_id(params[:id])
+  end
+
+  def studio
+    @song = Song.find_by_id(params[:id])
   end
   
   def show

@@ -6,8 +6,8 @@ include Magick
 class CreateWaveform
   @queue = :audio_conversion
 
-  WIDTH = 450
-  HEIGHT = 40
+  WIDTH = 490
+  HEIGHT = 36 
 
   def self.perform(track_id)
     track = Track.find(track_id)
