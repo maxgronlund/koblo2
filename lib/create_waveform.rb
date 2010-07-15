@@ -22,7 +22,6 @@ class CreateWaveform
 
     # Write waveform to temp file
     output = TempfileWithExtension.new('waveform.png')
-    #canvas.transparent('transparent').write(output.path)
     canvas.write(output.path)
 
     # And attach it to the track
