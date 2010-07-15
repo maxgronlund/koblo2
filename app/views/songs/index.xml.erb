@@ -14,7 +14,7 @@
 		<track>
 			<url><%= host + track.uploaded_data.url if track.uploaded_data? -%></url>
 			<name><%= track.title -%></name>
-      <waveform_url><%= track.</waveform_url>
+      <waveform_url><%= track.waveform.url -%></waveform_url>
 		</track>
     <% end %>
 	</song>
