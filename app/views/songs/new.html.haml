@@ -3,6 +3,7 @@
     - semantic_form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
       - form.inputs do
         = form.input :title, :label => 'Song Title'
+        = form.input :category
         = form.inputs :title, :for => :tracks, :name => 'Track Title'
         = form.buttons :id => 'new_song_button'
 
