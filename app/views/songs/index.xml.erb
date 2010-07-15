@@ -8,11 +8,13 @@
 			<key>Artist</key><string><%=h song.user ? song.user.name : song.title -%></string>
 			<key>Total Time</key><integer>190000</integer>
 		</itunes_tags>
-		<mixdown_url><%= host + song.mixdown.url -%></mixdown_url>
+    <mixdown_url><%= host + song.mixdown.url -%></mixdown_url>
+    <song_thumbnail_url><%= host + song.user.picture(:thumb) -%></song_thumbnail_url>
     <% for track in song.tracks do %>
 		<track>
 			<url><%= host + track.uploaded_data.url if track.uploaded_data? -%></url>
 			<name><%= track.title -%></name>
+      <waveform_url><%= track.</waveform_url>
 		</track>
     <% end %>
 	</song>

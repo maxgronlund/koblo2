@@ -15,12 +15,14 @@ class CreateWaveform
     buckets = fill_buckets WIDTH,file
     gc = build_graph buckets,WIDTH,HEIGHT
 
-    gradient = GradientFill.new(0, 0, WIDTH, 0, "#04333d", "#01848e")
-    canvas = Magick::Image.new(WIDTH, HEIGHT, gradient)
+    canvas = Magick::Image.new(WIDTH, HEIGHT) do
+      self.background_color = 'transparent'
+    end
     gc.draw(canvas)
 
     # Write waveform to temp file
     output = TempfileWithExtension.new('waveform.png')
+    #canvas.transparent('transparent').write(output.path)
     canvas.write(output.path)
 
     # And attach it to the track
