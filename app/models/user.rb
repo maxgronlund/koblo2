@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :songs
   has_many :tracks
 
-  has_attached_file :picture, :styles => { :profile => "200x160>", :thumb => '48x48>' }
+  has_attached_file :picture, :styles => { :profile => "200x160>", :thumb => '48x48#' }
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable
