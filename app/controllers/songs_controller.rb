@@ -3,7 +3,6 @@ class SongsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :destroy]
   
   before_filter :sidebar_for_user, :only => :new
-  layout 'user_content', :only => :new
   before_filter :sidebar_for_frontpage, :except => [:index, :new]
   layout 'frontpage_content', :except => [:index, :new]
 
@@ -46,6 +45,10 @@ class SongsController < ApplicationController
       format.html { render :index, :layout => content_layout }
       format.xml
     end
+  end
+
+  def new
+    render :layout => 'user_content'
   end
 
   def create
