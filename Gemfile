@@ -14,6 +14,7 @@ gem "mime-types", "1.16"
 gem "resque", "1.9.5"
 gem "rmagick", "2.12.2"
 gem "narray", "0.5.9.7"
+gem "hoptoad_notifier", "2.3.2"
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.14.2"
