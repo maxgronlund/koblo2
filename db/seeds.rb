@@ -55,3 +55,15 @@ EOT
 CATEGORIES.split("\n").each do |name|
   Category.find_or_create_by_name(name)
 end
+
+USER_TYPES=<<EOT
+Musician
+DJ
+Producer
+Wannabe
+Record Label
+EOT
+
+USER_TYPES.split("\n").each do |name|
+  UserType.find_or_create_by_name(name)
+end

@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
   acts_as_follower
 
   # http://wiki.github.com/ryanb/cancan/role-based-authorization
-  ROLES = %w{admin musician dj producer wannabe record_label}
+  ROLES = %w{admin}
 
   belongs_to :record_label
+  belongs_to :user_type
 
   has_many :songs
   has_many :tracks
@@ -15,7 +16,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :name, :picture_id
+  attr_accessible :email, :password, :password_confirmation, :name, :picture_id, :user_type_id, :record_label_id
 
   def admin?
     role == 'admin'

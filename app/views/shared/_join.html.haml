@@ -24,7 +24,7 @@
                 %img{:alt => "", :border => "0", :height => "160", :src => "/images/profile.png", :width => "160", :class => 'profile_picture'}/
                 %h2 Upload picture
                 = f.file_field :picture
-            = form_for User.new do |f|
+              
               #right_200
                 .inputfields
                   %label Name:
@@ -37,25 +37,15 @@
                   %input{:name => "user[password]", :size => "19", :type => "password", :id => 'user_password'}/
                 .divider
 
-                .checkfields
-                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
-                  %span.usertype Musician
-                .checkfields
-                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
-                  %span.usertype DJ
-                .checkfields
-                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
-                  %span.usertype Producer
-                .checkfields
-                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
-                  %span.usertype Wannabe
-                .checkfields
-                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
-                  %span.usertype Recordlabel
+                %input{:type => 'hidden', :name => 'user[user_type_id]', :value => '', :id => 'user_type_id'}
+                - for user_type in UserType.all do
+                  .checkfields
+                    %img.check_box.user_type_check_box{:alt => "", :src => "/images/icons/check_box.gif", :id => user_type.id}/
+                    %span.usertype= user_type.name
                 .divider
 
                 .inputfields
-                  %input{:type => 'hidden', :name => 'record_label_id', :value => '', :id => 'record_label_id'}
+                  %input{:type => 'hidden', :name => 'user[record_label_id]', :value => '', :id => 'record_label_id'}
                   %label#signed_at I&rsquo;m signed at
                   .select_bg
                     %span#flexbox_results Record Label

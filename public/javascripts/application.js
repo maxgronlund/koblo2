@@ -14,8 +14,11 @@ $(document).ready(function () {
 
     $(".check_box").click(function () {
         if ($(this).attr('src') == '/images/icons/check_box_arrow.gif') {
+            $('#user_type_id').attr('value', '');
             $(this).attr('src', '/images/icons/check_box.gif');
         } else {
+            $('.user_type_check_box').attr('src', '/images/icons/check_box.gif');
+            $('#user_type_id').attr('value', $(this).attr('id'));
             $(this).attr('src', '/images/icons/check_box_arrow.gif');
         }
     });
