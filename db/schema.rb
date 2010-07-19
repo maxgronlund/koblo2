@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20100719122741) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.integer  "user_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -133,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20100719122741) do
     t.integer  "record_label_id"
     t.string   "website"
     t.text     "description"
+    t.integer  "picture_id"
     t.integer  "user_type_id"
   end
 
