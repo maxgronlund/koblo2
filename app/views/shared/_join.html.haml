@@ -15,6 +15,68 @@
         .join_repeat
           .content_join
             .close
+              %h1 Join
+              %small
+                %a{:href => "#", :class => 'popup_close'}
+                  %img{:alt => "", :src => "/images/icons/close.gif"}/
+              %span.clear
+              #left_180
+                %img{:alt => "", :border => "0", :height => "160", :src => "/images/profile.png", :width => "160"}/
+                %h2 Upload picture
+                .uploadfield
+                  %input{:name => "textfieldName", :size => "20", :style => "float: left;", :type => "text"}/
+                %img.marginright_5px{:align => "left", :alt => "", :border => "0", :height => "23", :src => "/images/browse_btn.png", :width => "77"}/
+                %img{:align => "left", :alt => "", :border => "0", :height => "23", :src => "/images/upload_btn.png", :width => "77"}/
+              #right_200
+                .inputfields
+                  %label Name:
+                  %input{:name => "textfieldName", :size => "19", :type => "text"}/
+                .inputfields
+                  %label Email:
+                  %input{:name => "textfieldName", :size => "19", :type => "text"}/
+                .inputfields
+                  %label Password:
+                  %input{:name => "textfieldName", :size => "19", :type => "text"}/
+                .divider
+
+                .checkfields
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span.usertype Musician
+                .checkfields
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span.usertype DJ
+                .checkfields
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span.usertype Producer
+                .checkfields
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span.usertype Wannabe
+                .checkfields
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span.usertype Recordlabel
+                .divider
+
+                .inputfields
+                  %input{:type => 'hidden', :name => 'record_label_id', :value => '', :id => 'record_label_id'}
+                  %label#signed_at I&rsquo;m signed at
+                  .select_bg
+                    %span#flexbox_results Record Label
+                    %small
+                      %a#flex_button{:href => "javascript:void(0);"}
+                    %div{:style => "display:block;"}
+                      #deviceList.drop
+                        .top_c_drop
+                        .repeat
+                          .repeat_x
+                            %ul
+                              - for record_label in RecordLabel.all do 
+                                %li
+                                  %a{:href => "javascript:void($('#record_label_id').attr('value', #{record_label.id}));;"} 
+                                    = record_label.name
+                        .bottom_c_drop
+                
+                %input.next_btn{:name => "", :id => 'step_1_next_button', :type => "button", :value => "", :width => '77', :align => 'right'}
+            
               %span
                 %a{:href => "#"} join
               %small

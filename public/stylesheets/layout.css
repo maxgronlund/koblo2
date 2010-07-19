@@ -931,6 +931,8 @@ a {
 #right_200 {
   float: left;
   width: 200px; }
+  #right_200 .nofloat {
+    float: none; }
 
 .inputfields {
   background-position: 0 center;
@@ -946,18 +948,34 @@ a {
     float: left; }
   .inputfields .floatright {
     float: right; }
-  .inputfields .checkfields {
-    width: 100px;
-    float: left;
-    margin-bottom: 10px; }
-  .inputfields .checkfieldssmall {
-    width: 80px;
-    float: left;
-    margin-bottom: 10px; }
-  .inputfields .uploadfield {
-    width: 160px;
-    float: left;
-    margin-bottom: 10px; }
+  .inputfields .select_bg {
+    float: right; }
+
+#signed_at {
+  width: 65px; }
+
+.usertype {
+  margin-left: 5px;
+  line-height: 10px; }
+
+#left_180 label {
+  padding-top: 3px;
+  text-align: left; }
+
+.checkfields {
+  width: 100px;
+  float: left;
+  margin-bottom: 10px; }
+
+.checkfieldssmall {
+  width: 80px;
+  float: left;
+  margin-bottom: 10px; }
+
+.uploadfield {
+  width: 160px;
+  float: left;
+  margin-bottom: 10px; }
 
 .divider {
   border-top: 1px dotted #333333;
@@ -987,3 +1005,7 @@ label {
 
 input, select {
   float: right; }
+
+.check_box {
+  height: 10px;
+  width: 13px; }
