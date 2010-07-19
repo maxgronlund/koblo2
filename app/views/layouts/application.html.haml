@@ -23,7 +23,7 @@
                 - if user_signed_in?
                   = link_to "Log out", destroy_user_session_path
                 - else
-                  %a{:href => "login.html", :id => 'login_link'} Log In
+                  %a{:href => "login.html", :id => 'login_link'} Login
               - if user_signed_in?
                 %li
                   = link_to "My profile (#{current_user.name})", user_path(current_user)

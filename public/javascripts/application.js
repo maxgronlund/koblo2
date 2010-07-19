@@ -4,6 +4,7 @@ $(document).ready(function () {
     // Popups
     $('#join_link').click(function () {
         $('#join_popup_div').show();
+        $('#join_popup_div').tabs('select', 0);
         return false;
     });
     $('.popup_close').click(function () {
@@ -23,6 +24,10 @@ $(document).ready(function () {
       $('#join_popup_div').show();
       $('#join_popup_div').tabs('select', 3);
       return false;
+    });
+
+    $('#login_btn').click(function() {
+      $('#login_form').submit();
     });
 
     $('#join_popup_div').tabs();

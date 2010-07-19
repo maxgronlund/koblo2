@@ -169,49 +169,31 @@
     .join_repeat
       .content_join
         .close
-          %span
-            %a{:href => "#"} Login
+          %h1 Login
           %small
             %a{:href => "#", :class => 'popup_close'}
               %img{:alt => "", :src => "/images/icons/close.gif"}/
-          %form{:action => user_session_path, :method => 'post'}
-            %input{:type => "hidden", :name => "authenticity_token", :value => form_authenticity_token }
-            %fieldset
-              .form_row01
-                %span Email
-                %input{:type => "text", :name => 'user[email]', :id => 'user_email'}
-              .form_row01
-                %span Password
-                %input{:type => "password", :name => 'user[password]', :id => 'user_password'}
-              .form_row01
-                %input{:type => 'button', :value => 'cancel'}
-                %input{:type => "submit", :name => '', :value => 'Login'}
-              .form_row01
-                Not registered? 
-                = link_to 'Sign up', new_user_registration_path, :id => 'sign_up_link'
+          %span.clear
+          #right_200
+            %form{:action => user_session_path, :method => 'post', :id => 'login_form'}
+              %input{:type => "hidden", :name => "authenticity_token", :value => form_authenticity_token }
+              .inputfields
+                %label Email:
+                %input{:name => "user[email]", :size => "14", :type => "text"}/
+              .inputfields
+                %label Password:
+                %input{:name => "user[password]", :size => "14", :type => "password"}/
+              .inputfields
+                %img.floatleft.popup_close{:alt => "", :border => "0", :height => "23", :src => "/images/cancel_btn.png", :width => "77"}/
+                %img.floatright#login_btn{:alt => "", :border => "0", :height => "23", :src => "/images/login_btn.png", :width => "77"}/
+              .inputfields
+                %input.nofloat{:name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
+                %label.nofloat Remember me
+            .divider
+            .inputfields
+              Not registered?
+              = link_to 'Sign up', new_user_registration_path, :id => 'sign_up_link'
+              %p
                 = link_to 'Forgot password?', new_user_password_path
-              .form_row01
-                = checkbox('Remember Me', 'user[remember_me]')
-
     .bottom_curve_join
     %span.clear
-
--#
-  - content_for :document_ready do
-    - session_key_name = '_koblo2_session' # request.session_options[:key]
-    $('#user_picture').uploadify({
-    uploader      : '/javascripts/uploadify/uploadify.swf',
-    script        : '#{user_tracks_path}',
-    fileDataName  : $('#_input input:file')[0].name, 
-    buttonImg     : '/images/upload_btn.png',
-    simUploadLimit : 4,
-    fileExt       : '*.jpg;*.png;*.gif;*.bmp',
-    fileDesc      : 'Picture Files',
-    cancelImg     : '/images/cancel.png',
-    onComplete    : function(event, queueID, fileObj, response, data) { eval(response); return false },
-    scriptData    : {
-    'format': 'js', 
-    '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
-    'authenticity_token'  : encodeURIComponent('#{u form_authenticity_token}') 
-    },
-    });
