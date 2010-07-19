@@ -25,8 +25,8 @@ end
   unless page
     page = Page.create(:id => id)
     body = File.readlines("#{Rails.root}/db/#{title.downcase}.html")
+    page.update_attributes(:title => title, :body => body)
   end
-  page.update_attributes(:title => title, :body => body)
 end
 
 CATEGORIES =<<EOT
