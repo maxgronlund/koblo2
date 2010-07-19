@@ -22,8 +22,6 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
-  delegate :url, :to => :picture
-
   scope :connections, lambda { |user| 
     joins(:follows).where('(follows.follower_id = ? OR follows.followable_id = ?) AND follows.follower_type = ?', user.id, user.id, User.to_s)
   }
