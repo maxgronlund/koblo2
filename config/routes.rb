@@ -6,7 +6,10 @@ Koblo2::Application.routes.draw do |map|
     resources :songs
     resources :tracks
     resources :connections
+    resources :pictures
   end
+
+  resources :pictures
 
   resources :songs do
     member do

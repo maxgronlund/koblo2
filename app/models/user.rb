@@ -10,17 +10,18 @@ class User < ActiveRecord::Base
 
   has_many :songs
   has_many :tracks
-
-  has_attached_file :picture, :styles => { :profile => "200x160>", :thumb => '48x48#' }
+  belongs_to :picture
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :name, :picture
+  attr_accessible :email, :password, :password_confirmation, :name, :picture_id
 
   def admin?
     role == 'admin'
   end
+
+  delegate :url, :to => :picture
 
   scope :connections, lambda { |user| 
     joins(:follows).where('(follows.follower_id = ? OR follows.followable_id = ?) AND follows.follower_type = ?', user.id, user.id, User.to_s)

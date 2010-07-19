@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100713114043) do
+ActiveRecord::Schema.define(:version => 20100719105126) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(:version => 20100713114043) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "short_title"
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", :force => true do |t|
@@ -112,10 +122,6 @@ ActiveRecord::Schema.define(:version => 20100713114043) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
     t.string   "role"
     t.string   "name"
     t.integer  "record_label_id"

@@ -9,7 +9,9 @@
 			<key>Total Time</key><integer>190000</integer>
 		</itunes_tags>
     <mixdown_url><%= host + song.mixdown.url -%></mixdown_url>
+    <% if song.user.picture? %>
     <song_thumbnail_url><%= host + song.user.picture(:thumb) -%></song_thumbnail_url>
+    <% end %>
     <shop_url><%= host + buy_song_path(song) -%></shop_url>
     <studio_url><%= host + studio_song_path(song) -%></studio_url>
     <rating><%= song.rating -%></rating>

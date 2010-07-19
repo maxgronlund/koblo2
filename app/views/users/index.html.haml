@@ -7,7 +7,7 @@
       - for user in @users do
         .tracks_row
           .col07
-            - if user.picture?  
+            - if user.picture 
               = image_tag(user.picture.url(:thumb))
             - else
               = image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture')
