@@ -51,5 +51,5 @@ namespace :deploy do
 end
 
 
-        require 'config/boot'
-        require 'hoptoad_notifier/capistrano'
+#require 'config/boot'
+#require 'hoptoad_notifier/capistrano'

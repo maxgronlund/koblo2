@@ -26,10 +26,6 @@ $(document).ready(function () {
       return false;
     });
 
-    $('#login_btn').click(function() {
-      $('#login_form').submit();
-    });
-
     $('#join_popup_div').tabs();
 
     $('#step_1_next_button').click(function() {
