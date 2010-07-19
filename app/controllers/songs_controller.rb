@@ -62,7 +62,7 @@ class SongsController < ApplicationController
     end if tracks_attributes
 
     if @song.save
-      redirect_to share_path(:user_id => params[:user_id], :song_id => @song.id) 
+      redirect_to share_song_path(@song)
     else
       render :action => "new" 
     end
