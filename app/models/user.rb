@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :name, :picture_id, :user_type_id, :record_label_id
 
+  def picture?
+    picture && picture.picture?
+  end
+
   def admin?
     role == 'admin'
   end
