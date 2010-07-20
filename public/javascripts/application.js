@@ -2,7 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function () {
     // Popups
-    $('#join_link').click(function () {
+    $('#join_link, #edit_profile').click(function () {
         $('#join_popup_div').show();
         $('#join_popup_div').tabs('select', 0);
         return false;
@@ -14,11 +14,11 @@ $(document).ready(function () {
 
     $(".check_box").click(function () {
         if ($(this).attr('src') == '/images/icons/check_box_arrow.gif') {
-            $('#user_type_id').attr('value', '');
+            $('#user_user_type_id').attr('value', '');
             $(this).attr('src', '/images/icons/check_box.gif');
         } else {
             $('.user_type_check_box').attr('src', '/images/icons/check_box.gif');
-            $('#user_type_id').attr('value', $(this).attr('id'));
+            $('#user_user_type_id').attr('value', $(this).attr('id'));
             $(this).attr('src', '/images/icons/check_box_arrow.gif');
         }
     });

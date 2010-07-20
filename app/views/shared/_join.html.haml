@@ -9,46 +9,54 @@
     %li
       %a{:href => '#login'} Login
   #signup_steps
-    = form_for User.new, :html => { :multipart => true } do |f|
+    = form_for @user || User.new, :html => { :multipart => true } do |f|
+      - heading = @user ? 'Edit' : 'Join'
+      - profile_picture = @user && @user.picture? ? @user.picture.url(:profile) : '/images/profile.png'
       #step1.join_popup
         .top_curve_join
         .join_repeat
           .content_join
             .close
-              %h1 Join
+              %h1= heading
               %small
                 %a{:href => "#", :class => 'popup_close'}
                   %img{:alt => "", :src => "/images/icons/close.gif"}/
               %span.clear
               #left_180
-                %img{:alt => "", :border => "0", :height => "160", :src => "/images/profile.png", :width => "160", :class => 'profile_picture'}/
+                %img{:alt => "", :border => "0", :height => "160", :src => "#{profile_picture}", :width => "160", :class => 'profile_picture'}/
                 %h2 Upload picture
                 = f.file_field :picture
               
               #right_200
                 .inputfields
                   %label Name:
-                  %input{:name => "user[name]", :size => "19", :type => "text", :id => 'user_name'}/
+                  = f.text_field :name, :size => 19
                 .inputfields
                   %label Email:
-                  %input{:name => "user[email]", :size => "19", :type => "text"}/
+                  = f.text_field :email, :size => 19
                 .inputfields
                   %label Password:
-                  %input{:name => "user[password]", :size => "19", :type => "password", :id => 'user_password'}/
+                  = f.password_field :password, :size => 19
                 .divider
 
-                %input{:type => 'hidden', :name => 'user[user_type_id]', :value => '', :id => 'user_type_id'}
+                = f.hidden_field :user_type_id
                 - for user_type in UserType.all do
                   .checkfields
-                    %img.check_box.user_type_check_box{:alt => "", :src => "/images/icons/check_box.gif", :id => user_type.id}/
+                    - if @user && @user.user_type == user_type
+                      %img.check_box.user_type_check_box{:alt => "", :src => "/images/icons/check_box_arrow.gif", :id => user_type.id}/
+                    - else
+                      %img.check_box.user_type_check_box{:alt => "", :src => "/images/icons/check_box.gif", :id => user_type.id}/
                     %span.usertype= user_type.name
                 .divider
 
                 .inputfields
-                  %input{:type => 'hidden', :name => 'user[record_label_id]', :value => '', :id => 'record_label_id'}
+                  = f.hidden_field :record_label_id
                   %label#signed_at I&rsquo;m signed at
                   .select_bg
-                    %span#flexbox_results Record Label
+                    - if @user && @user.record_label
+                      %span#flexbox_results= @user.record_label.name
+                    - else
+                      %span#flexbox_results Record Label
                     %small
                       %a#flex_button{:href => "javascript:void(0);"}
                     %div{:style => "display:block;"}
@@ -59,7 +67,7 @@
                             %ul
                               - for record_label in RecordLabel.all do 
                                 %li
-                                  %a{:href => "javascript:void($('#record_label_id').attr('value', #{record_label.id}));;"} 
+                                  %a{:href => "javascript:void($('#user_record_label_id').attr('value', #{record_label.id}));;"} 
                                     = record_label.name
                         .bottom_c_drop
                 
@@ -74,13 +82,13 @@
         .join_repeat
           .content_join
             .close
-              %h1 Join
+              %h1= heading
               %small
                 %a{:href => "#", :class => 'popup_close'}
                   %img{:alt => "", :src => "/images/icons/close.gif"}/
               %span.clear
               #left_180
-                %img{:alt => "", :border => "0", :height => "160", :src => "/images/profile.png", :width => "160", :class => 'profile_picture'}/
+                %img{:alt => "", :border => "0", :height => "160", :src => "#{profile_picture}", :width => "160", :class => 'profile_picture'}/
                 %h2 Want to buy tracks?
                 .uploadfield
                   %img.check_box{:alt => "", :src => "/images/icons/check_box_arrow.gif"}/
@@ -99,11 +107,11 @@
                 .inputfields
                   %label About me:
                 .inputfields
-                  %textarea{:cols => "25", :name => "user[description]", :rows => "5"}
+                  = f.text_area :description, :cols => 25, :rows => 5
                 .divider
                 .inputfields
                   %label Website:
-                  %input{:name => "user[website]", :size => "19", :type => "text"}/
+                  = f.text_field :website, :size => 19
                 .divider
                 .next
                   %input.next_btn{:name => "", :type => "button", :value => "", :id => 'step_2_next_button'}/
@@ -117,13 +125,13 @@
         .join_repeat
           .content_join
             .close
-              %h1 Join
+              %h1= heading
               %small
                 %a{:href => "#", :class => 'popup_close'}
                   %img{:alt => "", :src => "/images/icons/close.gif"}/
               %span.clear
               #left_180
-                %img{:alt => "", :border => "0", :height => "160", :src => "/images/profile.png", :width => "160", :class => 'profile_picture'}/
+                %img{:alt => "", :border => "0", :height => "160", :src => "#{profile_picture}", :width => "160", :class => 'profile_picture'}/
               #right_200
                 .inputfields
                   %h2 Selling tracks
