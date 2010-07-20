@@ -952,6 +952,18 @@ a {
     float: right; }
   .inputfields .select_bg {
     float: right; }
+  .inputfields img {
+    float: none; }
+
+#step3 .checkfields {
+  width: 235px; }
+
+#step3 .social_icon {
+  float: right;
+  padding-right: 15px; }
+
+#step3 .check_box, #step3 .usertype {
+  margin-top: 5px; }
 
 #signed_at {
   width: 65px; }
