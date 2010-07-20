@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :name, :picture_id, :user_type_id, :record_label_id
+  attr_accessible :email, :password, :password_confirmation, :name, :picture_id, :user_type_id, :record_label_id, :description, :website
 
   def picture?
     picture && picture.picture?

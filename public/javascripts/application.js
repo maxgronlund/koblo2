@@ -29,6 +29,10 @@ $(document).ready(function () {
       return false;
     });
 
+    $('#user_name').change(function() {
+      $('.user_name').html($(this).val());
+    });
+
     $('#join_popup_div').tabs();
 
     $('#step_1_next_button').click(function() {

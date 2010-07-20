@@ -28,7 +28,7 @@
               #right_200
                 .inputfields
                   %label Name:
-                  %input{:name => "user[name]", :size => "19", :type => "text"}/
+                  %input{:name => "user[name]", :size => "19", :type => "text", :id => 'user_name'}/
                 .inputfields
                   %label Email:
                   %input{:name => "user[email]", :size => "19", :type => "text"}/
@@ -74,31 +74,41 @@
         .join_repeat
           .content_join
             .close
-              %span
-                %a{:href => "#"} join
+              %h1 Join
               %small
                 %a{:href => "#", :class => 'popup_close'}
                   %img{:alt => "", :src => "/images/icons/close.gif"}/
-              %input{:type => "hidden", :name => "authenticity_token", :value => form_authenticity_token }
-              %fieldset
-                .left_sec
-                  .pic
-                    = image_tag('http://dummyimage.com/109x88/091417/fff.png&text=No+profile+picture')
-                  .notice
-                    .form_row01
-                      %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
-                      %span I would like to buy
-                .right_sec
-                  %h2
-                    %strong Cheryl Cole
-                  #payment_buttons
-                    .select_bg
-                      %span Go to Visa
-                    .select_bg
-                      %span Go to PayPal
+              %span.clear
+              #left_180
+                %img{:alt => "", :border => "0", :height => "160", :src => "/images/profile.png", :width => "160", :class => 'profile_picture'}/
+                %h2 Want to buy tracks?
+                .uploadfield
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box_arrow.gif"}/
+                  %span.usertype Yes, I want to buy
+                %h2 Choose payment method
+                .checkfields2
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span.usertype PayPal 
+                %span.clear
+                .checkfields2
+                  %img.check_box{:alt => "", :src => "/images/icons/check_box.gif"}/
+                  %span.usertype Visa/MasterCard
+              #right_200
+                .inputfields
+                  %h3.user_name
+                .inputfields
+                  %label About me:
+                .inputfields
+                  %textarea{:cols => "25", :name => "user[description]", :rows => "5"}
+                .divider
+                .inputfields
+                  %label Website:
+                  %input{:name => "user[website]", :size => "19", :type => "text"}/
+                .divider
+                .next
                   %input.next_btn{:name => "", :type => "button", :value => "", :id => 'step_2_next_button'}/
                   %input.back_btn{:name => "", :type => "button", :value => "", :id => 'step_2_back_button'}/
-
+            
         .bottom_curve_join
         %span.clear
 

@@ -593,7 +593,8 @@ a:focus {
     float: left;
     margin-bottom: 12px; }
   .content_join img {
-    float: left; }
+    float: left;
+    padding-bottom: 5px; }
   .content_join .close {
     float: left;
     width: 408px; }
@@ -780,7 +781,7 @@ a:focus {
     border: none;
     cursor: pointer;
     padding: 0;
-    margin-top: 33px;
+    margin-top: 20px;
     margin-right: 10px;
     background: url(../images/back_btn.png) no-repeat 0 0; }
   .content_join input.finish_btn {
@@ -790,7 +791,7 @@ a:focus {
     border: none;
     cursor: pointer;
     padding: 0;
-    margin-top: 33px;
+    margin-top: 20px;
     margin-right: 10px;
     background: url(../images/finish_btn.png) no-repeat 0 0; }
 
@@ -921,8 +922,6 @@ a {
   float: left;
   width: 180px;
   margin-right: 10px; }
-  #left_180 h2 {
-    margin-top: 165px; }
 
 .padleft20px {
   padding-left: 20px; }
@@ -943,7 +942,8 @@ a {
   margin-bottom: 10px; }
   .inputfields label {
     padding-top: 3px;
-    text-align: left; }
+    text-align: left;
+    width: 51px; }
   .inputfields .nofloat {
     float: none; }
   .inputfields .floatleft {
@@ -959,6 +959,9 @@ a {
 .usertype {
   margin-left: 5px;
   line-height: 10px; }
+
+.checkfields2 .nofloat, .uploadfield .nofloat {
+  float: none; }
 
 #left_180 label {
   padding-top: 3px;
