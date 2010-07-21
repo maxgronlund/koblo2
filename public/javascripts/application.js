@@ -55,6 +55,11 @@ $(document).ready(function () {
     function() {
     $(this).animate({"opacity": "1"}, "slow");
     });
-     
+
+    $("body").keypress(function(e) { 
+      if (e.which == 13 && !$(e.target).is("textarea")) { 
+        return false; 
+      } 
+    }); 
 });
 
