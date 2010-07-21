@@ -12,6 +12,7 @@ $(document).ready(function () {
         return false;
     });
 
+    // Check and uncheck user type check boxes
     $(".check_box").click(function () {
         if ($(this).attr('src') == '/images/icons/check_box_arrow.gif') {
             $('#user_user_type_id').attr('value', '');
@@ -23,43 +24,50 @@ $(document).ready(function () {
         }
     });
 
-    $('#login_link').click(function() {
-      $('#join_popup_div').show();
-      $('#join_popup_div').tabs('select', 3);
-      return false;
+    // Show the login dialog
+    $('#login_link').click(function () {
+        $('#join_popup_div').show();
+        $('#join_popup_div').tabs('select', 3);
+        return false;
     });
 
-    $('#user_name').change(function() {
-      $('.user_name').html($(this).val());
+    // Update the user name in the second page of the profile with the input field on the first page
+    $('#user_name').change(function () {
+        $('.user_name').html($(this).val());
     });
 
+    // Tabs and navigation
     $('#join_popup_div').tabs();
-
-    $('#step_1_next_button').click(function() {
-      $('#join_popup_div').tabs('select', 1);
+    $('#step_1_next_button').click(function () {
+        $('#join_popup_div').tabs('select', 1);
     });
-    $('#step_2_back_button, #sign_up_link').click(function() {
-      $('#join_popup_div').tabs('select', 0);
-      return false;
+    $('#step_2_back_button, #sign_up_link').click(function () {
+        $('#join_popup_div').tabs('select', 0);
+        return false;
     });
-    $('#step_2_next_button').click(function() {
-      $('#join_popup_div').tabs('select', 2);
+    $('#step_2_next_button').click(function () {
+        $('#join_popup_div').tabs('select', 2);
     });
-    $('#step_3_back_button').click(function() {
-      $('#join_popup_div').tabs('select', 1);
-    });
-
-    $("#profile_picture_bw").hover(function() {
-    $(this).animate({"opacity": "0"}, "slow");
-    },
-    function() {
-    $(this).animate({"opacity": "1"}, "slow");
+    $('#step_3_back_button').click(function () {
+        $('#join_popup_div').tabs('select', 1);
     });
 
-    $("body").keypress(function(e) { 
-      if (e.which == 13 && !$(e.target).is("textarea")) { 
-        return false; 
-      } 
-    }); 
+    // This fades from bw profile picture to color picture
+    $("#profile_picture_bw").hover(function () {
+        $(this).animate({
+            "opacity": "0"
+        }, "slow");
+    }, function () {
+        $(this).animate({
+            "opacity": "1"
+        }, "slow");
+    });
+    
+    // Disable enter - to prevent submission of forms
+    $("body").keypress(function (e) {
+        if (e.which == 13 && !$(e.target).is("textarea")) {
+            return false;
+        }
+    });
 });
 
