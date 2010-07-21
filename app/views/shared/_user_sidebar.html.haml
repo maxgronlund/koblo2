@@ -6,14 +6,17 @@
       %div
         = image_tag(@user.picture.url(:profile_bw), :id => 'profile_picture_bw')
         = image_tag(@user.picture.url(:profile), :id => 'profile_picture')
-      = render :partial => 'users/who_is_this' if user_signed_in?
+    = render :partial => 'users/who_is_this' if user_signed_in?
 
     %h3.cufon
       = @user.name
     %p
       %strong Web
       %span
-        = link_to @user.website, "http://#{@user.website}"
+        - if @user.website.present? 
+          = link_to @user.website, "http://#{@user.website}" 
+        - else
+          &nbsp;
       %strong Record Label
       %span= @user.record_label ? link_to(@user.record_label.name, users_path(:record_label_id => @user.record_label)) : '-'
       %strong Tracks
