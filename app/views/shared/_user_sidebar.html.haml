@@ -4,8 +4,8 @@
       Profile
     .profilbillede
       %div
-        .curve
-        = image_tag(@user.picture.url(:profile))
+        = image_tag(@user.picture.url(:profile_bw), :id => 'profile_picture_bw')
+        = image_tag(@user.picture.url(:profile), :id => 'profile_picture')
       = render :partial => 'users/who_is_this' if user_signed_in?
 
     %h3.cufon

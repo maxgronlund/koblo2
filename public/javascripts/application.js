@@ -49,5 +49,12 @@ $(document).ready(function () {
       $('#join_popup_div').tabs('select', 1);
     });
 
+    $("#profile_picture_bw").hover(function() {
+    $(this).animate({"opacity": "0"}, "slow");
+    },
+    function() {
+    $(this).animate({"opacity": "1"}, "slow");
+    });
+     
 });
 

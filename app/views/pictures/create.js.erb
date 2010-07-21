@@ -1,4 +1,4 @@
 $('#user_pictureQueue').hide();
-$('.profile_picture').replaceWith("<%= escape_javascript(image_tag(@picture.picture.url(:upload))) %>");
+$('.profile_picture').replaceWith("<%= escape_javascript(image_tag(@picture.picture.url(:profile), :width => '160', :height => '160')) %>");
 $('#user_password').append("<input type='hidden' name='user[picture_id]' value='<%= @picture.id %>'/>')");
 
