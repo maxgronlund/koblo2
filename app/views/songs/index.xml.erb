@@ -16,7 +16,7 @@
     <rating><%= song.rating -%></rating>
     <% for track in song.tracks do %>
 		<track>
-			<url><%= host + track.uploaded_data.url if track.uploaded_data? -%></url>
+			<url><%= host + track.mp3.url if track.mp3? -%></url>
 			<name><%= track.title -%></name>
       <waveform_url><%= host + track.waveform.url -%></waveform_url>
 		</track>
