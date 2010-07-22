@@ -9,7 +9,7 @@
     %li
       %a{:href => '#login'} Login
   #signup_steps
-    = form_for @user || User.new, :html => { :multipart => true } do |f|
+    = form_for((@user && @user.new_record? && @user) || User.new, :html => { :multipart => true }) do |f|
       - heading = @user ? 'Edit' : 'Join'
       - profile_picture = @user && @user.picture? ? @user.picture.url(:profile) : '/images/profile.png'
       #step1.join_popup
@@ -26,6 +26,8 @@
                 %img{:alt => "", :border => "0", :height => "160", :src => "#{profile_picture}", :width => "160", :class => 'profile_picture'}/
                 %h2 Upload picture
                 = f.file_field :picture
+                
+                = f.error_messages
               
               #right_200
                 .inputfields

@@ -7,13 +7,13 @@ $(document).ready(function () {
         $('#join_popup_div').tabs('select', 0);
         return false;
     });
-    $('.popup_close').click(function () {
+    $('.popup_close').live('click', function () {
         $('#join_popup_div').hide();
         return false;
     });
 
     // Check and uncheck user type check boxes
-    $(".check_box").click(function () {
+    $(".check_box").live('click', function () {
         if ($(this).attr('src') == '/images/icons/check_box_arrow.gif') {
             $('#user_user_type_id').attr('value', '');
             $(this).attr('src', '/images/icons/check_box.gif');
@@ -32,23 +32,23 @@ $(document).ready(function () {
     });
 
     // Update the user name in the second page of the profile with the input field on the first page
-    $('#user_name').change(function () {
+    $('#user_name').live('change', function () {
         $('.user_name').html($(this).val());
     });
 
     // Tabs and navigation
     $('#join_popup_div').tabs();
-    $('#step_1_next_button').click(function () {
+    $('#step_1_next_button').live('click', function () {
         $('#join_popup_div').tabs('select', 1);
     });
-    $('#step_2_back_button, #sign_up_link').click(function () {
+    $('#step_2_back_button, #sign_up_link').live('click', function () {
         $('#join_popup_div').tabs('select', 0);
         return false;
     });
-    $('#step_2_next_button').click(function () {
+    $('#step_2_next_button').live('click', function () {
         $('#join_popup_div').tabs('select', 2);
     });
-    $('#step_3_back_button').click(function () {
+    $('#step_3_back_button').live('click', function () {
         $('#join_popup_div').tabs('select', 1);
     });
 
@@ -69,5 +69,20 @@ $(document).ready(function () {
             return false;
         }
     });
+
+
+    jQuery.ajaxSetup({ 
+      'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+    })
+
+    jQuery.fn.submitWithAjax = function() {
+      this.submit(function() {
+        $.post(this.action, $(this).serialize(), null, "script");
+        return false;
+      })
+      return this;
+    };
+
+    $('#new_user').submitWithAjax();
 });
 

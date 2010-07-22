@@ -1,0 +1,27 @@
+$("#join_popup_div").replaceWith("<%= escape_javascript(render(:partial => 'shared/join')) %>");
+$('#join_popup_div').tabs();
+$('#join_popup_div').tabs('select', 0);
+$('#join_popup_div').show();
+<% session_key_name = '_koblo2_session' %>
+$('#user_picture').uploadify({
+uploader      : '/javascripts/uploadify/uploadify.swf',
+script        : '<%= pictures_path %>',
+fileDataName  : $('#user_picture').name, 
+buttonImg     : '/images/upload_btn.png',
+wmode         : 'transparent',
+fileDataName  : 'picture[picture]',
+auto          : true,
+multi         : false,
+cancelImg     : '/images/cancel.png',
+onProgress    : function(event, queueID, fileObj, data) { return false },
+onComplete    : function(event, queueID, fileObj, response, data) { eval(response); return false },
+scriptData    : {
+'format': 'js', 
+'<%= session_key_name %>' : encodeURIComponent('<%= u cookies[session_key_name] %>'),
+'authenticity_token'  : encodeURIComponent('<%= u form_authenticity_token %>') 
+},
+});
+ 
+loadEvents();
+
+$('#new_user').submitWithAjax();

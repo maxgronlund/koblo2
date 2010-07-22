@@ -1042,3 +1042,22 @@ input, select {
 .check_box {
   height: 10px;
   width: 13px; }
+
+#errorExplanation {
+  border: 1px solid #fadadd;
+  background-color: #f0f0f0;
+  width: 143px;
+  padding: 8px;
+  color: #555555; }
+  #errorExplanation h2 {
+    text-align: left;
+    padding: 8px;
+    margin: -8px;
+    background-color: #fadadd;
+    color: black; }
+  #errorExplanation p {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding-right: 2px; }
+  #errorExplanation ul li {
+    list-style: none; }
