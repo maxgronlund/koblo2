@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
          :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :name, :picture_id, :user_type_id, :record_label_id, :description, :website
+  
+  before_save :add_picture
 
   def picture?
     picture && picture.picture?
@@ -26,7 +28,7 @@ class User < ActiveRecord::Base
     role == 'admin'
   end
 
-  def before_save 
+  def add_picture 
     self.picture = Picture.create if !picture
   end
 
