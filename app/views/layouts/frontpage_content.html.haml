@@ -5,8 +5,9 @@
       %ul
         = tab_link('Best')
         = tab_link('Newest')
-        = tab_link('Most Downloaded')
-        = tab_link('Our Top 10')
+        -#
+          = tab_link('Most Downloaded')
+          = tab_link('Our Top 10')
     = yield :sub_content
     
 = render :file => 'layouts/application'
