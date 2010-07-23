@@ -204,9 +204,12 @@ a:focus {
     color: #00f7ff;
     display: block;
     line-height: 16px; }
-    .profile span a {
-      color: #00f7ff;
-      text-decoration: none; }
+  .profile a {
+    color: #879298;
+    text-decoration: none; }
+  .profile a:hover {
+    color: white;
+    text-decoration: underline; }
   .profile h4 {
     float: left;
     width: 204px;
