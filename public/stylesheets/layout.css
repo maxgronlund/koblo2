@@ -1071,3 +1071,11 @@ input, select {
     padding-right: 2px; }
   #errorExplanation ul li {
     list-style: none; }
+
+#connections_list .col07 {
+  width: 85px;
+  height: 48px; }
+  #connections_list .col07 img {
+    position: absolute; }
+  #connections_list .col07 .thumb_pic_bw {
+    z-index: 10; }
