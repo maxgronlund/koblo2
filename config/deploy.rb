@@ -55,6 +55,8 @@ end
 #require 'hoptoad_notifier/capistrano'
 
 # Thinking Sphinx
+set :rails_env, 'production'
+
 namespace :ts do
   task :conf, :roles => [:app] do
     run "cd #{release_path}; rake thinking_sphinx:configure RAILS_ENV=#{rails_env}"
