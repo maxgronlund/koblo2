@@ -4,8 +4,7 @@ gem "rails", "3.0.0.beta4"
 gem "mysql", "2.8.1"
 gem "devise", '1.1.rc2'
 gem "paperclip", "2.3.3"
-# gem "thinking-sphinx", "1.3.16"
-gem "scoped_search", "2.2.0"
+gem "thinking-sphinx", "2.0.0.rc1", :require => 'thinking_sphinx'
 gem "haml", "3.0.13"
 gem "formtastic", :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
 gem "inherited_resources", "1.1.2"

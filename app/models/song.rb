@@ -16,7 +16,9 @@ class Song < ActiveRecord::Base
     ratings.average(:value)
   end
 
-  scoped_search :on => [:title]
+  define_index do
+    indexes title
+  end
   
   after_create :process_audio
 

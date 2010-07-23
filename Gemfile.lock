@@ -12,10 +12,6 @@ dependencies:
     group: 
     - :cucumber
     version: = 0.8.4
-  scoped_search: 
-    group: 
-    - :default
-    version: = 2.2.0
   rails: 
     group: 
     - :default
@@ -56,6 +52,12 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
+  thinking-sphinx: 
+    group: 
+    - :default
+    version: = 2.0.0.rc1
+    require: 
+    - thinking_sphinx
   mocha: 
     group: 
     - :cucumber
@@ -149,8 +151,10 @@ specs:
     version: 0.6.3
 - json_pure: 
     version: 1.4.3
+- rubyzip: 
+    version: 0.9.4
 - selenium-webdriver: 
-    version: 0.0.24
+    version: 0.0.27
 - capybara: 
     version: 0.3.8
 - configuration: 
@@ -176,7 +180,7 @@ specs:
 - faker: 
     version: 0.3.1
 - formtastic: 
-    version: 1.0.0.beta
+    version: 1.0.0.beta2
     source: 1
 - haml: 
     version: 3.0.13
@@ -209,7 +213,7 @@ specs:
 - rails: 
     version: 3.0.0.beta4
 - redis: 
-    version: 2.0.3
+    version: 2.0.4
 - redis-namespace: 
     version: 0.5.1
 - sinatra: 
@@ -218,28 +222,30 @@ specs:
     version: 0.1.7
 - resque: 
     version: 1.9.5
+- riddle: 
+    version: 1.0.11
 - rmagick: 
     version: 2.12.2
 - rspec-core: 
-    version: 2.0.0.beta.17
+    version: 2.0.0.beta.18
 - rspec-expectations: 
-    version: 2.0.0.beta.17
+    version: 2.0.0.beta.18
 - rspec-mocks: 
-    version: 2.0.0.beta.17
+    version: 2.0.0.beta.18
 - rspec: 
-    version: 2.0.0.beta.17
+    version: 2.0.0.beta.18
 - webrat: 
     version: 0.7.1
 - rspec-rails: 
     version: 2.0.0.beta.14.2
-- scoped_search: 
-    version: 2.2.0
 - spork: 
     version: 0.8.4
+- thinking-sphinx: 
+    version: 2.0.0.rc1
 - will_paginate: 
     version: 3.0.pre
     source: 0
-hash: 8eccda1f875e34b0203d971847c4f4ac87c08f18
+hash: 8c6c457ced5ef1d19fad5c011620685194404eec
 sources: 
 - Git: 
     uri: http://github.com/mislav/will_paginate.git
@@ -250,6 +256,6 @@ sources:
     uri: http://github.com/justinfrench/formtastic.git
     branch: rails3
     git: http://github.com/justinfrench/formtastic.git
-    ref: 038357cae3fbe4ce9d648249a4c6d0b1f520a1f4
+    ref: e7e29b638210b989cf79c16d787bdc81462e6621
 - Rubygems: 
     uri: http://rubygems.org
