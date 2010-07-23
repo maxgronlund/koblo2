@@ -287,7 +287,14 @@ a:focus {
   .gallery li {
     float: left;
     width: auto;
-    padding: 0 0 5px 5px; }
+    padding: 0 0 5px 5px;
+    height: 48px;
+    width: 48px; }
+    .gallery li img {
+      position: absolute;
+      padding: 0 0 5px 5px; }
+    .gallery li .thumb_pic_bw {
+      z-index: 10; }
   .gallery strong {
     float: left;
     width: 209px;

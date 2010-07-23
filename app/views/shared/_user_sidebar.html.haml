@@ -32,7 +32,8 @@
           %li
             - opposite_user = follow.opposite_user_of(@user)
             - if opposite_user.picture?  
-              = link_to image_tag(opposite_user.picture.url(:thumb)), opposite_user
+              = link_to image_tag(opposite_user.picture.url(:thumb_bw), :class => :thumb_pic_bw), opposite_user
+              = link_to image_tag(opposite_user.picture.url(:thumb), :class => :thumb_pic), opposite_user
             - else
               = link_to image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture'), opposite_user
 

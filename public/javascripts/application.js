@@ -53,7 +53,7 @@ $(document).ready(function () {
     });
 
     // This fades from bw profile picture to color picture
-    $("#profile_picture_bw").hover(function () {
+    $("#profile_picture_bw, .thumb_pic_bw").hover(function () {
         $(this).animate({
             "opacity": "0"
         }, "slow");
