@@ -9,9 +9,10 @@
     %li
       %a{:href => '#login'} Login
   #signup_steps
-    = form_for((@user && @user.new_record? && @user) || User.new, :html => { :multipart => true }) do |f|
-      - heading = @user ? 'Edit' : 'Join'
-      - profile_picture = @user && @user.picture? ? @user.picture.url(:profile) : '/images/profile.png'
+    - @form_user = current_user || User.new
+    = form_for @form_user do |f|
+      - heading = @form_user ? 'Edit' : 'Join'
+      - profile_picture = @form_user && @form_user.picture? ? @form_user.picture.url(:profile) : '/images/profile.png'
       #step1.join_popup
         .top_curve_join
         .join_repeat
@@ -44,7 +45,7 @@
                 = f.hidden_field :user_type_id
                 - for user_type in UserType.all do
                   .checkfields
-                    - if @user && @user.user_type == user_type
+                    - if @form_user && @form_user.user_type == user_type
                       %img.check_box.user_type_check_box{:alt => "", :src => "/images/icons/check_box_arrow.gif", :id => user_type.id}/
                     - else
                       %img.check_box.user_type_check_box{:alt => "", :src => "/images/icons/check_box.gif", :id => user_type.id}/
@@ -55,8 +56,8 @@
                   = f.hidden_field :record_label_id
                   %label#signed_at I&rsquo;m signed at
                   .select_bg
-                    - if @user && @user.record_label
-                      %span#flexbox_results= @user.record_label.name
+                    - if @form_user && @form_user.record_label
+                      %span#flexbox_results= @form_user.record_label.name
                     - else
                       %span#flexbox_results Record Label
                     %small
