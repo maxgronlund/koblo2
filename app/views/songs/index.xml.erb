@@ -15,7 +15,7 @@
     <artist_url><%= host + user_path(song.user) -%></artist_url>
     <rating><%= song.rating -%></rating>
     <% d = song.duration || 0 %>
-    <duration><%= d / 60 -%>:<%= d % 60 -%></duration>
+    <duration><%= d / 60 -%>:<%= (d % 60).to_s.rjust(2, '0') -%></duration>
     <% for track in song.tracks do %>
 		<track>
 			<url><%= host + track.mp3.url if track.mp3? -%></url>
