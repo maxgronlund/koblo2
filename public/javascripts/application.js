@@ -64,7 +64,7 @@ $(document).ready(function () {
     });
     
     // Disable enter - to prevent submission of forms
-    $("body").keypress(function (e) {
+    $("#join_popup_div").keypress(function (e) {
         if (e.which == 13 && !$(e.target).is("textarea")) {
             return false;
         }
