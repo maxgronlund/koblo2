@@ -20,7 +20,8 @@ class SongsController < ApplicationController
     end
 
     if params[:q]
-      @songs = Song.search_for(params[:q]).best.paginate(pagination_options)
+      @artists = User.search(params[:q]).first(5).paginate(pagination_options)
+      @songs = Song.search(params[:q]).first(5).paginate(pagination_options)
     elsif params[:user_id] 
       @songs = @user.songs.paginate(pagination_options)
     elsif params[:category_id]
