@@ -4,22 +4,22 @@
       %strong.cufon Matching Artists
 
     #connections_list
-    - if @artists.blank?
-      .music_my_tracks
-        .tracks_row
-          There are no matching artists.
-    - else
-      .music_my_tracks
-        - for artist in @artists do  
+      - if @artists.blank?
+        .music_my_tracks
           .tracks_row
-            .col07
-              - if artist.picture?  
-                = image_tag(artist.picture.url(:thumb_bw), :class => :thumb_pic_bw)
-                = image_tag(artist.picture.url(:thumb), :class => :thumb_pic)
-              - else
-                = image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture')
-            .col08
-              %strong= link_to artist.name, artist
+            There are no matching artists.
+      - else
+        .music_my_tracks
+          - for artist in @artists do  
+            .tracks_row
+              .col07
+                - if artist.picture?  
+                  = image_tag(artist.picture.url(:thumb_bw), :class => :thumb_pic_bw)
+                  = image_tag(artist.picture.url(:thumb), :class => :thumb_pic)
+                - else
+                  = image_tag('http://dummyimage.com/48x48/091417/fff.png&text=No+profile+picture')
+              .col08
+                %strong= link_to artist.name, artist
 
 
   - if params[:q].present?
