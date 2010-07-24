@@ -50,7 +50,8 @@
       - unless uri =~ /\?/
         - uri += '?format=xml' 
       - else
-        - uri += '%26format=xml'
+        - uri += '&format=xml'
+      - uri.gsub!(/&/, '%26')
       :javascript
         var flashvars = {};
         flashvars.url = "#{uri}";
