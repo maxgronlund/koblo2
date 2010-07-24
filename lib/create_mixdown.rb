@@ -8,6 +8,11 @@ class CreateMixdown
       tempfile = TempfileWithExtension.new('mixdown.mp3')
       `sox -m #{track_options} -t wav -s - | lame - #{tempfile.path}`
       song.mixdown = tempfile
+
+      song_info = `sox #{tempfile.path} -n stat 2>&1`
+      song_info =~ /Length.*(\d+\.\d+)/
+      song.duration = $1.to_f.round
+
       song.save
     end
   end
