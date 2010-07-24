@@ -37,7 +37,7 @@
                 %a{:href => "/pages/who"} Who
               %li
                 %a{:href => '/pages/why'} Why
-            %form{:action => '/'}
+            %form{:action => songs_path}
               %fieldset
                 - unless user_signed_in?
                   %span
