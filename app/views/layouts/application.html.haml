@@ -52,7 +52,7 @@
               = yield
             - else
               #banner_area
-                %img{:alt => "", :src => "/images/banner01.jpg"}/
+                %img{:alt => "", :src => "/images/banner0#{rand(4) + 1}.jpg"}/
               #body_container
                 #top_curve_main
                   = yield :content
