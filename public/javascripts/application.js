@@ -2,7 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function () {
     // Popups
-    $('#join_link, #edit_profile').click(function () {
+    $('#join_link, #edit_profile, #banner_area').click(function () {
         $('#join_popup_div').show();
         $('#join_popup_div').tabs('select', 0);
         return false;
