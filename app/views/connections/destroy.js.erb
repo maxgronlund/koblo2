@@ -1,5 +1,5 @@
 <% if params[:from] == 'connections' %>
-  $("#connections_list").html("<%= escape_javascript(render(:partial => 'connections')) %>");
+  $("#connections_list").replaceWith("<%= escape_javascript(render(:partial => 'connections')) %>");
 <% else %>
-  $("#whoisthis").html("<%= escape_javascript(render(:partial => 'users/who_is_this')) %>");
+  $("#whoisthis").replaceWith("<%= escape_javascript(render(:partial => 'users/who_is_this')) %>");
 <% end %>
