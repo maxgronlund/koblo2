@@ -44,7 +44,7 @@ class SongsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index, :layout => content_layout }
-      format.xml
+      format.xml { render :partial => 'songs/songs' }
     end
   end
 
