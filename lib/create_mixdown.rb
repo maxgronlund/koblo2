@@ -10,7 +10,7 @@ class CreateMixdown
       song.mixdown = tempfile
 
       song_info = `sox #{tempfile.path} -n stat 2>&1`
-      song_info =~ /Length.*(\d+\.\d+)/
+      song_info =~ /Length.*?(\d+\.\d+)/
       song.duration = $1.to_f.round
 
       song.save
