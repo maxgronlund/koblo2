@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<koblo file_type = "mini_studio" studio_version="0"  file_format_version="0">
+  <% host = "#{request.protocol}#{request.host_with_port}" %>
+  <% for song in @songs do %>	
+	<song>
+		<itunes_tags>
+			<key>Name</key><string><%= song.title %></string>
+			<key>Artist</key><string><%=h song.user ? song.user.name : song.title -%></string>
+			<key>Total Time</key><integer><%= (song.duration || 0) * 1000 %></integer>
+		</itunes_tags>
+    <mixdown_url><%= host + song.mixdown.url -%></mixdown_url>
+    <song_thumbnail_url><%= host + song.user.picture.url(:thumb) -%></song_thumbnail_url>
+    <shop_url><%= host + buy_song_path(song) -%></shop_url>
+    <studio_url><%= host + studio_song_path(song) -%></studio_url>
+    <artist_url><%= host + user_path(song.user) -%></artist_url>
+    <rating><%= song.rating -%></rating>
+    <% d = song.duration || 0 %>
+    <duration><%= d / 60 -%>:<%= (d % 60).to_s.rjust(2, '0') -%></duration>
+    <% for track in song.tracks do %>
+		<track>
+			<url><%= host + track.mp3.url if track.mp3? -%></url>
+			<name><%= track.title -%></name>
+      <waveform_url><%= host + track.waveform.url -%></waveform_url>
+		</track>
+    <% end %>
+	</song>
+  <% end %>
+ </koblo>

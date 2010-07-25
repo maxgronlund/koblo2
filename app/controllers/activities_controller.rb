@@ -8,6 +8,10 @@ class ActivitiesController < ApplicationController
     @songs = @activities.select { |activity| activity.instance_of?(SongUploadedActivity) && activity.song }.map(&:song)
     @songs ||= []
     @songs = @songs.paginate(:per_page => 10, :page => (params[:page] || 1))
+    respond_to do |format|
+      format.html
+      format.xml { render :partial => 'songs/songs' }
+    end
   end
 
 end
