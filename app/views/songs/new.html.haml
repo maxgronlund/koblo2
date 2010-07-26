@@ -1,108 +1,77 @@
 - content_for :sub_content do
-  .title
-    %label Song title
-    %input.floatright{:name => "textfieldName", :size => "33", :type => "text"}/
-  .category
-    %label Category
-    %select.floatright{:name => "song[category_id]"}
-      %option{:value => ""}
-      %option{:value => "1"} alternative
-      %option{:value => "2"} blues
-      %option{:value => "3"} children's music
-      %option{:value => "4"} Christian &amp; gospel
-      %option{:value => "5"} classical
-      %option{:value => "6"} comedy
-      %option{:value => "7"} country
-      %option{:value => "8"} dance
-      %option{:value => "9"} electronic
-      %option{:value => "10"} hip-hop/rap
-      %option{:value => "11"} jazz
-      %option{:value => "12"} Latino
-      %option{:value => "13"} pop
-      %option{:value => "14"} R&amp;B/soul
-      %option{:value => "15"} reggae
-      %option{:value => "16"} rock
-      %option{:value => "17"} singer‚Äìsongwriter
-      %option{:value => "18"} soundtrack
-      %option{:value => "19"} vocal
-      %option{:value => "20"} world
-  .divider
-  .track
-    %label Track title
-    %input.floatright{:name => "textfieldName", :size => "33", :type => "text"}/
-  .playdelete
-    %a{:href => "#"}
-      %img{:alt => "", :border => "0", :height => "26", :src => "/images/play_btn.png", :width => "26"}/
-    %a{:href => "#"}
-      %img{:border => "0", :height => "26", :src => "/images/trashcan.png", :title => "Delete", :width => "26"}/
-  .track
-    %label Track title
-    %input.floatright{:name => "textfieldName", :size => "33", :type => "text"}/
-  .playdelete
-    %a{:href => "#"}
-      %img{:alt => "", :border => "0", :height => "26", :src => "/images/play_btn.png", :width => "26"}/
-    %a{:href => "#"}
-      %img{:border => "0", :height => "26", :src => "/images/trashcan.png", :title => "Delete", :width => "26"}/
-  .track
-    %label Track title
-    %input.floatright{:name => "textfieldName", :size => "33", :type => "text"}/
-  .playdelete
-    %a{:href => "#"}
-      %img{:alt => "", :border => "0", :height => "26", :src => "/images/play_btn.png", :width => "26"}/
-    %a{:href => "#"}
-      %img{:border => "0", :height => "26", :src => "/images/trashcan.png", :title => "Delete", :width => "26"}/
-  .addtrack
-    %a{:href => "#"}
-      %img{:alt => "", :border => "0", :height => "23", :src => "/images/add_track_btn.png", :width => "77"}/
-  .divider
-  .copyrights
-    .radio
-      %input{:checked => "checked", :name => "radiogroup", :type => "radio", :value => "radioValue"}/
-      %label I am the original artist behind this track
-    .checkbox
-      %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
-      %label I accept that Koblo.com takes 50%
-    .checkbox
-      %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
-      %label I have the rights to this track
-    .checkbox
-      %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
-      %label I will pay KODA myself
-  .divider
-  .price
-    %h1 Price
-    .valuta
-      %select{:name => "selectName", :size => "1"}
-        %option Euro
-        %option $
-        %option DKK
-    .type
-      %label Multitrack
-      %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "10"}/
-    .type
-      %label Mp3
-      %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
-    .type
-      %label Ringtone
-      %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
-    .type
-      %label Singletrack
-      %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
-  .divider
-  .socialmedia
-    .checkbox
-      %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
-      %label Show track on Facebook
-    .checkbox
-      %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
-      %label Twit track on Twitter
-    .checkbox
-      %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
-      %label Share track on Myspace
-  .divider
-  .finish
-    %input{:alt => "", :src => "finish.png", :type => "image"}/
-  %div{:style => "clear: left;"}       .bottom
+  - form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
+    .title
+      %label Song title
+      = form.text_field(:title, :class => 'floatright', :size => 33)
+
+    .category
+      %label Category
+      = form.collection_select(:category_id, Category.all, :id, :name, {:prompt => true})
+    .divider
+
+    .track
+      %label Track title
+      %input.floatright{:name => "textfieldName", :size => "33", :type => "text"}/
+    .playdelete
+      %a{:href => "#"}
+        %img{:alt => "", :border => "0", :height => "26", :src => "/images/play_btn.png", :width => "26"}/
+      %a{:href => "#"}
+        %img{:border => "0", :height => "26", :src => "/images/trashcan.png", :title => "Delete", :width => "26"}/
+
+    .addtrack
+      %a{:href => "#"}
+        %img{:alt => "", :border => "0", :height => "23", :src => "/images/add_track_btn.png", :width => "77"}/
+    .divider
+
+    .copyrights
+      .radio
+        %input{:checked => "checked", :name => "radiogroup", :type => "radio", :value => "radioValue"}/
+        %label I am the original artist behind this track
+      .checkbox
+        %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
+        %label I accept that Koblo.com takes 50%
+      .checkbox
+        %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
+        %label I have the rights to this track
+      .checkbox
+        %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
+        %label I will pay KODA myself
+    .divider
+
+    .price
+      %h1 Price
+      .valuta
+        %select{:name => "selectName", :size => "1"}
+          %option Euro
+          %option $
+          %option DKK
+      .type
+        %label Multitrack
+        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "10"}/
+      .type
+        %label Mp3
+        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
+      .type
+        %label Ringtone
+        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
+      .type
+        %label Singletrack
+        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
+    .divider
+    .socialmedia
+      .checkbox
+        %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
+        %label Show track on Facebook
+      .checkbox
+        %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
+        %label Twit track on Twitter
+      .checkbox
+        %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
+        %label Share track on Myspace
+    .divider
+    .finish
+      %input{:alt => "", :src => "finish.png", :type => "image"}/
+    %div{:style => "clear: left;"}       .bottom
 
   #song_upload
     - semantic_form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
