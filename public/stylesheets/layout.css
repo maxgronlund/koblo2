@@ -1019,9 +1019,9 @@ a {
   .uploadfield input {
     border: 1; }
 
-.divider {
+#songs .divider {
   border-top: 1px dotted #333333;
-  width: 218px;
+  width: 680px;
   float: left;
   margin-top: 5px;
   margin-bottom: 10px; }
