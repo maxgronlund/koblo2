@@ -1185,11 +1185,15 @@ p {
   float: left;
   width: 630px;
   margin-bottom: 10px; }
+  .radio input {
+    float: left; }
 
 .checkbox {
   float: left;
   width: 630px;
   padding-left: 20px; }
+  .checkbox input {
+    float: left; }
   .checkbox label {
     padding-left: 10px; }
 

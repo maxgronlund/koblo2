@@ -25,7 +25,7 @@
 
     .copyrights
       .radio
-        %input{:checked => "checked", :name => "radiogroup", :type => "radio", :value => "radioValue"}/
+        %input{:checked => "checked", :name => "checkboxname", :type => "checkbox", :value => "checkboxValue"}/
         %label I am the original artist behind this track
       .checkbox
         %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
@@ -42,21 +42,18 @@
       %h1 Price
       .valuta
         %select{:name => "selectName", :size => "1"}
-          %option Euro
-          %option $
+          %option EUR
+          %option USD
           %option DKK
       .type
         %label Multitrack
-        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "10"}/
+        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
       .type
         %label Mp3
-        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
+        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "2"}/
       .type
         %label Ringtone
-        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
-      .type
-        %label Singletrack
-        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5"}/
+        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "1"}/
     .divider
     .socialmedia
       .checkbox
