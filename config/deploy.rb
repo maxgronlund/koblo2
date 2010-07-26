@@ -89,13 +89,13 @@ namespace :deploy do
 
   task :after_update_code do
     symlink_sphinx_indexes
-    ts.configure
+    ts.conf
     ts.start
   end
 
   desc "Link up Sphinx's indexes."
   task :symlink_sphinx_indexes, :roles => [:app] do
-    run "ln -nfs #{shared_path}/db/sphinx #{current_path}/db/sphinx"
+    run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
   end
 end
 
