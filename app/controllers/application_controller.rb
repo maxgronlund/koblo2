@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  self.mod_porter_secret = 'meigoe8eiMie'
+
   protect_from_forgery
   layout 'application'
 
