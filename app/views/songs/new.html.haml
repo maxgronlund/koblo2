@@ -68,9 +68,9 @@
     .divider
     .finish
       %input{:alt => "", :src => "/images/finish_btn.png", :type => "image"}/
-    %div{:style => "clear: left;"}       .bottom
+    %div{:style => "clear: left;"}
 
-  #song_upload
+  -# #song_upload
     - semantic_form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
       - form.inputs do
         = form.input :title, :label => 'Song Title'
