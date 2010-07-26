@@ -1160,8 +1160,8 @@ p {
   width: 300px;
   float: left;
   margin-right: 25px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
   position: relative; }
 
 .playdelete {
@@ -1174,7 +1174,8 @@ p {
 .addtrack {
   width: 650px;
   float: left;
-  margin-top: 20px; }
+  margin-top: 20px;
+  height: 12px; }
 
 .floatleft {
   float: left; }
@@ -1235,18 +1236,18 @@ p {
 
 #new_track {
   position: relative;
-  margin-top: -367px;
+  margin-top: -368px;
   margin-left: 34px;
   float: left; }
 
 .progress_wrap {
   display: none;
   position: relative;
-  background: #bdbdbd top left no-repeat;
+  background: url("../images/progress_bg.png") no-repeat scroll 0px 7px transparent;
   width: 155px;
   top: 114px;
-  margin-top: 5px;
-  margin-bottom: 5px; }
+  padding-bottom: 7px;
+  padding-top: 7px; }
   .progress_wrap .progress_value {
     width: 155px;
     height: 22px;
@@ -1255,8 +1256,16 @@ p {
     width: 0%; }
     .progress_wrap .progress_value .progress_text {
       position: absolute;
-      top: 0;
+      top: 9px;
       left: 0;
       color: white;
       text-align: center;
       width: 100%; }
+
+.queue_placeholder {
+  position: relative;
+  top: 114px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  height: 22px;
+  clear: both; }

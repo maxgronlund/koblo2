@@ -8,7 +8,10 @@
       %label Category
       = form.collection_select(:category_id, Category.all, :id, :name, {:prompt => true})
     .divider
-    
+    -#.progress_wrap
+      .progress_value
+        .progress_text
+          Hit me
     .addtrack
     .divider
 
@@ -66,9 +69,10 @@
   
   - content_for :document_ready do
     function onSelect(event, queueID, fileObj) {
-    $(".addtrack").height($(".addtrack").height() + 46);
-    $(".addtrack").before('<div id="' + queueID + '" class="progress_wrap"><div class="progress_value"><div class="progress_text">0%</div></div></div>');
-    $(".progress_wrap").fadeIn(); 
+    $(".addtrack").height($(".addtrack").height() + 9);
+    //$("#new_track").css("margin-top", (parseInt($("#new_track").css("margin-top")) + 10) + "px");
+    $(".addtrack").before('<div id="' + queueID + '" class="progress_wrap"><div class="progress_value"><div class="progress_text">In upload queue...</div></div></div>');
+    $("#" + queueID).fadeIn(); 
     return false; 
     };
 
@@ -81,10 +85,10 @@
     function onComplete(event, queueID, fileObj, response, data) { 
     $("#" + queueID + " .progress_text").html("Processing..."); 
     eval(response); 
-    $("#" + queueID).fadeOut(); 
     $("#" + queueID).after(trackHtml);
-    //$("#new_track").css("margin-top", (parseInt($("#new_track").css("margin-top")) - 32) + "px");
-    $(".addtrack").height($(".addtrack").height() - 46);
+    $("#" + queueID).replaceWith('<div class="queue_placeholder"/>'); 
+    //$("#new_track").css("margin-top", (parseInt($("#new_track").css("margin-top")) - 36) + "px");
+    //$(".addtrack").height($(".addtrack").height() - 7);
     return false
     };
 
