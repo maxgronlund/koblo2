@@ -1235,17 +1235,17 @@ p {
   padding-left: 33px; }
 
 #new_track {
-  position: relative;
   margin-top: -368px;
   margin-left: 34px;
   float: left; }
 
+.tracks {
+  float: left; }
+
 .progress_wrap {
-  display: none;
   position: relative;
   background: url("../images/progress_bg.png") no-repeat scroll 0px 7px transparent;
   width: 155px;
-  top: 114px;
   padding-bottom: 7px;
   padding-top: 7px; }
   .progress_wrap .progress_value {
@@ -1263,9 +1263,7 @@ p {
       width: 100%; }
 
 .queue_placeholder {
-  position: relative;
   top: 114px;
   padding-top: 7px;
   padding-bottom: 7px;
-  height: 22px;
-  clear: both; }
+  height: 22px; }
