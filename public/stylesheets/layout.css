@@ -1156,16 +1156,20 @@ p {
   margin-bottom: 15px;
   margin-top: 15px; }
 
-.track {
+.track_inputs {
   width: 300px;
   float: left;
   margin-right: 25px;
-  margin-top: 10px; }
+  margin-top: 5px;
+  margin-bottom: 5px;
+  position: relative; }
 
 .playdelete {
   width: 300px;
   float: left;
-  margin-top: 10px; }
+  margin-top: 5px;
+  margin-bottom: 5px;
+  position: relative; }
 
 .addtrack {
   width: 650px;
@@ -1228,3 +1232,31 @@ p {
 
 #new_song {
   padding-left: 33px; }
+
+#new_track {
+  position: relative;
+  margin-top: -367px;
+  margin-left: 34px;
+  float: left; }
+
+.progress_wrap {
+  display: none;
+  position: relative;
+  background: #bdbdbd top left no-repeat;
+  width: 155px;
+  top: 114px;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+  .progress_wrap .progress_value {
+    width: 155px;
+    height: 22px;
+    background: #bdbdbd top left no-repeat;
+    background-color: #009daa;
+    width: 0%; }
+    .progress_wrap .progress_value .progress_text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: white;
+      text-align: center;
+      width: 100%; }

@@ -8,19 +8,8 @@
       %label Category
       = form.collection_select(:category_id, Category.all, :id, :name, {:prompt => true})
     .divider
-
-    .track
-      %label Track title
-      %input.floatright{:name => "textfieldName", :size => "33", :type => "text"}/
-    .playdelete
-      %a{:href => "#"}
-        %img{:alt => "", :border => "0", :height => "26", :src => "/images/play_btn.png", :width => "26"}/
-      %a{:href => "#"}
-        %img{:border => "0", :height => "26", :src => "/images/trashcan.png", :title => "Delete", :width => "26"}/
-
+    
     .addtrack
-      %a{:href => "#"}
-        %img{:alt => "", :border => "0", :height => "23", :src => "/images/add_track_btn.png", :width => "77"}/
     .divider
 
     .copyrights
@@ -70,6 +59,59 @@
       %input{:alt => "", :src => "/images/finish_btn.png", :type => "image"}/
     %div{:style => "clear: left;"}
 
+  - semantic_form_for(Track.new, :url => user_tracks_path, :html => {:multipart => true}) do |form|
+    - form.inputs do
+      = form.input :uploaded_data, :as => :file
+      = form.buttons
+  
+  - content_for :document_ready do
+    function onSelect(event, queueID, fileObj) {
+    $(".addtrack").height($(".addtrack").height() + 46);
+    $(".addtrack").before('<div id="' + queueID + '" class="progress_wrap"><div class="progress_value"><div class="progress_text">0%</div></div></div>');
+    $(".progress_wrap").fadeIn(); 
+    return false; 
+    };
+
+    function onProgress(name, queueID, fileObj, data) { 
+    $("#" + queueID + " .progress_text").html(data['percentage'] + '%'); 
+    $("#" + queueID + " .progress_value").width(data['percentage'] + '%'); 
+    return false; 
+    };
+
+    function onComplete(event, queueID, fileObj, response, data) { 
+    $("#" + queueID + " .progress_text").html("Processing..."); 
+    eval(response); 
+    $("#" + queueID).fadeOut(); 
+    $("#" + queueID).after(trackHtml);
+    //$("#new_track").css("margin-top", (parseInt($("#new_track").css("margin-top")) - 32) + "px");
+    $(".addtrack").height($(".addtrack").height() - 46);
+    return false
+    };
+
+    $('#track_submit').hide();
+    - session_key_name = '_koblo2_session' # request.session_options[:key]
+    $('#track_uploaded_data_input').uploadify({
+    uploader      : '/javascripts/uploadify/uploadify.swf',
+    script        : '#{user_tracks_path}',
+    fileDataName  : $('#track_uploaded_data_input input:file')[0].name, 
+    buttonImg     : '/images/add_track_btn.png',
+    wmode         : 'transparent',
+    auto          : true,
+    multi         : true,
+    simUploadLimit : 1,
+    fileExt       : '*.mp3;*.wav;*.aac;*.wma',
+    fileDesc      : 'Audio Files',
+    cancelImg     : '/images/cancel.png',
+    onSelect      : onSelect,
+    onProgress    : onProgress,
+    onComplete    : onComplete, 
+    scriptData    : {
+    'format': 'js', 
+    '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
+    'authenticity_token'  : encodeURIComponent('#{u form_authenticity_token}') 
+    },
+    });
+
   -# #song_upload
     - semantic_form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
       - form.inputs do
@@ -78,30 +120,4 @@
         = form.inputs :title, :for => :tracks, :name => 'Track Title'
         = form.buttons :id => 'new_song_button'
 
-    - semantic_form_for(Track.new, :url => user_tracks_path, :html => {:multipart => true}) do |form|
-      - form.inputs do
-        = form.input :uploaded_data, :as => :file
-        = form.buttons
-
-    - content_for :document_ready do
-      $('#track_submit').hide();
-      - session_key_name = '_koblo2_session' # request.session_options[:key]
-      $('#track_uploaded_data_input').uploadify({
-      uploader      : '/javascripts/uploadify/uploadify.swf',
-      script        : '#{user_tracks_path}',
-      fileDataName  : $('#track_uploaded_data_input input:file')[0].name, 
-      buttonText    : 'add tracks',
-      auto          : true,
-      multi         : true,
-      simUploadLimit : 4,
-      fileExt       : '*.mp3;*.wav;*.aac;*.wma',
-      fileDesc      : 'Audio Files',
-      cancelImg     : '/images/cancel.png',
-      onComplete    : function(event, queueID, fileObj, response, data) { eval(response); return false },
-      scriptData    : {
-      'format': 'js', 
-      '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
-      'authenticity_token'  : encodeURIComponent('#{u form_authenticity_token}') 
-      },
-      });
 
