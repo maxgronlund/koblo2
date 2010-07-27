@@ -6,7 +6,7 @@ class CreateMixdown
     if !song.mixdown?
       track_options = song.tracks.map { |track| track.uploaded_data_file_name.ends_with?('mp3') ? "-t mp3 #{track.uploaded_data.path}" : track.uploaded_data.path }.join(' ')
       tempfile = TempfileWithExtension.new('mixdown.mp3')
-      `sox -m #{track_options} -t wav -s - | lame - #{tempfile.path}`
+      `sox #{"-m" if song.tracks.size > 1} #{track_options} -t wav -s - | lame - #{tempfile.path}`
       song.mixdown = tempfile
 
       song_info = `sox #{tempfile.path} -n stat 2>&1`
