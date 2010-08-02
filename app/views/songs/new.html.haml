@@ -70,8 +70,6 @@
   
   - content_for :document_ready do
     function onSelect(event, queueID, fileObj) {
-    //$(".addtrack").height($(".addtrack").height() + 9);
-    //$("#new_track").css("margin-top", (parseInt($("#new_track").css("margin-top")) + 10) + "px");
     $(".tracks").append('<div id="' + queueID + '" class="progress_wrap"><div class="progress_value"><div class="progress_text">In upload queue...</div></div></div>');
     $("#" + queueID).fadeIn(); 
     return false; 
@@ -88,8 +86,6 @@
     eval(response); 
     $("#" + queueID).before(trackHtml);
     $("#" + queueID).replaceWith('<div class="queue_placeholder"/>'); 
-    //$("#new_track").css("margin-top", (parseInt($("#new_track").css("margin-top")) - 36) + "px");
-    //$(".addtrack").height($(".addtrack").height() - 7);
     return false
     };
 

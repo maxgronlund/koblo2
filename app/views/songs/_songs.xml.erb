@@ -10,6 +10,7 @@
 		</itunes_tags>
     <mixdown_url><%= host + song.mixdown.url -%></mixdown_url>
     <song_thumbnail_url><%= host + song.user.picture.url(:thumb) -%></song_thumbnail_url>
+    <song_thumbnail_bw_url><%= host + song.user.picture.url(:thumb_bw) -%></song_thumbnail_url>
     <shop_url><%= host + buy_song_path(song) -%></shop_url>
     <studio_url><%= host + studio_song_path(song) -%></studio_url>
     <artist_url><%= host + user_path(song.user) -%></artist_url>
