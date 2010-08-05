@@ -1,5 +1,5 @@
 Koblo2::Application.routes.draw do |map|
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords" }
 
   resources :users do
     resources :activities
