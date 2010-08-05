@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :name, :picture_id, :user_type_id, :record_label_id, :description, :website
   
   define_index do
-    indexes name
-    indexes description
+    indexes :name
+    indexes :description
   end
 
   before_save :add_picture

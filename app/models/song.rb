@@ -17,7 +17,7 @@ class Song < ActiveRecord::Base
   end
 
   define_index do
-    indexes title
+    indexes :title
   end
   
   after_create :process_audio
