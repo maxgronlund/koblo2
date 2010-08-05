@@ -1,9 +1,9 @@
 - content_for :sub_content do
-  %h2 Forgot your password?
-  = form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
-    = devise_error_messages!
-    %p
+  #right_container
+    %h3.cufon Forgot your password?
+    = form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
+      = devise_error_messages!
       = f.label :email
-      %br/
       = f.text_field :email
-    %p= f.submit "Send me reset password instructions"
+      %div{:style => "clear: left;"}
+      = f.submit "Send me reset password instructions"
