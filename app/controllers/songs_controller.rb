@@ -1,10 +1,18 @@
 class SongsController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:create, :destroy]
+  before_filter :simple_authenticate, :only => :index
   
   before_filter :sidebar_for_user, :only => :new
   before_filter :sidebar_for_frontpage, :except => [:index, :new]
   layout 'frontpage_content', :except => [:index, :new]
+
+  def simple_authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "koblo" && password == "demo4"
+    end
+    warden.custom_failure! if performed?
+  end
 
   def index
     pagination_options = {
