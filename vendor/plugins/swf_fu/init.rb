@@ -7,4 +7,3 @@ ActionView::Helpers.class_eval  { include ActionView::Helpers::SwfFuHelper } # F
 ActionView::Base.class_eval     { include ActionView::Helpers::SwfFuHelper } # ...and for older ones
 ActionView::TestCase.class_eval { include ActionView::Helpers::SwfFuHelper } if defined? ActionView::TestCase # ...for tests in older versions
 
-ActionView::Helpers::AssetTagHelper.register_javascript_include_default 'swfobject'
