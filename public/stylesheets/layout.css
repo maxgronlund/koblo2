@@ -1243,6 +1243,9 @@ p {
 
 .tracks {
   float: left; }
+  .tracks .cancel {
+    margin-left: 162px;
+    padding-top: 2px; }
 
 .progress_wrap {
   position: relative;

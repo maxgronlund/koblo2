@@ -72,7 +72,7 @@
   
   - content_for :document_ready do
     function onSelect(event, queueID, fileObj) {
-    $(".tracks").append('<div id="' + queueID + '" class="progress_wrap"><div class="progress_value"><div class="progress_text">In upload queue...</div></div></div>');
+    $(".tracks").append('<div id="' + queueID + '" class="progress_wrap"><div class="progress_value"><div class="progress_text">In upload queue...</div><div class="cancel"><img src="/images/cancel.png"/></div></div></div>');
     $("#" + queueID).fadeIn(); 
     return false; 
     };
@@ -91,6 +91,11 @@
     return false
     };
 
+    $('.cancel').live('click', function() {
+    $('#track_uploaded_data_input').uploadifyCancel($(this).parent().parent().attr('id'));
+    $(this).parent().parent().fadeOut();
+    });
+
     $('#track_submit').hide();
     - session_key_name = '_koblo2_session' # request.session_options[:key]
     $('#track_uploaded_data_input').uploadify({
@@ -107,7 +112,7 @@
     cancelImg     : '/images/cancel.png',
     onSelect      : onSelect,
     onProgress    : onProgress,
-    onComplete    : onComplete, 
+    -#onComplete    : onComplete, 
     scriptData    : {
     'format': 'js', 
     '#{session_key_name}' : encodeURIComponent('#{u cookies[session_key_name]}'),
