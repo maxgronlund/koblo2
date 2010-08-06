@@ -51,7 +51,9 @@
     .socialmedia
       .checkbox
         %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
-        %label Show track on Facebook
+        %label
+          Show track on 
+          = link_to 'Facebook', image_path('FaceBook.jpg'), :target => '_blank'
       .checkbox
         %input{:checked => "checked", :name => "checkboxName", :type => "checkbox", :value => "checkboxValue"}/
         %label Twit track on Twitter

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100719122741) do
+ActiveRecord::Schema.define(:version => 20100806110633) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20100719122741) do
     t.string   "mixdown_file_name"
     t.string   "mixdown_content_type"
     t.integer  "mixdown_content_file_size"
+    t.integer  "samples"
   end
 
   create_table "tracks", :force => true do |t|
