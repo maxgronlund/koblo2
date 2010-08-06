@@ -9,10 +9,13 @@ class CreateMixdown
       `sox #{"-m" if song.tracks.size > 1} #{track_options} -t wav -s - | lame - #{tempfile.path}`
       song.mixdown = tempfile
 
-      song_info = `sox #{tempfile.path} -n stat 2>&1`
+      song_info = `sox -t mp3 #{tempfile.path} -n stat 2>&1`
       song_info =~ /Length.*?(\d+\.\d+)/
       song.duration = $1.to_f.round
 
+      song_info = `sox t mp3 #{tempfile.path} -n stat 2>&1`
+      song_info =~ /Samples read.*?(\d+\.\d+)/
+      song.samples = $1.to_i
       song.save
     end
   end
