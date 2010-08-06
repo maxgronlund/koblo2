@@ -8,6 +8,7 @@
 			<key>Artist</key><string><%=h song.user ? song.user.name : song.title -%></string>
 			<key>Total Time</key><integer><%= (song.duration || 0) * 1000 %></integer>
 		</itunes_tags>
+    <samples><%= song.samples -%></samples>
     <mixdown_url><%= host + song.mixdown.url -%></mixdown_url>
     <song_thumbnail_url><%= host + song.user.picture.url(:thumb) -%></song_thumbnail_url>
     <song_thumbnail_bw_url><%= host + song.user.picture.url(:thumb_bw) -%></song_thumbnail_bw_url>
