@@ -42,14 +42,6 @@ class CreateWaveform
         buckets[index,0] = value if value < buckets[index,0]
         #maximum
         buckets[index,1] = value if value > buckets[index,1]
-        #total value
-        #buckets[index,2] += value
-        #count
-        #buckets[index,3] += 1
-        #negative total
-        #buckets[index,4] += value if value < 0
-        #positive total
-        #buckets[index,5] += value if value > 0
     end
     return buckets
   end
@@ -58,7 +50,11 @@ class CreateWaveform
   def self.sox_get_bytes file
     x=nil
     # read a 16 bit linear raw PCM file
-    sox_command = [ 'sox', '-t', 'mp3', file, '-t', 'raw', '-r', '500', '-c', '1', '-s', '-L', '-' ]
+    if file.ends_with?('mp3')
+      sox_command = [ 'sox', '-t', 'mp3', file, '-t', 'raw', '-r', '500', '-c', '1', '-s', '-L', '-' ]
+    else
+      sox_command = [ 'sox', file, '-t', 'raw', '-r', '500', '-c', '1', '-s', '-L', '-' ]
+    end
     # we have to fork/exec to get a clean commandline
     IO.popen('-') { |p|
       if p.nil? then
