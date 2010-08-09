@@ -99,7 +99,7 @@ class CreateWaveform
     else
       sox_command = [ 'sox', file] 
     end
-    sox_command += ['-t', 'raw', '-b', '16', '-r', '500', '-s', '-L', '-']
+    sox_command += ['-t', 'raw', '-2', '-r', '500', '-s', '-L', '-']
 
     # we have to fork/exec to get a clean commandline
     IO.popen('-') { |p|
