@@ -36,43 +36,34 @@ class CreateWaveform
     gc.stroke_width(1)
     midpoint = HEIGHT/2
     size = left_channel.size
-    sample_point = (size / (WIDTH * 4.0)).to_i
 
     prev_x = 0.0
     prev_y = midpoint
-    j = 0
     max = 0
     left_channel.each_with_index do |sample, i|
-      if i % sample_point == 0
-        max = sample > max ? sample : max
-        j += 1
-        if j % 4 == 0
-          x = WIDTH.to_f*i/size
-          y = midpoint + HEIGHT*(max/32768.0)/2.0
-          gc.line(prev_x, prev_y, x, y)
-          max = 0
-          prev_x = x
-          prev_y = y
-        end
+      max = sample > max ? sample : max
+      if i % 10 == 0
+        x = WIDTH.to_f*i/size
+        y = midpoint + HEIGHT*(max/32768.0)/2.0
+        gc.line(prev_x, prev_y, x, y)
+        max = 0
+        prev_x = x
+        prev_y = y
       end
     end
 
     prev_x = 0.0
     prev_y = midpoint
-    j = 0
     max = 0
     right_channel.each_with_index do |sample, i|
-      if i % sample_point == 0
-        max = sample > max ? sample : max
-        j += 1
-        if j % 4 == 0
-          x = WIDTH.to_f*i/size
-          y = midpoint - HEIGHT*(max/32768.0)/2.0
-          gc.line(prev_x, prev_y, x, y)
-          max = 0
-          prev_x = x
-          prev_y = y
-        end
+      max = sample > max ? sample : max
+      if i % 10 == 0
+        x = WIDTH.to_f*i/size
+        y = midpoint - HEIGHT*(max/32768.0)/2.0
+        gc.line(prev_x, prev_y, x, y)
+        max = 0
+        prev_x = x
+        prev_y = y
       end
     end
 
@@ -99,7 +90,7 @@ class CreateWaveform
     else
       sox_command = [ 'sox', file] 
     end
-    sox_command += ['-t', 'raw', '-2', '-r', '500', '-s', '-L', '-']
+    sox_command += ['-t', 'raw', '-2', '-r', '5000', '-s', '-L', '-']
 
     # we have to fork/exec to get a clean commandline
     IO.popen('-') { |p|
@@ -114,7 +105,7 @@ class CreateWaveform
       puts "sox returned no data, command was\n> #{sox_command.join(' ')}"
       exit 1
     end
-    return x.unpack("s*")
+    return x.unpack("s*").each_slice(10).map(&:first)
   end
   
 end
