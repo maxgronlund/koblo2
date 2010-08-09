@@ -37,7 +37,6 @@ class CreateWaveform
     midpoint = HEIGHT/2
     size = left_channel.size
     sample_point = (size / (WIDTH * 4.0)).to_i
-    puts sample_point
 
     prev_x = 0.0
     prev_y = midpoint
