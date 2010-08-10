@@ -1,7 +1,7 @@
-class AudioConverter
+class AudioConverter < BaseTask
   @queue = :audio_conversion
 
-  def self.perform(track_id)
+  def self.perform_delegate(track_id)
     track = Track.find(track_id)
 
     unless track.mp3?

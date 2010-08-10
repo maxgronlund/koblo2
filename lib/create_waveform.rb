@@ -10,13 +10,13 @@ class Array
 end
 
 
-class CreateWaveform
+class CreateWaveform < BaseTask
   @queue = :audio_conversion
 
   WIDTH = 490
   HEIGHT = 36 
 
-  def self.perform(track_id)
+  def self.perform_delegate(track_id)
     track = Track.find(track_id)
     file = track.uploaded_data.path
 

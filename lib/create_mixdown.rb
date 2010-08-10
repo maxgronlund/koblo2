@@ -1,7 +1,7 @@
-class CreateMixdown
+class CreateMixdown < BaseTask
   @queue = :audio_conversion
   
-  def self.perform(song_id)
+  def self.perform_delegate(song_id)
     song = Song.find(song_id)
     if !song.mixdown?
       track_options = song.tracks.map { |track| track.uploaded_data_file_name.ends_with?('mp3') ? "-t mp3 #{track.uploaded_data.path}" : track.uploaded_data.path }.join(' ')
