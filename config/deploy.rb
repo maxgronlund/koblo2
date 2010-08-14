@@ -91,6 +91,7 @@ namespace :deploy do
     symlink_sphinx_indexes
     ts.conf
     ts.start
+    ts.rebuild
   end
 
   desc "Link up Sphinx's indexes."
