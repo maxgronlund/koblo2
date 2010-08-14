@@ -9,7 +9,7 @@
     %li
       %a{:href => '#login'} Login
   #signup_steps
-    - @form_user = current_user || User.new
+    - @form_user = current_user || @user || User.new
     = form_for @form_user do |f|
       - heading = @form_user ? 'Edit' : 'Join'
       - profile_picture = @form_user && @form_user.picture? ? @form_user.picture.url(:profile) : '/images/profile.png'
