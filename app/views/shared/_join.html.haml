@@ -11,7 +11,7 @@
   #signup_steps
     - @form_user = current_user || @user || User.new
     = form_for @form_user do |f|
-      - heading = @form_user ? 'Edit' : 'Join'
+      - heading = @form_user.new_record? ? 'Join' : 'Edit'
       - profile_picture = @form_user && @form_user.picture? ? @form_user.picture.url(:profile) : '/images/profile.png'
       #step1.join_popup
         .top_curve_join
