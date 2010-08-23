@@ -1,5 +1,4 @@
 # Inspired by http://github.com/pangdudu/rude/blob/master/lib/waveform_narray_testing.rb
-require 'narray'
 require 'RMagick'
 include Magick
 
