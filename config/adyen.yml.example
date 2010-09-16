@@ -1,0 +1,8 @@
+development:
+  environment: test
+  Form:
+    skins:
+      test_skin:
+        skin_code: KLJhk878
+        shared_secret: fiaskjhizo6oiWee
+

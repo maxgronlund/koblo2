@@ -3,6 +3,7 @@ db/*.sqlite3
 log/*.log
 tmp/*
 config/database.yml
+config/adyen.yml
 public/system
 config/development.sphinx.conf
 db/sphinx/*
