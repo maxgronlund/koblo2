@@ -1,0 +1,18 @@
+- content_for :sub_content do
+  %h1 Payment
+  %p
+    You're about to pay 1 EUR
+
+    %form{ :action => Adyen::Form.url, :method => :post }
+      = raw Adyen::Form.hidden_fields(                                                                                                     |
+          :currency_code => 'EUR',                                                                                                     |
+          :ship_before_date => Date.today,                                                                                             |
+          :session_validity => Time.now,                                                                                               |
+          :recurring => false,                                                                                                         |
+          :merchant_reference => current_user.id,                                                                              |
+          :merchant_account => 'KrebsCoDK',                                                                                            |
+          :skin_code => AdyenConfig.skin_code, |
+          :shared_secret => AdyenConfig.shared_secret, |
+          :payment_amount => 1 * 100                                                                                                  |
+        )                                                                                                                              |
+      = submit_tag('pay')

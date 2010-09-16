@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :songs
   has_many :tracks
   belongs_to :picture
+  has_many :payments
+  has_many :adyen_notifications
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable

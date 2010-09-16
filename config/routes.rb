@@ -20,7 +20,10 @@ Koblo2::Application.routes.draw do |map|
   end
 
   resources :pages
-  map.pages '/pages/:slug', :controller => 'pages', :action => 'show'
+  match '/pages/:slug' => 'pages#show'
+
+  match '/payments/new'
+  match '/adyen/notify'
 
   root :to => "home#index"
 end
