@@ -4,6 +4,7 @@ class TempfileWithExtension < Tempfile
     # force tempfile to use basename's extension if provided
     ext = File::extname(basename)
     # force hyphens instead of periods in name
+    n ||= 0
     sprintf('%s%d-%d%s', File::basename(basename, ext), $$, n, ext)
   end
 end
