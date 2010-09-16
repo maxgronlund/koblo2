@@ -1,18 +1,21 @@
 source "http://rubygems.org"
 
-gem "rails", "3.0.0.rc2"
+gem "rails", "3.0.0"
 gem "mysql2", "0.2.3"
-gem "devise", "1.1.1"
+gem "devise", "1.1.2"
 gem "paperclip", "2.3.3"
-gem "thinking-sphinx", "2.0.0.rc2", :require => "thinking_sphinx"
-gem "haml", "3.0.17"
-gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
+gem 'thinking-sphinx',
+  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
+  :branch  => 'rails3',
+  :require => 'thinking_sphinx'
+gem "haml", "3.0.18"
+gem 'formtastic', "1.1.0" 
 gem "inherited_resources", "1.1.2"
-gem "will_paginate", "3.0.pre2"
+gem "will_paginate", "3.0.pre"
 gem "mime-types", "1.16"
 gem "resque", "1.10.0"
 gem "rmagick", "2.12.2"
-gem "hoptoad_notifier", "2.3.5"
+gem "hoptoad_notifier", "2.3.7"
 gem "adyen", "0.3.7"
 
 group :test do
