@@ -1,5 +1,5 @@
 class AdyenController < ActionController::Base
-  before_filter :authenticate
+  before_filter :adyen_authenticate
 
   # POST https://example.com/adyen/notify
   def notify
@@ -15,10 +15,12 @@ class AdyenController < ActionController::Base
   protected 
 
   # Enable HTTP basic authentication
-  def authenticate
-    authenticate_with_http_basic do |username, password|
+  def adyen_authenticate
+    authenticate_or_request_with_http_basic do |username, password|
       username == 'koblo' && password == 'moo1ubi0ooT3Zo'
     end
+    # This line is necessary in order to keep Devise/Warden happy
+    warden.custom_failure! if performed?
   end
 end
 
