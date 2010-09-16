@@ -1,3 +1,5 @@
+require 'bundler/capistrano'
+
 set :application, "koblo2"
 
 server "188.40.142.76", :app, :web, :db, :primary => true
@@ -40,16 +42,6 @@ namespace :assets do
 end
 
 after "deploy:update_code", "assets:symlink"
-
-after "deploy:update_code", "deploy:bundle_install"
-
-namespace :deploy do
-  desc "run 'bundle install' to install Bundler's packaged gems for the current deploy"
-  task :bundle_install, :roles => :app do
-    run "cd #{release_path} && /opt/ruby-enterprise-1.8.7-2009.10/bin/bundle install"
-  end
-end
-
 
 #require 'config/boot'
 #require 'hoptoad_notifier/capistrano'
