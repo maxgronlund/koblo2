@@ -1,15 +1,16 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100806110633) do
+ActiveRecord::Schema.define(:version => 20100916103624) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -24,6 +25,27 @@ ActiveRecord::Schema.define(:version => 20100806110633) do
     t.string "title"
     t.text   "body"
   end
+
+  create_table "adyen_notifications", :force => true do |t|
+    t.boolean  "live",                                                             :default => false, :null => false
+    t.string   "event_code",                                                                          :null => false
+    t.string   "psp_reference",                                                                       :null => false
+    t.string   "original_reference"
+    t.string   "merchant_reference",                                                                  :null => false
+    t.string   "merchant_account_code",                                                               :null => false
+    t.datetime "event_date",                                                                          :null => false
+    t.boolean  "success",                                                          :default => false, :null => false
+    t.string   "payment_method"
+    t.string   "operations"
+    t.text     "reason"
+    t.string   "currency",              :limit => 3,                                                  :null => false
+    t.decimal  "value",                              :precision => 9, :scale => 2
+    t.boolean  "processed",                                                        :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "adyen_notifications", ["psp_reference", "event_code", "success"], :name => "adyen_notification_uniqueness", :unique => true
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -51,6 +73,14 @@ ActiveRecord::Schema.define(:version => 20100806110633) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "short_title"
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer  "amount"
+    t.string   "currency_code"
+    t.string   "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pictures", :force => true do |t|
@@ -135,6 +165,7 @@ ActiveRecord::Schema.define(:version => 20100806110633) do
     t.text     "description"
     t.integer  "picture_id"
     t.integer  "user_type_id"
+    t.boolean  "funky"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
