@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100916103624) do
+ActiveRecord::Schema.define(:version => 20100922101049) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -92,6 +92,25 @@ ActiveRecord::Schema.define(:version => 20100916103624) do
     t.datetime "updated_at"
   end
 
+  create_table "purchase_items", :force => true do |t|
+    t.integer  "purchase_id"
+    t.integer  "song_id"
+    t.string   "format"
+    t.integer  "price_in_cents"
+    t.string   "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "completed",      :default => false
+    t.integer  "price_in_cents"
+    t.string   "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ratings", :force => true do |t|
     t.integer "song_id"
     t.integer "value"
@@ -115,6 +134,10 @@ ActiveRecord::Schema.define(:version => 20100916103624) do
     t.string   "mixdown_content_type"
     t.integer  "mixdown_content_file_size"
     t.integer  "samples"
+    t.integer  "mixdown_price_in_cents"
+    t.integer  "multitrack_price_in_cents"
+    t.integer  "ringtone_price_in_cents"
+    t.string   "currency"
   end
 
   create_table "tracks", :force => true do |t|
@@ -165,7 +188,6 @@ ActiveRecord::Schema.define(:version => 20100916103624) do
     t.text     "description"
     t.integer  "picture_id"
     t.integer  "user_type_id"
-    t.boolean  "funky"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

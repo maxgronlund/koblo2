@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 RECORD_LABELS =<<EOT
 Copenhagen Records
 Sony Music Entertainment

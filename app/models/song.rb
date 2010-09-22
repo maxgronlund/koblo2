@@ -25,4 +25,20 @@ class Song < ActiveRecord::Base
   def process_audio 
     Resque.enqueue(CreateMixdown, id)
   end
+
+  composed_of :multitrack_price,
+    :class_name => "Money",
+    :mapping => [%w(multitrack_price_in_cents cents), %w(currency currency_as_string)],
+    :constructor => Proc.new { |cents, currency| Money.new(cents || 0, currency || Money.default_currency) }
+
+  composed_of :mixdown_price,
+    :class_name => "Money",
+    :mapping => [%w(mixdown_price_in_cents cents), %w(currency currency_as_string)],
+    :constructor => Proc.new { |cents, currency| Money.new(cents || 0, currency || Money.default_currency) }
+
+  composed_of :ringtone_price,
+    :class_name => "Money",
+    :mapping => [%w(ringtone_price_in_cents cents), %w(currency currency_as_string)],
+    :constructor => Proc.new { |cents, currency| Money.new(cents || 0, currency || Money.default_currency) }
+  
 end

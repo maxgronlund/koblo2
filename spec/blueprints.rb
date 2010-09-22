@@ -1,6 +1,6 @@
 require 'machinist/active_record'
 require 'sham'
-require 'faker'
+require 'ffaker'
 
 Sham.name { Faker::Name.name }
 Sham.email { Faker::Internet.email }

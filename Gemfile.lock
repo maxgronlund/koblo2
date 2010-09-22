@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/freelancing-god/thinking-sphinx.git
-  revision: 644f57e2ac68998c0511bdee13d11aa86a15fc63
+  revision: 644f57e
   branch: rails3
   specs:
     thinking-sphinx (2.0.0.rc2)
@@ -69,7 +69,7 @@ GEM
     eu_central_bank (0.1.1)
       money (>= 2.3.0)
       nokogiri (>= 1.4.1)
-    faker (0.3.1)
+    ffaker (0.4.0)
     ffi (0.6.3)
       rake (>= 0.8.7)
     formtastic (1.1.0)
@@ -182,7 +182,7 @@ DEPENDENCIES
   database_cleaner (= 0.5.2)
   devise (= 1.1.2)
   eu_central_bank (= 0.1.1)
-  faker (= 0.3.1)
+  ffaker (= 0.4.0)
   formtastic (= 1.1.0)
   haml (= 3.0.18)
   hoptoad_notifier (= 2.3.7)

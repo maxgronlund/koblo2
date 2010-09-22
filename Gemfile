@@ -25,7 +25,7 @@ group :test do
   gem "spork", "0.8.4"
   gem "mocha", "0.9.8"
   gem "machinist", "1.0.6"
-  gem "faker", "0.3.1"
+  gem "ffaker", "0.4.0"
 end
 
 group :cucumber do
@@ -37,6 +37,6 @@ group :cucumber do
   gem "spork", "0.8.4"
   gem "mocha", "0.9.8"
   gem "machinist", "1.0.6"
-  gem "faker", "0.3.1"
+  gem "ffaker", "0.4.0"
   gem "launchy", "0.3.7"
 end
