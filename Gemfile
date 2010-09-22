@@ -17,6 +17,8 @@ gem "resque", "1.10.0"
 gem "rmagick", "2.12.2"
 gem "hoptoad_notifier", "2.3.7"
 gem "adyen", "0.3.7"
+gem "money", "3.1.0"
+gem "eu_central_bank", "0.1.1"
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.19"
