@@ -19,6 +19,8 @@ gem "hoptoad_notifier", "2.3.7"
 gem "adyen", "0.3.7"
 gem "money", "3.1.0"
 gem "eu_central_bank", "0.1.1"
+gem "macaddr", "1.0.0"
+gem "rubyzip", "0.9.4"
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.19"

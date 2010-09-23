@@ -4,6 +4,10 @@ Koblo2::Application.routes.draw do
   resources :users do
     resources :activities
     resources :songs
+    resources :purchased_songs do
+      get :download
+    end
+    resources :purchased
     resources :tracks
     resources :connections
     resources :pictures
@@ -23,7 +27,6 @@ Koblo2::Application.routes.draw do
   resources :pages
   match '/pages/:slug' => 'pages#show'
 
-  match '/payments/new'
   match '/adyen/notify'
 
   root :to => "home#index"

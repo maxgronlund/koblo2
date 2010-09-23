@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/freelancing-god/thinking-sphinx.git
-  revision: 644f57e
+  revision: 644f57e2ac68998c0511bdee13d11aa86a15fc63
   branch: rails3
   specs:
     thinking-sphinx (2.0.0.rc2)
@@ -91,6 +91,7 @@ GEM
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
+    macaddr (1.0.0)
     machinist (1.0.6)
     mail (2.2.6.1)
       activesupport (>= 2.3.6)
@@ -109,7 +110,7 @@ GEM
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
-    rack-test (0.5.4)
+    rack-test (0.5.5)
       rack (>= 1.0)
     rails (3.0.0)
       actionmailer (= 3.0.0)
@@ -188,6 +189,7 @@ DEPENDENCIES
   hoptoad_notifier (= 2.3.7)
   inherited_resources (= 1.1.2)
   launchy (= 0.3.7)
+  macaddr (= 1.0.0)
   machinist (= 1.0.6)
   mime-types (= 1.16)
   mocha (= 0.9.8)
@@ -198,6 +200,7 @@ DEPENDENCIES
   resque (= 1.10.0)
   rmagick (= 2.12.2)
   rspec-rails (= 2.0.0.beta.19)
+  rubyzip (= 0.9.4)
   spork (= 0.8.4)
   thinking-sphinx!
   will_paginate (= 3.0.pre)
