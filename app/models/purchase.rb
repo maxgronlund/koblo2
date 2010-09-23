@@ -6,7 +6,14 @@ class Purchase < ActiveRecord::Base
     # Update the exchange rates
     eu_bank = EuCentralBank.new
     Money.default_bank = eu_bank
-    eu_bank.update_rates
+
+    # Cache the rates for 24 hours
+    rates_file = Rails.root + "tmp/rates.xml"
+    if !File.exists?(rates_file) || File.new(rates_file).ctime < 1.day.ago
+      eu_bank.save_rates(rates_file)
+    end
+
+    eu_bank.update_rates(rates_file)
 
     sum = purchase_items.map(&:price).inject(&:+)
     if (sum)
