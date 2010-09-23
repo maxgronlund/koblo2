@@ -9,8 +9,10 @@
           :ship_before_date => Date.today,                                                                                             |
           :session_validity => Time.now,                                                                                               |
           :recurring => false,                                                                                                         |
-          :merchant_reference => current_user.id,                                                                              |
+          :merchant_reference => purchase.id,                                                                              |
           :merchant_account => 'KrebsCoDK',                                                                                            |
+          :shopper_reference => current_user.id,                                                                              |
+          :shopper_email => current_user.email,                                                                              |
           :skin_code => AdyenConfig.skin_code, |
           :shared_secret => AdyenConfig.shared_secret, |
           :payment_amount => 1 * 100                                                                                                  |

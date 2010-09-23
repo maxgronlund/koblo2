@@ -1,5 +1,5 @@
 - content_for :sub_content do
-  - form_for(Song.new, :url => user_songs_path, :html => {:multipart => true}) do |form|
+  - form_for(Song.new(:multitrack_price => '5EUR'.to_money, :mixdown_price => '2EUR'.to_money, :ringtone_price => '1EUR'.to_money), :url => user_songs_path, :html => {:multipart => true}) do |form|
     .title
       %label Song title
       = form.text_field(:title, :class => 'floatright', :size => 33)
@@ -34,19 +34,16 @@
     .price
       %h1 Price
       .valuta
-        %select{:name => "selectName", :size => "1"}
-          %option EUR
-          %option USD
-          %option DKK
+        = form.select :currency, %w{EUR USD DKK}, :size => 1
       .type
         %label Multitrack
-        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "5.00"}/
+        = form.text_field(:multitrack_price, :class => :floatright, :size => 1)
       .type
         %label Mp3
-        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "2.00"}/
+        = form.text_field(:mixdown_price, :class => :floatright, :size => 1)
       .type
         %label Ringtone
-        %input.floatright{:name => "textfieldName", :size => "1", :type => "text", :value => "1.00"}/
+        = form.text_field(:ringtone_price, :class => :floatright, :size => 1)
     .divider
     .socialmedia
       .checkbox

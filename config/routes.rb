@@ -1,4 +1,4 @@
-Koblo2::Application.routes.draw do |map|
+Koblo2::Application.routes.draw do 
   devise_for :users, :controllers => { :registrations => "registrations", :passwords => "passwords" }
 
   resources :users do
@@ -15,6 +15,7 @@ Koblo2::Application.routes.draw do |map|
     member do
       get :share
       get :buy
+      get :purchase
       get :studio
     end
   end

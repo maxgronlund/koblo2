@@ -54,6 +54,10 @@ class SongsController < ApplicationController
 
   def create
     tracks_attributes = params[:song].delete(:tracks_attributes)
+    currency = params[:song].delete(:currency)
+    %w{multitrack mixdown ringtone}.each do |price|
+      params[:song][price + "_price"] = (params[:song][price + "_price"] + currency).to_money
+    end
     @song = current_user.songs.create(params[:song])
     @song.duration = 100
     tracks_attributes.each do |track_attributes|
@@ -71,6 +75,8 @@ class SongsController < ApplicationController
 
   def buy
     @song = Song.find_by_id(params[:id])
+    @purchase = current_user.purchases.create(:completed => false)
+    @purchase.purchase_items.create(:song => @song, :format => 'multitrack')
   end
 
   def share
