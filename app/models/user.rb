@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :tracks
   belongs_to :picture
   has_many :purchases
+  has_many :purchase_items, :through => :purchases
+  has_many :purchased_songs, :through => :purchase_items, :source => :song
   has_many :adyen_notifications
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,

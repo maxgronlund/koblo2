@@ -6,19 +6,13 @@ class AdyenNotification < ActiveRecord::Base
     if success?
       case event_code
       when 'AUTHORISATION'
-
-        # A payment authorized successfully, so handle the payment
-        # ...
-        # flag the notification so we know that it has been processed
-        # User.find(shopper_reference.to_i).renew_premium!(1.month)
-        # time_of_premiumness = AMOUNTS.invert[(value * 100).to_i].months
-        # User.find(merchant_reference.to_i).renew_premium!(time_of_premiumness)
+        Purchase.find(merchant_reference.to_i).complete!
         update_attribute(:processed, true)
       when 'CANCEL_OR_REFUND'
-        # time_of_premiumness = AMOUNTS.invert[(original_notification.value * 100).to_i].months
-        # User.find(merchant_reference.to_i).cancel_premium!(time_of_premiumness)
+        Purchase.find(merchant_reference.to_i).uncomplete!
         update_attribute(:processed, true)
       when 'RECURRING_CONTRACT'
+        Purchase.find(merchant_reference.to_i).complete!
         update_attribute(:processed, true)
       end
     end

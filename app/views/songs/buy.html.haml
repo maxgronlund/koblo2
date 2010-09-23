@@ -1,12 +1,19 @@
 - content_for :sub_content do
-  %h1 Payment
+  %h1 
+    You're about to own
+    = @song.title
+    !
   %p
-    You're about to pay 
-    = @purchase.id
-    = @purchase.inspect
+    You're about to buy
+    = @song.title 
+    for
     = @purchase.price
     = @purchase.price.currency.iso_code
+  %p
+    Press 
+    %strong checkout
+    to buy it for real :-)
 
     %form{ :action => Adyen::Form.url, :method => :post }
       = raw Adyen::Form.hidden_fields( :currency_code => @purchase.price.currency.iso_code, :ship_before_date => Date.today, :session_validity => Time.now, :recurring => false, :merchant_reference => @purchase.id, :merchant_account => 'KrebsCoDK', :shopper_reference => current_user.id, :shopper_email => current_user.email, :skin_code => AdyenConfig.skin_code, :shared_secret => AdyenConfig.shared_secret, :payment_amount => @purchase.price.cents)                                                                                                                              |
-      = submit_tag('pay')
+      = submit_tag('checkout')

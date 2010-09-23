@@ -75,8 +75,10 @@ class SongsController < ApplicationController
 
   def buy
     @song = Song.find_by_id(params[:id])
+    @format = params[:format] || 'multitrack'
     @purchase = current_user.purchases.create(:completed => false)
-    @purchase.purchase_items.create(:song => @song, :format => 'multitrack')
+    @purchase.purchase_items.create(:song => @song, :format => @format)
+    @purchase.reload
   end
 
   def share
