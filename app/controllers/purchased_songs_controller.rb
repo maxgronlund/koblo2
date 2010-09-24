@@ -5,7 +5,7 @@ class PurchasedSongsController < ApplicationController
   layout 'user_content'
 
   def index
-    @purchase_items = current_user.purchase_items
+    @purchase_items = current_user.purchase_items.completed
   end
 
 end

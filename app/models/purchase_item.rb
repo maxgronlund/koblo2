@@ -6,6 +6,8 @@ class PurchaseItem < ActiveRecord::Base
 
   after_create :update_purchase_price
 
+  scope :completed, joins(:purchase) & Purchase.completed
+
   def update_price
     self.price = song.send("#{format}_price")
   end
@@ -18,4 +20,8 @@ class PurchaseItem < ActiveRecord::Base
     :class_name => "Money",
     :mapping => [%w(price_in_cents cents), %w(currency currency_as_string)],
     :constructor => Proc.new { |cents, currency| Money.new(cents || 0, currency || Money.default_currency) }
+
+  def multitrack?
+    format == 'multitrack'
+  end
 end

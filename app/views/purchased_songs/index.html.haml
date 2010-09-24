@@ -5,4 +5,7 @@
       - song = purchase_item.song
       %li= song.user.name
       %li= song.title
-      %li= link_to 'download', purchased_song_download_path(current_user, purchase_item)
+      - if purchase_item.multitrack?
+        %li= link_to 'download', purchase_item.song.multitrack_zip_file.url 
+      - else
+        %li= link_to 'download', purchase_item.song.mixdown.url 
