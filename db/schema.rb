@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100922101049) do
+ActiveRecord::Schema.define(:version => 20100923114611) do
 
   create_table "activities", :force => true do |t|
     t.string   "type"
@@ -138,6 +138,9 @@ ActiveRecord::Schema.define(:version => 20100922101049) do
     t.integer  "multitrack_price_in_cents"
     t.integer  "ringtone_price_in_cents"
     t.string   "currency"
+    t.string   "multitrack_zip_file_file_name"
+    t.string   "multitrack_zip_file_content_type"
+    t.integer  "multitrack_zip_file_content_file_size"
   end
 
   create_table "tracks", :force => true do |t|

@@ -4,9 +4,7 @@ Koblo2::Application.routes.draw do
   resources :users do
     resources :activities
     resources :songs
-    resources :purchased_songs do
-      get :download
-    end
+    resources :purchased_songs
     resources :purchased
     resources :tracks
     resources :connections

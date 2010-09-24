@@ -6,6 +6,7 @@ class Song < ActiveRecord::Base
   belongs_to :category
 
   has_attached_file :mixdown
+  has_attached_file :multitrack_zip_file
 
   accepts_nested_attributes_for :tracks
 
