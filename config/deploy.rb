@@ -37,6 +37,7 @@ namespace :assets do
   task :symlink, :roles => :app do
     run <<-CMD
     ln -s #{shared_path}/config/database.yml #{release_path}/config
+    ln -s #{shared_path}/config/adyen.yml #{release_path}/config
     CMD
   end
 end
