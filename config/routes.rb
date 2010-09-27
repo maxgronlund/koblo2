@@ -26,6 +26,7 @@ Koblo2::Application.routes.draw do
   match '/pages/:slug' => 'pages#show'
 
   match '/adyen/notify'
+  match '/welcome_back/landing_page'
 
   root :to => "home#index"
 end

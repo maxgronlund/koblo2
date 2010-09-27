@@ -8,6 +8,10 @@ class PurchaseItem < ActiveRecord::Base
 
   scope :completed, joins(:purchase) & Purchase.completed
 
+  def self.for_user(user)
+    joins(:purchase) & Purchase.where(:user_id => user)
+  end
+
   def update_price
     self.price = song.send("#{format}_price")
   end

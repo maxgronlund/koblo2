@@ -5,7 +5,8 @@ class PurchasedSongsController < ApplicationController
   layout 'user_content'
 
   def index
-    @purchase_items = current_user.purchase_items.completed
+    # Completed orders - newest first
+    @purchase_items = PurchaseItem.for_user(current_user).completed.order('created_at DESC')
   end
 
 end
