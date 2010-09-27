@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/freelancing-god/thinking-sphinx.git
-  revision: 644f57e2ac68998c0511bdee13d11aa86a15fc63
+  revision: 644f57e
   branch: rails3
   specs:
     thinking-sphinx (2.0.0.rc2)
@@ -110,7 +110,7 @@ GEM
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
-    rack-test (0.5.5)
+    rack-test (0.5.6)
       rack (>= 1.0)
     rails (3.0.0)
       actionmailer (= 3.0.0)
@@ -157,7 +157,7 @@ GEM
       rack (>= 1.0)
     spork (0.8.4)
     term-ansicolor (1.0.5)
-    thor (0.14.1)
+    thor (0.14.2)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     trollop (1.16.2)
