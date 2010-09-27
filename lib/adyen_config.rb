@@ -1,11 +1,11 @@
 class AdyenConfig
  
   def self.skin_code
-    @@skin_code ||= configuration['development']['Form']['skins'].values.first['skin_code']
+    @@skin_code ||= configuration[Rails.env]['Form']['skins'].values.first['skin_code']
   end
 
   def self.shared_secret
-    @@shared_secret ||= configuration['development']['Form']['skins'].values.first['shared_secret']
+    @@shared_secret ||= configuration[Rails.env]['Form']['skins'].values.first['shared_secret']
   end
 
   private
