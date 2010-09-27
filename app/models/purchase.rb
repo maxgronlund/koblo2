@@ -38,7 +38,7 @@ class Purchase < ActiveRecord::Base
     if completed?
       purchase_items.each do |purchase_item| 
         song = purchase_item.song
-        Resque.enque(CreateMultitrackZipFile, song.id) if !song.multitrack_zip_file?
+        Resque.enqueue(CreateMultitrackZipFile, song.id) if !song.multitrack_zip_file?
       end
     end
   end
