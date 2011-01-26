@@ -8,3 +8,4 @@ public/system
 config/development.sphinx.conf
 db/sphinx/*
 rerun.txt
+.rvmrc
