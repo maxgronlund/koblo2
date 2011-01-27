@@ -27,20 +27,20 @@ ActiveRecord::Schema.define(:version => 20100923114611) do
   end
 
   create_table "adyen_notifications", :force => true do |t|
-    t.boolean  "live",                                                             :default => false, :null => false
-    t.string   "event_code",                                                                          :null => false
-    t.string   "psp_reference",                                                                       :null => false
+    t.boolean  "live",                               :default => false, :null => false
+    t.string   "event_code",                                            :null => false
+    t.string   "psp_reference",                                         :null => false
     t.string   "original_reference"
-    t.string   "merchant_reference",                                                                  :null => false
-    t.string   "merchant_account_code",                                                               :null => false
-    t.datetime "event_date",                                                                          :null => false
-    t.boolean  "success",                                                          :default => false, :null => false
+    t.string   "merchant_reference",                                    :null => false
+    t.string   "merchant_account_code",                                 :null => false
+    t.datetime "event_date",                                            :null => false
+    t.boolean  "success",                            :default => false, :null => false
     t.string   "payment_method"
     t.string   "operations"
     t.text     "reason"
-    t.string   "currency",              :limit => 3,                                                  :null => false
-    t.decimal  "value",                              :precision => 9, :scale => 2
-    t.boolean  "processed",                                                        :default => false, :null => false
+    t.string   "currency",              :limit => 3
+    t.integer  "value"
+    t.boolean  "processed",                          :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
